@@ -171,6 +171,44 @@ public class VisualizerView extends View {
         }
     }
 
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        // The visualizer must never be visible when our window is not visible
+        // to the user (for example while the user is on the lock screen or
+        // when the notification shade is pulled down). Force the effect
+        // off synchronously so the FFT capture stops immediately instead
+        // of waiting for the fade-out animation to finish.
+        if (visibility != VISIBLE) {
+            forceUnlinkVisualizer();
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
+        // Same idea as onWindowVisibilityChanged: when the window loses
+        // focus (e.g. notification shade, system dialog, screen off) the
+        // visualizer must stop capturing audio right away.
+        if (!hasWindowFocus) {
+            forceUnlinkVisualizer();
+        }
+    }
+
+    /**
+     * Unlinks the underlying {@link Visualizer} audio effect immediately
+     * without playing the fade-out animation. Used to guarantee that the
+     * effect is never active while the player view is hidden behind the
+     * lock screen, the notification shade, or any other system surface.
+     */
+    private void forceUnlinkVisualizer() {
+        if (mVisualizer != null) {
+            animate().cancel();
+            mDisplaying = false;
+            AsyncTask.execute(mUnlinkVisualizer);
+        }
+    }
+
     public void initialize(Context context) {
         mColor = ContextCompat.getColor(context, android.R.color.white);
 
