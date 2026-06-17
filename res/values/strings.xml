@@ -113,8 +113,13 @@
 
     <!-- Toast messages -->
     <string name="set_as_ringtone">\'<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\' set as ringtone</string>
-    <string name="set_as_ringtone_permission_denied">Cannot set as ringtone: grant \"Modify system settings\" to Eleven in system settings</string>
+    <string name="set_as_ringtone_permission_denied">Toggle \"Modify system settings\" ON in the next screen, then try again</string>
     <string name="manage_storage_permission_denied">All-files access denied: grant \"All files access\" to Eleven in system settings</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modify system settings</string>
+    <string name="write_settings_dialog_message">To set a ringtone, Eleven needs permission to modify system settings.\n\nIn the next screen, turn ON the switch for \"Allow modify system settings\", then go back to Eleven and tap \"Use as ringtone\" again.</string>
+    <string name="write_settings_dialog_go_to_settings">Go to settings</string>
 
     <!-- Settings -->
     <string name="settings_storage_category">Storage</string>
