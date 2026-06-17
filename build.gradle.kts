@@ -27,15 +27,31 @@ buildscript {
 }
 
 android {
-    compileSdk = 34
+    compileSdk = 36
     namespace = "org.lineageos.eleven"
 
     defaultConfig {
         applicationId = "org.lineageos.eleven"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 420
         versionName = "4.2.0"
+    }
+
+    signingConfigs {
+        create("release") {
+            // The release artifact is re-signed with apksigner using the
+            // platform release keys at /storage/release-keys.{pk8,x509.pem}.
+            // The keystore used here only exists so Gradle can produce a
+            // signed installable APK during the build step.
+            val tempKeystore = file("${rootProject.projectDir}/build/temp-release.jks")
+            if (tempKeystore.exists()) {
+                storeFile = tempKeystore
+                storePassword = "eleven"
+                keyAlias = "eleven"
+                keyPassword = "eleven"
+            }
+        }
     }
 
     buildTypes {
@@ -56,6 +72,11 @@ android {
                     "proguard.cfg"
                 )
             )
+
+            // Sign the release build with a temporary keystore so the APK is
+            // installable. The final artifact is re-signed with the platform
+            // release keys via apksigner after the build.
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
