@@ -141,6 +141,24 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         // Initialize the bottom action bar
         initBottomActionBar();
 
+        // The receiver used to live in onStart() but that ran before init()
+        // when the storage permission had not yet been granted, which made
+        // registerReceiver(null) crash. We register it here so that the
+        // activity is fully initialised (and therefore the receiver is
+        // ready) before we touch the system broadcast machinery.
+        final IntentFilter filter = new IntentFilter();
+        // Play and pause changes
+        filter.addAction(MusicPlaybackService.PLAYSTATE_CHANGED);
+        // Track changes
+        filter.addAction(MusicPlaybackService.META_CHANGED);
+        // Update a list, probably the playlist fragment's
+        filter.addAction(MusicPlaybackService.REFRESH);
+        // If a playlist has changed, notify us
+        filter.addAction(MusicPlaybackService.PLAYLIST_CHANGED);
+        // If there is an error playing a track
+        filter.addAction(MusicPlaybackService.TRACK_ERROR);
+        registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
+
         // if we are requesting permissions on app launch, we skip binding
         // at onStart() and need to bind after we got permissions and call init()
         // to ensure the UI is properly set up.
@@ -209,19 +227,6 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         if (!mRequestingPermissions) {
             mToken = MusicUtils.bindToService(this, this);
         }
-
-        final IntentFilter filter = new IntentFilter();
-        // Play and pause changes
-        filter.addAction(MusicPlaybackService.PLAYSTATE_CHANGED);
-        // Track changes
-        filter.addAction(MusicPlaybackService.META_CHANGED);
-        // Update a list, probably the playlist fragment's
-        filter.addAction(MusicPlaybackService.REFRESH);
-        // If a playlist has changed, notify us
-        filter.addAction(MusicPlaybackService.PLAYLIST_CHANGED);
-        // If there is an error playing a track
-        filter.addAction(MusicPlaybackService.TRACK_ERROR);
-        registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
     }
 
     @Override
