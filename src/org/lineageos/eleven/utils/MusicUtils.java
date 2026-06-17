@@ -1115,6 +1115,12 @@ public final class MusicUtils {
             return;
         }
 
+        if (!Settings.System.canWrite(context)) {
+            final String message = context.getString(R.string.set_as_ringtone_permission_denied);
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            return;
+        }
+
         final String[] projection = new String[]{
                 BaseColumns._ID, MediaColumns.DATA, MediaColumns.TITLE
         };
@@ -1130,6 +1136,66 @@ public final class MusicUtils {
                         cursor.getString(2));
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
             }
+        } catch (final SecurityException ignored) {
+            final String message = context.getString(R.string.set_as_ringtone_permission_denied);
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * Returns whether the app currently has the "All files access" permission.
+     * On API 30+ this is the only way to actually delete the underlying file of
+     * a MediaStore audio entry. On older APIs it falls back to a basic check.
+     *
+     * @param context The {@link Context} to use.
+     * @return True if the app can manage all files on shared storage.
+     */
+    public static boolean hasManageStoragePermission(final Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            return android.os.Environment.isExternalStorageManager();
+        }
+        return context.checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == android.content.pm.PackageManager.PERMISSION_GRANTED;
+    }
+
+    /**
+     * Opens the system "All files access" screen so the user can grant the
+     * MANAGE_EXTERNAL_STORAGE permission. Falls back to opening app settings
+     * on older platforms.
+     *
+     * @param context The {@link Context} to use.
+     */
+    public static void requestManageStoragePermission(final Context context) {
+        final Intent intent;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+            intent.setData(android.net.Uri.parse("package:" + context.getPackageName()));
+        } else {
+            intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(android.net.Uri.parse("package:" + context.getPackageName()));
+        }
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(intent);
+        } catch (final android.content.ActivityNotFoundException ignored) {
+            // ignore
+        }
+    }
+
+    /**
+     * Opens the system "Modify system settings" screen so the user can grant
+     * the WRITE_SETTINGS permission.
+     *
+     * @param context The {@link Context} to use.
+     */
+    public static void requestWriteSettingsPermission(final Context context) {
+        final Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_WRITE_SETTINGS);
+        intent.setData(android.net.Uri.parse("package:" + context.getPackageName()));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(intent);
+        } catch (final android.content.ActivityNotFoundException ignored) {
+            // ignore
         }
     }
 
@@ -1501,25 +1567,33 @@ public final class MusicUtils {
                 }
 
                 // Step 2: Remove selected tracks from the database
-                context.getContentResolver().delete(
-                        MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL),
-                        selection.toString(), null);
+                try {
+                    context.getContentResolver().delete(
+                            MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL),
+                            selection.toString(), null);
+                } catch (final SecurityException ignored) {
+                    final String message = context.getString(
+                            R.string.manage_storage_permission_denied);
+                    Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 // Step 3: Remove files from card
+                final boolean canManageStorage = hasManageStoragePermission(context);
                 c.moveToFirst();
                 while (!c.isAfterLast()) {
                     final String name = c.getString(1);
                     final File f = new File(name);
-                    try { // File.delete can throw a security exception
-                        if (!f.delete()) {
-                            // I'm not sure if we'd ever get here (deletion would
-                            // have to fail, but no exception thrown)
-                            Log.e("MusicUtils", "Failed to delete file " + name);
+                    if (canManageStorage) {
+                        try {
+                            if (!f.delete()) {
+                                Log.e("MusicUtils", "Failed to delete file " + name);
+                            }
+                        } catch (final SecurityException ex) {
+                            Log.e("MusicUtils", "SecurityException deleting " + name, ex);
                         }
-                        c.moveToNext();
-                    } catch (final SecurityException ex) {
-                        c.moveToNext();
                     }
+                    c.moveToNext();
                 }
             }
         }
