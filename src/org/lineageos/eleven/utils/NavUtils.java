@@ -19,11 +19,15 @@ package org.lineageos.eleven.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.media.audiofx.AudioEffect;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import org.lineageos.eleven.Config;
@@ -31,12 +35,17 @@ import org.lineageos.eleven.R;
 import org.lineageos.eleven.ui.activities.HomeActivity;
 import org.lineageos.eleven.ui.activities.SettingsActivity;
 
+import java.util.List;
+
 /**
  * Various navigation helpers.
  *
  * @author Andrew Neal (andrewdneal@gmail.com)
  */
 public final class NavUtils {
+
+    private NavUtils() {
+    }
 
     /**
      * Opens the profile of an artist.
@@ -68,7 +77,7 @@ public final class NavUtils {
      */
     public static void openAlbumProfile(final Activity context, final String albumName,
                                         final String artistName, final long albumId) {
-        // Create a new bundle to transfer the album info
+        // Create a new bundle to transfer the artist info
         final Bundle bundle = new Bundle();
         bundle.putString(Config.ALBUM_YEAR, MusicUtils.getReleaseDateForAlbum(context, albumId));
         bundle.putInt(Config.SONG_COUNT, MusicUtils.getSongCountForAlbumInt(context, albumId));
@@ -86,7 +95,7 @@ public final class NavUtils {
 
     public static void openSmartPlaylist(final Activity context,
                                          final Config.SmartPlaylistType type) {
-        // Create the intent to launch the profile activity
+        // Create the new bundle to transfer the playlist info
         final Intent intent = new Intent(context, HomeActivity.class);
         intent.setAction(HomeActivity.ACTION_VIEW_SMART_PLAYLIST);
         intent.putExtra(Config.SMART_PLAYLIST_TYPE, type.mId);
@@ -117,7 +126,7 @@ public final class NavUtils {
     /**
      * @return the intent to launch the effects panel/dsp manager
      */
-    private static Intent createEffectsIntent() {
+    public static Intent createEffectsIntent() {
         final Intent effects = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
         effects.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getAudioSessionId());
         return effects;
@@ -140,12 +149,50 @@ public final class NavUtils {
     }
 
     /**
-     * @return true if there is an effects panel/DSK Manager
+     * Returns true if the device currently exposes an audio effects control
+     * panel, either through a system built-in DSP, an OEM MusicFX
+     * replacement or a third-party effects app.
+     *
+     * The check is intentionally permissive: it reports a panel as long as
+     * the platform exposes the
+     * {@link AudioEffect#ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL} intent
+     * to any installed activity, OR any audio effect implementation is
+     * available to be attached. This way both stock and custom ROMs that
+     * ship their own DSP manager (for example LineageOS' AudioFX, Google's
+     * MusicFX, Sony's DSEE, Dolby, etc.) are picked up dynamically as the
+     * user installs or uninstalls them.
+     *
+     * @param context A {@link Context} to use.
+     * @return true if a panel can be opened right now.
      */
-    public static boolean hasEffectsPanel(final Activity activity) {
-        final PackageManager packageManager = activity.getPackageManager();
-        return packageManager.resolveActivity(createEffectsIntent(),
-                PackageManager.MATCH_DEFAULT_ONLY) != null;
+    public static boolean hasEffectsPanel(final Context context) {
+        if (context == null) {
+            return false;
+        }
+        final PackageManager packageManager = context.getPackageManager();
+        // First, look for an activity that resolves the effects control
+        // intent. This is the standard way to discover a built-in DSP
+        // manager.
+        final Intent effectsIntent = createEffectsIntent();
+        final List<ResolveInfo> activities = packageManager.queryIntentActivities(
+                effectsIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (activities != null && !activities.isEmpty()) {
+            return true;
+        }
+        // No activity is registered for the panel intent, but a DSP
+        // implementation might still be available. Fall back to the
+        // audio effects framework which is what the platform itself uses
+        // to discover built-in effects.
+        try {
+            final AudioEffect.Descriptor[] effects = AudioEffect.queryEffects();
+            if (effects != null && effects.length > 0) {
+                return true;
+            }
+        } catch (final Throwable t) {
+            // queryEffects() can throw on some devices that have no audio
+            // effect framework; treat as no panel.
+        }
+        return false;
     }
 
     /**
@@ -156,5 +203,22 @@ public final class NavUtils {
     public static void openSettings(final Activity activity) {
         final Intent intent = new Intent(activity, SettingsActivity.class);
         activity.startActivity(intent);
+    }
+
+    /**
+     * Returns true if the app currently has the "Modify system settings"
+     * permission (a.k.a. {@link android.Manifest.permission#WRITE_SETTINGS}).
+     * Use this instead of relying on whether the user was prompted, as
+     * the prompt just opens the system settings screen and the user can
+     * close it without toggling the switch.
+     *
+     * @param context The {@link Context} to use.
+     * @return true if the app can write to {@link Settings.System}.
+     */
+    public static boolean hasWriteSettingsPermission(final Context context) {
+        if (context == null) {
+            return false;
+        }
+        return Settings.System.canWrite(context);
     }
 }
