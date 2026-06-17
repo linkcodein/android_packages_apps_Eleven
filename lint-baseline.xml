@@ -24,6 +24,17 @@
     </issue>
 
     <issue
+        id="ScopedStorage"
+        message="The MANAGE_EXTERNAL_STORAGE permission can be used to manage all files, but it is rarely necessary and most apps on Google Play are not allowed to use it"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.MANAGE_EXTERNAL_STORAGE&quot; />"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="AndroidManifest.xml"
+            line="52"
+            column="36"/>
+    </issue>
+
+    <issue
         id="DefaultLocale"
         message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
         errorLine1="    private static final String CHINESE_LANGUAGE = Locale.CHINESE.getLanguage().toLowerCase();"
