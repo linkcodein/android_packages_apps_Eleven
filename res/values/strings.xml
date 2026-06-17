@@ -113,6 +113,8 @@
 
     <!-- Toast messages -->
     <string name="set_as_ringtone">\'<xliff:g id="name" example="Alarm Bell">%s</xliff:g>\' set as ringtone</string>
+    <string name="set_as_ringtone_permission_denied">Cannot set as ringtone: grant \"Modify system settings\" to Eleven in system settings</string>
+    <string name="manage_storage_permission_denied">All-files access denied: grant \"All files access\" to Eleven in system settings</string>
 
     <!-- Settings -->
     <string name="settings_storage_category">Storage</string>
