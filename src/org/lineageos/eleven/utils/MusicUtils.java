@@ -1103,6 +1103,17 @@ public final class MusicUtils {
      * @param id      The song ID.
      */
     public static void setRingtone(final Context context, final long id) {
+        if (!Settings.System.canWrite(context)) {
+            // The pop-up we show only opens the system screen. The user
+            // can still back out of it without enabling the toggle, so
+            // we have to ask again every time the user attempts to set
+            // a ringtone. This way "Accept" is never a silent no-op.
+            requestWriteSettingsPermission(context);
+            final String message = context.getString(R.string.set_as_ringtone_permission_denied);
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            return;
+        }
+
         final ContentResolver resolver = context.getContentResolver();
         final Uri uri = ContentUris.withAppendedId(
                 MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL), id);
@@ -1112,12 +1123,6 @@ public final class MusicUtils {
             values.put(AudioColumns.IS_ALARM, "1");
             resolver.update(uri, values, null, null);
         } catch (final UnsupportedOperationException ignored) {
-            return;
-        }
-
-        if (!Settings.System.canWrite(context)) {
-            final String message = context.getString(R.string.set_as_ringtone_permission_denied);
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
             return;
         }
 
