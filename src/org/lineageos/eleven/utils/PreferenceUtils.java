@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
-import android.os.Build;
 
 import androidx.preference.PreferenceManager;
 
@@ -66,9 +65,6 @@ public final class PreferenceUtils {
 
     // show visualizer flag
     public static final String SHOW_VISUALIZER = "music_visualization";
-
-    // use blur throughout the UI
-    public static final String USE_BLUR = "use_blur";
 
     // shake to play flag
     public static final String SHAKE_TO_PLAY = "shake_to_play";
@@ -235,11 +231,6 @@ public final class PreferenceUtils {
 
     public boolean getShowVisualizer() {
         return mPreferences.getBoolean(SHOW_VISUALIZER, false);
-    }
-
-    public boolean getUseBlur() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
-                mPreferences.getBoolean(USE_BLUR, false);
     }
 
     public boolean getShakeToPlay() {
