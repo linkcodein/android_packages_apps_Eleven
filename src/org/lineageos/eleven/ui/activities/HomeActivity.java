@@ -475,6 +475,7 @@ public class HomeActivity extends SlidingPanelActivity implements
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_STORAGE) {
             if (checkPermissionGrantResults(grantResults)) {
+                setRequestingPermissions(false);
                 init(mSavedInstanceState);
             } else {
                 finish();
