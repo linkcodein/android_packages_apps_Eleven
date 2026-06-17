@@ -22,7 +22,10 @@ import android.Manifest;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.app.ActionBar;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -92,6 +95,29 @@ public class HomeActivity extends SlidingPanelActivity implements
     private boolean mBrowsePanelActive = true;
 
     private View mRootView;
+
+    /**
+     * Receiver used to pick up the addition, removal or replacement of any
+     * package that exposes an audio effect control panel, so the equalizer
+     * entry in the player menu appears or disappears dynamically.
+     */
+    private final BroadcastReceiver mEffectsPackageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null || intent.getAction() == null) {
+                return;
+            }
+            // The system broadcasts PACKAGE_ADDED / REMOVED / REPLACED
+            // for every package change. Re-run the detection and ask
+            // the player fragment to refresh its menu so the equalizer
+            // entry is shown or hidden as soon as the user installs or
+            // uninstalls an FX app.
+            final AudioPlayerFragment fragment = getAudioPlayerFragment();
+            if (fragment != null) {
+                fragment.refreshEqualizerAvailability();
+            }
+        }
+    };
 
     /**
      * Used by the up action to determine how to handle this
@@ -217,6 +243,32 @@ public class HomeActivity extends SlidingPanelActivity implements
 
         if (getCurrentPanel() == Panel.MusicPlayer) {
             getAudioPlayerFragment().setVisualizerVisible(hasFocus);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Listen for audio effect package changes so the equalizer menu
+        // entry appears or disappears automatically when the user
+        // installs, removes or updates an FX app.
+        final IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
+        filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
+        filter.addDataScheme("package");
+        registerReceiver(mEffectsPackageReceiver, filter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            unregisterReceiver(mEffectsPackageReceiver);
+        } catch (final Throwable e) {
+            // ignore
         }
     }
 
