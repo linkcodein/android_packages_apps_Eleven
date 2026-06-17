@@ -388,7 +388,10 @@ public abstract class PopupMenuHelper implements PopupMenu.OnMenuItemClickListen
                     onDeleteClicked();
                     return true;
                 case FragmentMenuItems.USE_AS_RINGTONE:
-                    MusicUtils.setRingtone(mActivity, getId());
+                    long ringtoneId = getId();
+                    if (ringtoneId >= 0) {
+                        MusicUtils.setRingtone(mActivity, ringtoneId);
+                    }
                     return true;
                 case FragmentMenuItems.REMOVE_FROM_PLAYLIST:
                     removeFromPlaylist();

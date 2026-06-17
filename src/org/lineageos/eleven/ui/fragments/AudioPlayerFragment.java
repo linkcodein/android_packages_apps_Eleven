@@ -185,6 +185,10 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
+        if (mPlayerToolBar == null) {
+            return;
+        }
+
         final Menu playerMenu = mPlayerToolBar.getMenu();
 
         // Remove R.menu.audio_player by default
@@ -246,7 +250,10 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         } else if (id == R.id.menu_audio_player_ringtone) {
             if (activity != null) {
                 // Set the current track as a ringtone
-                MusicUtils.setRingtone(activity, MusicUtils.getCurrentAudioId());
+                long audioId = MusicUtils.getCurrentAudioId();
+                if (audioId >= 0) {
+                    MusicUtils.setRingtone(activity, audioId);
+                }
             }
         } else if (id == R.id.menu_audio_player_equalizer) {
             if (activity != null) {

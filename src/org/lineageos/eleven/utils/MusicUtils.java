@@ -18,6 +18,8 @@
  */
 package org.lineageos.eleven.utils;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -1103,45 +1105,70 @@ public final class MusicUtils {
      * @param id      The song ID.
      */
     public static void setRingtone(final Context context, final long id) {
+        if (context == null || id < 0) {
+            return;
+        }
+
         if (!Settings.System.canWrite(context)) {
-            // The pop-up we show only opens the system screen. The user
-            // can still back out of it without enabling the toggle, so
-            // we have to ask again every time the user attempts to set
-            // a ringtone. This way "Accept" is never a silent no-op.
-            requestWriteSettingsPermission(context);
-            final String message = context.getString(R.string.set_as_ringtone_permission_denied);
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        final ContentResolver resolver = context.getContentResolver();
-        final Uri uri = ContentUris.withAppendedId(
-                MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL), id);
-        try {
-            final ContentValues values = new ContentValues(2);
-            values.put(AudioColumns.IS_RINGTONE, "1");
-            values.put(AudioColumns.IS_ALARM, "1");
-            resolver.update(uri, values, null, null);
-        } catch (final UnsupportedOperationException ignored) {
-            return;
-        }
-
-        final String[] projection = new String[]{
-                BaseColumns._ID, MediaColumns.DATA, MediaColumns.TITLE
-        };
-
-        final String selection = BaseColumns._ID + "=" + id;
-        try (Cursor cursor = resolver.query(
-                MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL),
-                projection, selection, null, null)) {
-            if (cursor != null && cursor.getCount() == 1) {
-                cursor.moveToFirst();
-                Settings.System.putString(resolver, Settings.System.RINGTONE, uri.toString());
-                final String message = context.getString(R.string.set_as_ringtone,
-                        cursor.getString(2));
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            // Show a dialog that clearly explains what the user needs to
+            // do — the system settings screen just opens a toggle and
+            // does not auto-grant the permission.
+            if (context instanceof Activity && !((Activity) context).isFinishing()) {
+                new AlertDialog.Builder(context)
+                        .setTitle(R.string.write_settings_dialog_title)
+                        .setMessage(R.string.write_settings_dialog_message)
+                        .setPositiveButton(R.string.write_settings_dialog_go_to_settings,
+                                (dialog, which) -> {
+                                    requestWriteSettingsPermission(context);
+                                    final String message = context.getString(
+                                            R.string.set_as_ringtone_permission_denied);
+                                    Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                                })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            } else {
+                requestWriteSettingsPermission(context);
+                final String message = context.getString(
+                        R.string.set_as_ringtone_permission_denied);
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
             }
-        } catch (final SecurityException ignored) {
+            return;
+        }
+
+        try {
+            final ContentResolver resolver = context.getContentResolver();
+            final Uri uri = ContentUris.withAppendedId(
+                    MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL), id);
+            try {
+                final ContentValues values = new ContentValues(2);
+                values.put(AudioColumns.IS_RINGTONE, "1");
+                values.put(AudioColumns.IS_ALARM, "1");
+                resolver.update(uri, values, null, null);
+            } catch (final UnsupportedOperationException ignored) {
+                return;
+            }
+
+            final String[] projection = new String[]{
+                    BaseColumns._ID, MediaColumns.DATA, MediaColumns.TITLE
+            };
+
+            final String selection = BaseColumns._ID + "=" + id;
+            try (Cursor cursor = resolver.query(
+                    MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL),
+                    projection, selection, null, null)) {
+                if (cursor != null && cursor.getCount() == 1) {
+                    cursor.moveToFirst();
+                    Settings.System.putString(resolver, Settings.System.RINGTONE, uri.toString());
+                    final String message = context.getString(R.string.set_as_ringtone,
+                            cursor.getString(2));
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                }
+            } catch (final SecurityException ignored) {
+                final String message = context.getString(R.string.set_as_ringtone_permission_denied);
+                Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+            }
+        } catch (final RuntimeException e) {
+            Log.e(TAG, "setRingtone() failed", e);
             final String message = context.getString(R.string.set_as_ringtone_permission_denied);
             Toast.makeText(context, message, Toast.LENGTH_LONG).show();
         }
