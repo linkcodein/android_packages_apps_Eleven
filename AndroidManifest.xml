@@ -41,12 +41,28 @@
     <!-- Legacy read permission for API 32 and below -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
+    <!-- Allows Eleven to modify media files on external storage. On LineageOS this is granted
+         through privapp_whitelist. On stock ROMs it is silently dropped; the app falls back to
+         scoped MediaStore APIs (createPendingResult / openOutputFile) which work without it. -->
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"
+        tools:ignore="ProtectedPermissions" />
+    <!-- Allows Eleven to manage all files on shared storage (cache folder, generated artwork,
+         playlist files). The user grants this via the system "All files access" screen at
+         runtime; we never assume it is granted on stock ROMs. -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!-- Used to check for a network connection -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Used to keep the service running when the phone sleeps -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- The main service uses a sticky broadcast (legacy) -->
     <uses-permission android:name="android.permission.BROADCAST_STICKY"
+        tools:ignore="ProtectedPermissions" />
+    <!-- Lower or raise the music based on the phone state (incoming call, etc).
+         Requested at runtime on stock ROMs; on LineageOS the privileged signature grants it. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Used to set the device's ringtone. The user grants this via the system "Modify
+         system settings" screen at runtime; we never assume it is granted on stock ROMs. -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
     <!-- Used to create launcher shortcuts -->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
