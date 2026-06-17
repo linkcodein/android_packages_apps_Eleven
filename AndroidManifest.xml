@@ -24,7 +24,7 @@
 
     <uses-sdk
         android:minSdkVersion="28"
-        android:targetSdkVersion="31" />
+        android:targetSdkVersion="36" />
 
     <!-- Android Studio will complain about not being able to
          resove the symbol, but it compiles with no problem.
@@ -33,27 +33,23 @@
     <!-- suppress AndroidElementNotAllowed -->
     <original-package android:name="com.cyanogenmod.eleven" />
 
-    <!-- Used for caching and creating new playlists -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <!-- Used for caching and creating new playlists (legacy fallback for API <= 29) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <!-- Modern media access: read audio files via MediaStore on API 33+ -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- Legacy read permission for API 32 and below -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <!-- Used to check for a network connection -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Used to keep the service running when the phone sleeps -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- The main service uses a sticky broadcast -->
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <!-- Lower or raise the music based on the phone state -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- Used to set the devices's ringtone -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <!-- The main service uses a sticky broadcast (legacy) -->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"
         tools:ignore="ProtectedPermissions" />
     <!-- Used to create launcher shortcuts -->
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-    <!-- Allows Eleven to read from External Storage -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <!-- Allows Eleven to modify media files on external storage -->
-    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"
-        tools:ignore="ProtectedPermissions" />
 
     <!-- Audio Visualizer Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -70,7 +66,6 @@
         android:name="org.lineageos.eleven.ElevenApplication"
         android:allowTaskReparenting="true"
         android:enableOnBackInvokedCallback="true"
-        android:requestLegacyExternalStorage="true"
         android:hardwareAccelerated="@bool/config_hardwareAccelerated"
         android:appCategory="audio"
         android:icon="@mipmap/ic_launcher"
