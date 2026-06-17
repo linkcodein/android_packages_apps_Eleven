@@ -288,13 +288,16 @@ public class QueueFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public void onLoadFinished(@NonNull final Loader<List<Song>> loader, final List<Song> data) {
-        Handler handler = new Handler(requireActivity().getMainLooper());
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        Handler handler = new Handler(activity.getMainLooper());
         handler.post(() -> mAdapter.unload()); // Start fresh
 
         if (data.isEmpty()) {
             mLoadingEmptyContainer.showNoResults();
             mAdapter.setCurrentlyPlayingTrack(null);
-            final FragmentActivity activity = getActivity();
             if (activity instanceof SlidingPanelActivity) {
                 ((SlidingPanelActivity) activity).clearMetaInfo();
             }
@@ -319,14 +322,22 @@ public class QueueFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public void onItemMove(int startPosition, int endPosition) {
-        Handler handler = new Handler(requireActivity().getMainLooper());
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        Handler handler = new Handler(activity.getMainLooper());
         handler.post(() -> mAdapter.move(startPosition, endPosition));
         MusicUtils.moveQueueItem(startPosition, endPosition);
     }
 
     public void remove(final int which) {
         Song song = mAdapter.getItem(which);
-        Handler handler = new Handler(requireActivity().getMainLooper());
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        Handler handler = new Handler(activity.getMainLooper());
         handler.post(() -> mAdapter.remove(which));
         MusicUtils.removeTrackAtPosition(song.mSongId, which);
     }
@@ -369,11 +380,15 @@ public class QueueFragment extends Fragment implements LoaderManager.LoaderCallb
         @Override
         public void onReceive(final Context context, final Intent intent) {
             final String action = intent.getAction();
+            final QueueFragment fragment = mReference.get();
+            if (fragment == null || !fragment.isAdded()) {
+                return;
+            }
             if (MusicPlaybackService.META_CHANGED.equals(action)
                     || MusicPlaybackService.PLAYSTATE_CHANGED.equals(action)) {
-                mReference.get().mAdapter.setCurrentlyPlayingTrack(MusicUtils.getCurrentTrack());
+                fragment.mAdapter.setCurrentlyPlayingTrack(MusicUtils.getCurrentTrack());
             } else if (MusicPlaybackService.QUEUE_CHANGED.equals(action)) {
-                mReference.get().refreshQueue();
+                fragment.refreshQueue();
 
             }
 

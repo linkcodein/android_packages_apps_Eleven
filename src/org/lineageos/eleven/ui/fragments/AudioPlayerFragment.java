@@ -481,16 +481,18 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         } else if (MusicUtils.getShuffleMode() == MusicPlaybackService.SHUFFLE_NONE) {
             // if we aren't shuffling, use the queue to determine where we are
             targetSize = queueSize;
-            targetIndex = MusicUtils.getQueuePosition();
+            targetIndex = Math.max(0, Math.min(MusicUtils.getQueuePosition(), Math.max(queueSize - 1, 0)));
         } else {
             // otherwise, set it to the max history size
             targetSize = MusicPlaybackService.MAX_HISTORY_SIZE;
-            targetIndex = MusicUtils.getQueueHistorySize();
+            targetIndex = Math.max(0, Math.min(MusicUtils.getQueueHistorySize(), Math.max(MusicPlaybackService.MAX_HISTORY_SIZE - 1, 0)));
         }
 
         albumArtPagerAdapter.setPlaylistLength(targetSize);
         mAlbumArtViewPager.setAdapter(albumArtPagerAdapter);
-        mAlbumArtViewPager.setCurrentItem(targetIndex);
+        if (targetIndex >= 0 && targetIndex < targetSize) {
+            mAlbumArtViewPager.setCurrentItem(targetIndex);
+        }
 
         if (queueSize == 0) {
             mAlbumArtViewPager.setVisibility(View.GONE);
@@ -612,8 +614,12 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         @Override
         public void handleMessage(final Message msg) {
             if (msg.what == REFRESH_TIME) {
-                final long next = mAudioPlayer.get().refreshCurrentTime();
-                mAudioPlayer.get().queueNextRefresh(next);
+                final AudioPlayerFragment fragment = mAudioPlayer.get();
+                if (fragment == null || !fragment.isAdded()) {
+                    return;
+                }
+                final long next = fragment.refreshCurrentTime();
+                fragment.queueNextRefresh(next);
             }
         }
     }
@@ -640,10 +646,13 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
             }
 
             final AudioPlayerFragment audioPlayerFragment = mReference.get();
+            if (audioPlayerFragment == null || !audioPlayerFragment.isAdded()) {
+                return;
+            }
             if (MusicPlaybackService.META_CHANGED.equals(action)) {
                 // if we are repeating current and the track has changed, re-create the adapter
                 if (MusicUtils.getRepeatMode() == MusicPlaybackService.REPEAT_CURRENT) {
-                    mReference.get().createAndSetAdapter();
+                    audioPlayerFragment.createAndSetAdapter();
                 }
 
                 // Current info

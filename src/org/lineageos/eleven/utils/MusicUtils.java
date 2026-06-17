@@ -1580,12 +1580,13 @@ public final class MusicUtils {
             }
         }
         selection.append(")");
+        final List<String> filePaths = new ArrayList<>();
         try (Cursor c = context.getContentResolver().query(
                 MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL),
                 projection, selection.toString(), null, null)) {
             if (c != null) {
                 // Step 1: Remove selected tracks from the current playlist, as well
-                // as from the album art cache
+                // as from the album art cache, and collect file paths for later deletion
                 c.moveToFirst();
                 while (!c.isAfterLast()) {
                     // Remove from current playlist
@@ -1595,6 +1596,11 @@ public final class MusicUtils {
                     SongPlayCount.getInstance(context).removeItem(id);
                     // Remove any items in the recents database
                     RecentStore.getInstance(context).removeItem(id);
+                    // Collect the file path before the database row is deleted
+                    final String filePath = c.getString(1);
+                    if (filePath != null) {
+                        filePaths.add(filePath);
+                    }
                     c.moveToNext();
                 }
 
@@ -1610,11 +1616,9 @@ public final class MusicUtils {
                     return;
                 }
 
-                // Step 3: Remove files from card
+                // Step 3: Remove files from card using collected paths
                 final boolean canManageStorage = hasManageStoragePermission(context);
-                c.moveToFirst();
-                while (!c.isAfterLast()) {
-                    final String name = c.getString(1);
+                for (final String name : filePaths) {
                     final File f = new File(name);
                     if (canManageStorage) {
                         try {
@@ -1625,7 +1629,6 @@ public final class MusicUtils {
                             Log.e("MusicUtils", "SecurityException deleting " + name, ex);
                         }
                     }
-                    c.moveToNext();
                 }
             }
         }

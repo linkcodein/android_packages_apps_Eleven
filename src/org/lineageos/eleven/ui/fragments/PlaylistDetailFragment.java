@@ -258,7 +258,11 @@ public class PlaylistDetailFragment extends DetailFragment implements
 
     @Override
     public void onLoadFinished(@NonNull final Loader<List<Song>> loader, final List<Song> data) {
-        Handler handler = new Handler(requireActivity().getMainLooper());
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return;
+        }
+        Handler handler = new Handler(activity.getMainLooper());
         if (data.isEmpty()) {
             mLoadingEmptyContainer.showNoResults();
             // need to call this after showNoResults, otherwise removing any would
@@ -286,10 +290,6 @@ public class PlaylistDetailFragment extends DetailFragment implements
             });
 
             // set the number of songs
-            final FragmentActivity activity = getActivity();
-            if (activity == null) {
-                return;
-            }
             String numberOfSongs = MusicUtils.makeLabel(activity, R.plurals.Nsongs,
                     data.size());
             mNumberOfSongs.setText(numberOfSongs);
@@ -310,7 +310,12 @@ public class PlaylistDetailFragment extends DetailFragment implements
     @Override
     public void onLoaderReset(@NonNull final Loader<List<Song>> loader) {
         // Clear the data in the adapter
-        Handler handler = new Handler(requireActivity().getMainLooper());
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            mAdapter.unload();
+            return;
+        }
+        Handler handler = new Handler(activity.getMainLooper());
         handler.post(() -> mAdapter.unload());
     }
 

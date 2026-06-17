@@ -1388,7 +1388,7 @@ public class MusicPlaybackService extends MediaBrowserService
      *              otherwise.
      * @return The next position to play.
      */
-    private int getNextPosition(final boolean force) {
+    private synchronized int getNextPosition(final boolean force) {
         // as a base case, if the playlist is empty just return -1
         if (mPlaylist == null || mPlaylist.isEmpty()) {
             return -1;
@@ -1482,7 +1482,7 @@ public class MusicPlaybackService extends MediaBrowserService
     /**
      * Sets the track to be played
      */
-    private void setNextTrack() {
+    private synchronized void setNextTrack() {
         setNextTrack(getNextPosition(false));
     }
 
@@ -1491,7 +1491,7 @@ public class MusicPlaybackService extends MediaBrowserService
      *
      * @param position the target position we want
      */
-    private void setNextTrack(int position) {
+    private synchronized void setNextTrack(int position) {
         mNextPlayPos = position;
         if (D) Log.d(TAG, "setNextTrack: next play position = " + mNextPlayPos);
         if (mNextPlayPos >= 0 && mPlaylist != null && mNextPlayPos < mPlaylist.size()) {
@@ -1593,11 +1593,13 @@ public class MusicPlaybackService extends MediaBrowserService
         }
 
         final Intent intent = new Intent(what);
-        intent.putExtra("id", getAudioId());
-        intent.putExtra("artist", getArtistName());
-        intent.putExtra("album", getAlbumName());
-        intent.putExtra("track", getTrackName());
-        intent.putExtra("playing", isPlaying());
+        synchronized (this) {
+            intent.putExtra("id", getAudioId());
+            intent.putExtra("artist", getArtistName());
+            intent.putExtra("album", getAlbumName());
+            intent.putExtra("track", getTrackName());
+            intent.putExtra("playing", isPlaying());
+        }
 
         if (NEW_LYRICS.equals(what)) {
             intent.putExtra("lyrics", mLyrics);
@@ -1616,15 +1618,14 @@ public class MusicPlaybackService extends MediaBrowserService
             mSongPlayCountCache.bumpSongCount(getAudioId());
         } else if (QUEUE_CHANGED.equals(what) || QUEUE_MOVED.equals(what)) {
             saveQueue(true);
-            if (isPlaying()) {
-                // if we are in shuffle mode and our next track is still valid,
-                // try to re-use the track
-                // We need to reimplement the queue to prevent hacky solutions like this
-                if (mNextPlayPos >= 0 && mNextPlayPos < mPlaylist.size()
-                        && getShuffleMode() != SHUFFLE_NONE) {
-                    setNextTrack(mNextPlayPos);
-                } else {
-                    setNextTrack();
+            synchronized (this) {
+                if (isPlaying()) {
+                    if (mNextPlayPos >= 0 && mNextPlayPos < mPlaylist.size()
+                            && mShuffleMode != SHUFFLE_NONE) {
+                        setNextTrack(mNextPlayPos);
+                    } else {
+                        setNextTrack();
+                    }
                 }
             }
         } else {
@@ -2881,7 +2882,7 @@ public class MusicPlaybackService extends MediaBrowserService
     public void setQueuePosition(final int index) {
         synchronized (this) {
             stop(false);
-            mPlayPos = index;
+            mPlayPos = Math.max(0, Math.min(index, mPlaylist.size() - 1));
             openCurrentAndNext();
             play();
             notifyChange(META_CHANGED);

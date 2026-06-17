@@ -23,6 +23,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
 
 import org.lineageos.eleven.Config;
 import org.lineageos.eleven.R;
@@ -88,18 +89,26 @@ public class DeleteDialog extends DialogFragment {
         // Get the dialog title
         final String title = arguments == null ? "" : arguments.getString(Config.NAME);
         final String dialogTitle = getString(R.string.delete_dialog_title, title);
+        final FragmentActivity activity = getActivity();
+        if (activity == null) {
+            return new AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.delete_dialog_title)
+                    .setMessage(R.string.cannot_be_undone)
+                    .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss())
+                    .create();
+        }
         // Initialize the image cache
-        mFetcher = ElevenUtils.getImageFetcher(getActivity());
+        mFetcher = ElevenUtils.getImageFetcher(activity);
         // Build the dialog
-        return new AlertDialog.Builder(getActivity()).setTitle(dialogTitle)
+        return new AlertDialog.Builder(activity).setTitle(dialogTitle)
                 .setMessage(R.string.cannot_be_undone)
                 .setPositiveButton(delete, (dialog, which) -> {
                     // Remove the items from the image cache
                     mFetcher.removeFromCache(key);
                     // Delete the selected item(s)
-                    MusicUtils.deleteTracks(getActivity(), mItemList);
-                    if (getActivity() instanceof DeleteDialogCallback) {
-                        ((DeleteDialogCallback) getActivity()).onDelete(mItemList);
+                    MusicUtils.deleteTracks(activity, mItemList);
+                    if (activity instanceof DeleteDialogCallback) {
+                        ((DeleteDialogCallback) activity).onDelete(mItemList);
                     }
                     dialog.dismiss();
                 })
