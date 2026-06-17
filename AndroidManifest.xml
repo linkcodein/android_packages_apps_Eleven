@@ -26,6 +26,12 @@
         android:minSdkVersion="28"
         android:targetSdkVersion="36" />
 
+    <queries>
+        <intent>
+            <action android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
+        </intent>
+    </queries>
+
     <!-- Android Studio will complain about not being able to
          resove the symbol, but it compiles with no problem.
          Do not remove for as long as there are officially supported

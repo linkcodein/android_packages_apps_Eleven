@@ -128,7 +128,10 @@ public final class NavUtils {
      */
     public static Intent createEffectsIntent() {
         final Intent effects = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
-        effects.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, MusicUtils.getAudioSessionId());
+        int sessionId = MusicUtils.getAudioSessionId();
+        if (sessionId >= 0) {
+            effects.putExtra(AudioEffect.EXTRA_AUDIO_SESSION, sessionId);
+        }
         return effects;
     }
 
@@ -174,15 +177,36 @@ public final class NavUtils {
         // intent. This is the standard way to discover a built-in DSP
         // manager.
         final Intent effectsIntent = createEffectsIntent();
-        final List<ResolveInfo> activities = packageManager.queryIntentActivities(
-                effectsIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(
+                effectsIntent, PackageManager.MATCH_ALL);
         if (activities != null && !activities.isEmpty()) {
             return true;
         }
-        // No activity is registered for the panel intent, but a DSP
-        // implementation might still be available. Fall back to the
-        // audio effects framework which is what the platform itself uses
-        // to discover built-in effects.
+        // Second attempt: query without audio session extra, as some
+        // effects apps only match the bare intent action.
+        final Intent bareIntent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
+        activities = packageManager.queryIntentActivities(
+                bareIntent, PackageManager.MATCH_ALL);
+        if (activities != null && !activities.isEmpty()) {
+            return true;
+        }
+        // Third attempt: check for known audio effect service packages
+        // that might not advertise the DISPLAY intent.
+        final String[] knownFxPackages = {
+            "org.lineageos.audiofx",
+            "com.cyanogenmod.audiofx",
+            "com.android.musicfx",
+            "com.google.android.musicfx",
+        };
+        for (String pkg : knownFxPackages) {
+            try {
+                packageManager.getPackageInfo(pkg, 0);
+                return true;
+            } catch (PackageManager.NameNotFoundException ignored) {
+            }
+        }
+        // Fall back to the audio effects framework which is what the
+        // platform itself uses to discover built-in effects.
         try {
             final AudioEffect.Descriptor[] effects = AudioEffect.queryEffects();
             if (effects != null && effects.length > 0) {
