@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Ön belleğe alınmış tüm resimleri sil</string>
     <string name="settings_general_category">Genel</string>
     <string name="settings_show_music_visualization_title">Müzik görselleştirmelerini göster</string>
-    <string name="settings_use_blur_title">Bulanık arkaplan</string>
     <string name="settings_show_lyrics_title">Şarkı sözlerini göster</string>
     <string name="settings_show_lyrics_summary">srt dosyası olan şarkılar için</string>
     <string name="settings_shake_to_play">Oynatmak için sallayın</string>

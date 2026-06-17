@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Hapus semua cache gambar</string>
     <string name="settings_general_category">Umum</string>
     <string name="settings_show_music_visualization_title">Tampilkan visualisasi musik</string>
-    <string name="settings_use_blur_title">Latar belakang blur</string>
     <string name="settings_show_lyrics_title">Tampilkan lirik lagu</string>
     <string name="settings_show_lyrics_summary">Untuk lagu-lagu yang memiliki berkas srt</string>
     <string name="settings_shake_to_play">Goyang untuk memutar</string>

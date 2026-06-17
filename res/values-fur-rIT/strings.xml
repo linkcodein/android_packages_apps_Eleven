@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Gjave dutis lis imagjins te cache</string>
     <string name="settings_general_category">Gjenerâl</string>
     <string name="settings_show_music_visualization_title">Mostre visualizazion musicâl</string>
-    <string name="settings_use_blur_title">Met fûr di fûc il fonts</string>
     <string name="settings_show_lyrics_title">Mostre test de cjançon</string>
     <string name="settings_show_lyrics_summary">Par cjanzons che a àn un file srt</string>
     <string name="settings_shake_to_play">Scjasse par riprodusi</string>

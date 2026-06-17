@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">தேக்கப்பட்ட படங்கள் முழுதும் நீக்குக</string>
     <string name="settings_general_category">பொது</string>
     <string name="settings_show_music_visualization_title">இசை அகக்காணலைக் காண்பிக்க</string>
-    <string name="settings_use_blur_title">மங்கலான பின்னணி</string>
     <string name="settings_show_lyrics_title">பாடல் வரிகளைக் காண்பிக்க</string>
     <string name="settings_show_lyrics_summary">srt கோப்பு உடைய பாடல்களுக்கு</string>
     <string name="settings_shake_to_play">இசைக்கக் குலுக்குக</string>

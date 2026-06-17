@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Odstrani vse predpomnjene slike</string>
     <string name="settings_general_category">Splošno</string>
     <string name="settings_show_music_visualization_title">Prikaži predočenje glasbe</string>
-    <string name="settings_use_blur_title">Zamegli ozadje</string>
     <string name="settings_show_lyrics_title">Prikaži besedilo skladbe</string>
     <string name="settings_show_lyrics_summary">Za pesmi, ki imajo datoteko srt</string>
     <string name="settings_shake_to_play">Stresi za predvajanje</string>

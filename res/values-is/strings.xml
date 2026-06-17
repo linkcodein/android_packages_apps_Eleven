@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Fjarlægja allar myndir úr skyndiminni</string>
     <string name="settings_general_category">Almennt</string>
     <string name="settings_show_music_visualization_title">Sýna sjónhrif fyrir tónlist</string>
-    <string name="settings_use_blur_title">Móska bakgrunn</string>
     <string name="settings_show_lyrics_title">Birta lagatexta</string>
     <string name="settings_show_lyrics_summary">Fyrir lög sem eiga sér srt-skrá</string>
     <string name="settings_shake_to_play">Hrista til að spila</string>

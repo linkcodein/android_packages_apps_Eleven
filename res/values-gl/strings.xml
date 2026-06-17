@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Retirar todas as imaxes da caché</string>
     <string name="settings_general_category">Xeral</string>
     <string name="settings_show_music_visualization_title">Amosar visualización da música</string>
-    <string name="settings_use_blur_title">Desenfocar fondo</string>
     <string name="settings_show_lyrics_title">Amosar as letras das cancións</string>
     <string name="settings_show_lyrics_summary">Para cancións que teñen un ficheiro srt</string>
     <string name="settings_shake_to_play">Abanear para reproducir</string>

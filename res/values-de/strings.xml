@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Alle zwischengespeicherten Bilder löschen</string>
     <string name="settings_general_category">Allgemein</string>
     <string name="settings_show_music_visualization_title">Musik-Visualisierung anzeigen</string>
-    <string name="settings_use_blur_title">Hintergrund weichzeichnen</string>
     <string name="settings_show_lyrics_title">Songtexte zeigen</string>
     <string name="settings_show_lyrics_summary">Für Titel mit einer SRT-Datei</string>
     <string name="settings_shake_to_play">Zum Abspielen schütteln</string>

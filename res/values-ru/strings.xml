@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Удалить все кэшированные изображения</string>
     <string name="settings_general_category">Общее</string>
     <string name="settings_show_music_visualization_title">Показывать визуализацию музыки</string>
-    <string name="settings_use_blur_title">Размытие фона</string>
     <string name="settings_show_lyrics_title">Показывать текст песни</string>
     <string name="settings_show_lyrics_summary">Для песен, к которым имеется файл srt</string>
     <string name="settings_shake_to_play">Перекл. треков встряхиванием</string>

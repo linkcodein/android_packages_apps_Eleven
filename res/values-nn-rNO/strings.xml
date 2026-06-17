@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Fjern alle mellomlagra bilete</string>
     <string name="settings_general_category">Generelt</string>
     <string name="settings_show_music_visualization_title">Vis musikkvisualisering</string>
-    <string name="settings_use_blur_title">Gjer bakgrunnen uskarp</string>
     <string name="settings_show_lyrics_title">Vis songtekstar</string>
     <string name="settings_show_lyrics_summary">For songar som har ei srt-fil</string>
     <string name="settings_shake_to_play">Rist for å spela av</string>

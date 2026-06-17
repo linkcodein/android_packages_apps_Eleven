@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Elimină toate imaginile din cache</string>
     <string name="settings_general_category">General</string>
     <string name="settings_show_music_visualization_title">Arată vizualizarea muzicală</string>
-    <string name="settings_use_blur_title">Estompare fundal</string>
     <string name="settings_show_lyrics_title">Arată versurile</string>
     <string name="settings_show_lyrics_summary">Pentru melodii care au un fișier srt</string>
     <string name="settings_shake_to_play">Scuturați pentru a reda</string>

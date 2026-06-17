@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Supprimer toutes les images du cache</string>
     <string name="settings_general_category">Général</string>
     <string name="settings_show_music_visualization_title">Voir les animations musicales</string>
-    <string name="settings_use_blur_title">Floutage arrière-plan</string>
     <string name="settings_show_lyrics_title">Afficher les paroles</string>
     <string name="settings_show_lyrics_summary">Pour les titres ayant un fichier srt</string>
     <string name="settings_shake_to_play">Secouer pour lire</string>

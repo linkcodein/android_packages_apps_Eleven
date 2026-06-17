@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Премахва всички кеширани изображения</string>
     <string name="settings_general_category">Общи</string>
     <string name="settings_show_music_visualization_title">Покажи музикална визуализация</string>
-    <string name="settings_use_blur_title">Замъгляване на фона</string>
     <string name="settings_show_lyrics_title">Покажи текстовете на песните</string>
     <string name="settings_show_lyrics_summary">За песни, които имат srt файл</string>
     <string name="settings_shake_to_play">Разтърсете, за да изпълни</string>

@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Xoá tất cả ảnh đã có trong bộ nhớ đệm</string>
     <string name="settings_general_category">Tổng quát</string>
     <string name="settings_show_music_visualization_title">Hiện trực quan hoá nhạc</string>
-    <string name="settings_use_blur_title">Làm mờ ảnh nền</string>
     <string name="settings_show_lyrics_title">Hiện lời bài hát</string>
     <string name="settings_show_lyrics_summary">Đối với bài hát có tập tin srt</string>
     <string name="settings_shake_to_play">Lắc để phát</string>

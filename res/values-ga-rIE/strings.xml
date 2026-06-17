@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Bain gach íomhá i dtaisce</string>
     <string name="settings_general_category">Ginearálta</string>
     <string name="settings_show_music_visualization_title">Taispeáin léirshamhlú ceoil</string>
-    <string name="settings_use_blur_title">Doiléirigh an cúlra</string>
     <string name="settings_show_lyrics_title">Taispeáin liricí amhrán</string>
     <string name="settings_show_lyrics_summary">Chun amhráin a bhfuil comhad srt acu</string>
     <string name="settings_shake_to_play">Croith chun Imirt</string>

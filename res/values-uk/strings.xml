@@ -96,7 +96,6 @@
     <string name="settings_delete_cache_summary">Видалити всі кешовані зображення</string>
     <string name="settings_general_category">Загальні</string>
     <string name="settings_show_music_visualization_title">Візуалізувати музику</string>
-    <string name="settings_use_blur_title">Розмити тло</string>
     <string name="settings_show_lyrics_title">Показати тексти пісень</string>
     <string name="settings_show_lyrics_summary">Для композицій що мають srt файл</string>
     <string name="settings_shake_to_play">Відтворення струсом</string>

@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">غەملەنگەن ھەممە سۈرەتلەرنى چىقىرىۋەت</string>
     <string name="settings_general_category">ئادەتتىكى</string>
     <string name="settings_show_music_visualization_title">مۇزىكىنىڭ كۆرۈنۈش ئۈنۈمىنى كۆرسىتىش</string>
-    <string name="settings_use_blur_title">غۇۋا تەگلىك</string>
     <string name="settings_show_lyrics_title">تېكىسىت كۆرسىتىش</string>
     <string name="settings_show_lyrics_summary">بىر srt ھۆججەت ناخشىغا ماس كىلىدۇ</string>
     <string name="settings_shake_to_play">سىلكىپ قويۇش</string>

@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">清除所有缓存的图像</string>
     <string name="settings_general_category">常规</string>
     <string name="settings_show_music_visualization_title">显示音乐可视化效果</string>
-    <string name="settings_use_blur_title">模糊背景</string>
     <string name="settings_show_lyrics_title">显示歌词</string>
     <string name="settings_show_lyrics_summary">有一个 srt 文件与歌曲匹配</string>
     <string name="settings_shake_to_play">摇动播放</string>

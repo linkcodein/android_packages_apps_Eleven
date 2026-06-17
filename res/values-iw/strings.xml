@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">מסיר את כל התמונות שבמטמון</string>
     <string name="settings_general_category">כללי</string>
     <string name="settings_show_music_visualization_title">הצגת המחשה חזותית למוזיקה</string>
-    <string name="settings_use_blur_title">טשטוש הרקע</string>
     <string name="settings_show_lyrics_title">הצגת מילות השיר</string>
     <string name="settings_show_lyrics_summary">עבור שירים עם קובץ srt</string>
     <string name="settings_shake_to_play">ניעור כדי לנגן</string>

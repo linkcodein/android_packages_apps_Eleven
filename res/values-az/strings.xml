@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Gizli yaddaşdakı bütün təsvirləri sil</string>
     <string name="settings_general_category">Ümumi</string>
     <string name="settings_show_music_visualization_title">Musiqi vizuallaşdırıcını göstər</string>
-    <string name="settings_use_blur_title">Bulanıq arxaplan</string>
     <string name="settings_show_lyrics_title">Mahnı sözlərini göstər</string>
     <string name="settings_show_lyrics_summary">srt faylı olan mahnılar üçün</string>
     <string name="settings_shake_to_play">Oxutmaq üçün silkələyin</string>

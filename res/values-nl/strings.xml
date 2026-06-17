@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Opgeslagen afbeeldingen verwijderen</string>
     <string name="settings_general_category">Algemeen</string>
     <string name="settings_show_music_visualization_title">Muziekvisualisaties weergeven</string>
-    <string name="settings_use_blur_title">Vervaag achtergrond</string>
     <string name="settings_show_lyrics_title">Songteksten weergeven</string>
     <string name="settings_show_lyrics_summary">Voor nummers met een srt-bestand</string>
     <string name="settings_shake_to_play">Schudden voor afspelen</string>

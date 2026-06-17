@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">ყველა მომარაგებული სურათის მოცილება</string>
     <string name="settings_general_category">ძირითადი</string>
     <string name="settings_show_music_visualization_title">მუსიკის წარმოსახვა</string>
-    <string name="settings_use_blur_title">ფონის დაბინდვა</string>
     <string name="settings_show_lyrics_title">სიმღერის ტექსტის ჩვენება</string>
     <string name="settings_show_lyrics_summary">სიმღერებისთვის, რომელთაც გააჩნია srt-ფაილი</string>
     <string name="settings_shake_to_play">შერხევით გაშვება</string>

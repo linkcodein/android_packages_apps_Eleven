@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">سڕینەوەی هەموو وێنە شاردراوەکان</string>
     <string name="settings_general_category">گشتی</string>
     <string name="settings_show_music_visualization_title">نیشاندانی جوڵەی مۆسیقا</string>
-    <string name="settings_use_blur_title">لێڵکردنی پاشبنەما</string>
     <string name="settings_show_lyrics_title">نیشاندانی دەقی گۆرانی</string>
     <string name="settings_show_lyrics_summary">بۆ ئەو گۆرانییانەی کە پەڕگەی srt یان هەیە</string>
     <string name="settings_shake_to_play">ڕاوەشاندن بۆ لێدان</string>

@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Κατάργηση όλων των προσωρινά αποθηκευμένων εικόνων</string>
     <string name="settings_general_category">Γενικά</string>
     <string name="settings_show_music_visualization_title">Εμφάνιση οπτικοποίησης μουσικής</string>
-    <string name="settings_use_blur_title">Θολό παρασκήνιο</string>
     <string name="settings_show_lyrics_title">Εμφάνιση στίχων τραγουδιών</string>
     <string name="settings_show_lyrics_summary">Για τραγούδια που έχουν αρχείο srt</string>
     <string name="settings_shake_to_play">Ανακίνηση για αναπαραγωγή</string>

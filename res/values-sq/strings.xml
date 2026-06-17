@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Hiqi të gjitha imazhet e ruajtura</string>
     <string name="settings_general_category">Të përgjithshme</string>
     <string name="settings_show_music_visualization_title">Trego vizualizimin e muzikës</string>
-    <string name="settings_use_blur_title">Zbeh sfondin</string>
     <string name="settings_show_lyrics_title">Trego tekstin e këngës</string>
     <string name="settings_show_lyrics_summary">Për këngët që kanë një skedar srt</string>
     <string name="settings_shake_to_play">Shkunde për të luajtur</string>

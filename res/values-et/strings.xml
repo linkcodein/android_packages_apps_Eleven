@@ -96,7 +96,6 @@
     <string name="settings_delete_cache_summary">Eemalda kõik puhverdatud pildid</string>
     <string name="settings_general_category">Üldine</string>
     <string name="settings_show_music_visualization_title">Näita muusika visualiseerimist</string>
-    <string name="settings_use_blur_title">Tausta hägustamine</string>
     <string name="settings_show_lyrics_title">Kuva laulusõnad</string>
     <string name="settings_show_lyrics_summary">Lauludele, millel on srt-fail</string>
     <string name="settings_shake_to_play">Raputa mängimiseks</string>

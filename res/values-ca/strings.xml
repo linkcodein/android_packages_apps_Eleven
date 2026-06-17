@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Treu totes les imatges de la memòria cau</string>
     <string name="settings_general_category">General</string>
     <string name="settings_show_music_visualization_title">Mostra la visualització de la música</string>
-    <string name="settings_use_blur_title">Fons borrós</string>
     <string name="settings_show_lyrics_title">Mostra la lletra de les cançons</string>
     <string name="settings_show_lyrics_summary">Per cançons que tenen un fitxer srt</string>
     <string name="settings_shake_to_play">Agita per Reproduir</string>

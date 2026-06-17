@@ -97,7 +97,6 @@
     <string name="settings_delete_cache_summary">Eliminar todas as imagens em cache</string>
     <string name="settings_general_category">Geral</string>
     <string name="settings_show_music_visualization_title">Mostrar visualização da música</string>
-    <string name="settings_use_blur_title">Desfocar fundo</string>
     <string name="settings_show_lyrics_title">Mostrar letras das músicas</string>
     <string name="settings_show_lyrics_summary">Para músicas que têm um ficheiro .srt</string>
     <string name="settings_shake_to_play">Agitar para reproduzir</string>
