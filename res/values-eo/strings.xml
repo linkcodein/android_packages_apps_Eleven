@@ -41,4 +41,6 @@
     <string name="header_5_to_9_songs">5 - 9 kantoj</string>
     <string name="header_10_plus_songs">10+ kantoj</string>
     <string name="header_5_plus_albums">pli of 5 albumoj</string>
+    <string name="set_as_ringtone_permission_denied">Ne eblas agordi kiel voksonoro: donu al Eleven la permeson "Modifi sistemajn agordojn" en sistemaj agordoj</string>
+    <string name="manage_storage_permission_denied">Aliro al ĉiuj dosieroj rifuzita: donu al Eleven la permeson "Aliro al ĉiuj dosieroj" en sistemaj agordoj</string>
 </resources>

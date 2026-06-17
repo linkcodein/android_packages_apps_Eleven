@@ -140,4 +140,6 @@
     <string name="widget_track_name">Име на песен</string>
     <string name="widget_artist_name">Име на изпълнител</string>
     <string name="widget_album_name">Име на албума</string>
+    <string name="set_as_ringtone_permission_denied">Не може да се зададе като мелодия: дайте разрешение "Промяна на системните настройки" на Eleven в системните настройки</string>
+    <string name="manage_storage_permission_denied">Достъпът до всички файлове е отказан: дайте разрешение "Достъп до всички файлове" на Eleven в системните настройки</string>
 </resources>

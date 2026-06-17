@@ -140,4 +140,6 @@
     <string name="widget_track_name">Name des Titels</string>
     <string name="widget_artist_name">Name des Interpreten</string>
     <string name="widget_album_name">Name des Albums</string>
+    <string name="set_as_ringtone_permission_denied">Kann nicht als Klingelton festgelegt werden: gewähre Eleven "Systemeinstellungen ändern" in den Systemeinstellungen</string>
+    <string name="manage_storage_permission_denied">Zugriff auf alle Dateien verweigert: gewähre Eleven "Zugriff auf alle Dateien" in den Systemeinstellungen</string>
 </resources>

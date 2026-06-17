@@ -134,4 +134,6 @@
     <string name="header_5_plus_albums">5+ albums</string>
     <string name="header_other">"Oare"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">Kin net ynsteld wurde as ringtoan: jou Eleven "Systeemynstellingen wizigje" tastimming yn de systeemynstellingen</string>
+    <string name="manage_storage_permission_denied">Tagong ta alle bestannen wegere: jou Eleven "Tagong ta alle bestannen" tastimming yn de systeemynstellingen</string>
 </resources>

@@ -140,4 +140,6 @@
     <string name="widget_track_name">曲名</string>
     <string name="widget_artist_name">アーティスト名</string>
     <string name="widget_album_name">アルバム名</string>
+    <string name="set_as_ringtone_permission_denied">着信音として設定できません: システム設定でElevenに「システム設定の変更」権限を付与してください</string>
+    <string name="manage_storage_permission_denied">すべてのファイルへのアクセスが拒否されました: システム設定でElevenに「すべてのファイルへのアクセス」権限を付与してください</string>
 </resources>

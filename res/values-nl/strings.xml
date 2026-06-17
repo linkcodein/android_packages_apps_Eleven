@@ -140,4 +140,6 @@
     <string name="widget_track_name">Tracknaam</string>
     <string name="widget_artist_name">Naam v/d artiest</string>
     <string name="widget_album_name">Albumnaam</string>
+    <string name="set_as_ringtone_permission_denied">Kan niet worden ingesteld als beltoon: verleen Eleven "Systeeminstellingen wijzigen" in de systeeminstellingen</string>
+    <string name="manage_storage_permission_denied">Toegang tot alle bestanden geweigerd: verleen Eleven "Toegang tot alle bestanden" in de systeeminstellingen</string>
 </resources>

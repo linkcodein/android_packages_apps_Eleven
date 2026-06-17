@@ -140,4 +140,6 @@
     <string name="widget_track_name">A zeneszám címe</string>
     <string name="widget_artist_name">Az előadó neve</string>
     <string name="widget_album_name">Az album címe</string>
+    <string name="set_as_ringtone_permission_denied">Nem állítható be csengőhangként: adja meg az Elevennek a "Rendszerbeállítások módosítása" engedélyt a rendszerbeállításokban</string>
+    <string name="manage_storage_permission_denied">Az összes fájlhoz való hozzáférés megtagadva: adja meg az Elevennek a "Hozzáférés az összes fájlhoz" engedélyt a rendszerbeállításokban</string>
 </resources>

@@ -18,4 +18,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="sort_order_entry_year">Bloaz</string>
+    <string name="set_as_ringtone_permission_denied">N\'haller ket ar wwelout evel sonenn: roit aotre "Kemmañ arventennoù ar reizhiad" da Eleven en arventennoù ar reizhiad</string>
+    <string name="manage_storage_permission_denied">Moned d\'an holl restroù nac\'het: roit aotre "Moned d\'an holl restroù" da Eleven en arventennoù ar reizhiad</string>
 </resources>

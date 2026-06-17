@@ -140,4 +140,6 @@
     <string name="widget_track_name">Nome da música</string>
     <string name="widget_artist_name">Nome do artista</string>
     <string name="widget_album_name">Nome do álbum</string>
+    <string name="set_as_ringtone_permission_denied">Não é possível definir como toque: conceda "Modificar definições do sistema" ao Eleven nas definições do sistema</string>
+    <string name="manage_storage_permission_denied">Acesso a todos os ficheiros negado: conceda "Acesso a todos os ficheiros" ao Eleven nas definições do sistema</string>
 </resources>

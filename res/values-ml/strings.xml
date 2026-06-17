@@ -134,4 +134,6 @@
     <string name="header_5_plus_albums">5+ ആൽബങ്ങൾ</string>
     <string name="header_other">""മറ്റുള്ളവ""</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">റിംഗ്ടോണായി സജ്ജമാക്കാനായില്ല: സിസ്റ്റം ക്രമീകരണത്തിൽ Eleven-ന് "സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കുക" അനുമതി നൽകുക</string>
+    <string name="manage_storage_permission_denied">എല്ലാ ഫയലുകളിലേക്കുമുള്ള ആക്സസ് നിഷേധിച്ചു: സിസ്റ്റം ക്രമീകരണത്തിൽ Eleven-ന് "എല്ലാ ഫയലുകളിലേക്കുമുള്ള ആക്സസ്" അനുമതി നൽകുക</string>
 </resources>

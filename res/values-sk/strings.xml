@@ -134,4 +134,6 @@
     <string name="header_5_plus_albums">Viac ako 5 albumov</string>
     <string name="header_other">"Iné"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">Nedá sa nastaviť ako tón zvonenia: povoľte Eleven oprávnenie „Upravovať systémové nastavenia" v systémových nastaveniach</string>
+    <string name="manage_storage_permission_denied">Prístup ku všetkým súborom zamietnutý: povoľte Eleven oprávnenie „Prístup ku všetkým súborom" v systémových nastaveniach</string>
 </resources>

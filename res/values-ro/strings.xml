@@ -140,4 +140,6 @@
     <string name="widget_track_name">Numele piesei</string>
     <string name="widget_artist_name">Numele artistului</string>
     <string name="widget_album_name">Nume album</string>
+    <string name="set_as_ringtone_permission_denied">Nu se poate seta ca ton de apel: acordați aplicației Eleven permisiunea „Modifică setările de sistem" în setările de sistem</string>
+    <string name="manage_storage_permission_denied">Accesul la toate fișierele a fost refuzat: acordați aplicației Eleven permisiunea „Acces la toate fișierele" în setările de sistem</string>
 </resources>

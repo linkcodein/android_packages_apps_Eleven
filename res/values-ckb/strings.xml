@@ -140,4 +140,6 @@
     <string name="widget_track_name">ناوی تراک</string>
     <string name="widget_artist_name">ناوی هونەرمەند</string>
     <string name="widget_album_name">ناوی ئەلبووم</string>
+    <string name="set_as_ringtone_permission_denied">ناتوانرێت وەک تۆنی زەنگ دابنرێت: مۆڵەتی "گۆڕینی ڕێکخستنەکانی سیستەم" بە Eleven لە ڕێکخستنەکانی سیستەم بدە</string>
+    <string name="manage_storage_permission_denied">دەستگەیشتن بە هەموو فایلەکان ڕەتکرایەوە: مۆڵەتی "دەستگەیشتن بە هەموو فایلەکان" بە Eleven لە ڕێکخستنەکانی سیستەم بدە</string>
 </resources>

@@ -140,4 +140,6 @@
     <string name="widget_track_name">Enw\u2019r trac</string>
     <string name="widget_artist_name">Enw\u2019r artist</string>
     <string name="widget_album_name">Enw\u2019r albwm</string>
+    <string name="set_as_ringtone_permission_denied">Methu gosod fel ton genhedlu: rhoi "Addasu gosodiadau system" i Eleven yng ngosodiadau system</string>
+    <string name="manage_storage_permission_denied">Mynediad i\'r holl ffeiliau wedi\'i wrthod: rhoi "Mynediad i\'r holl ffeiliau" i Eleven yng ngosodiadau system</string>
 </resources>

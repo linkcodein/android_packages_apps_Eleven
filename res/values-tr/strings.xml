@@ -140,4 +140,6 @@
     <string name="widget_track_name">Parça adı</string>
     <string name="widget_artist_name">Sanatçı adı</string>
     <string name="widget_album_name">Albüm ismi</string>
+    <string name="set_as_ringtone_permission_denied">Zil sesi olarak ayarlanamıyor: sistem ayarlarında Eleven uygulamasına "Sistem ayarlarını değiştir" iznini verin</string>
+    <string name="manage_storage_permission_denied">Tüm dosyalara erişim reddedildi: sistem ayarlarında Eleven uygulamasına "Tüm dosyalara erişim" iznini verin</string>
 </resources>

@@ -134,4 +134,6 @@
     <string name="header_5_plus_albums">5+ Albumit</string>
     <string name="header_other">"Muud"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">Ei saa määrata helinaks: anna Elevenile luba "Muuda süsteemi sätteid" süsteemi sätetes</string>
+    <string name="manage_storage_permission_denied">Juurdepääs kõigile failidele keelatud: anna Elevenile luba "Juurdepääs kõigile failidele" süsteemi sätetes</string>
 </resources>

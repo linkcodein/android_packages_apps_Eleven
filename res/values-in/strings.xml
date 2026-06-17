@@ -140,4 +140,6 @@
     <string name="widget_track_name">Judul lagu</string>
     <string name="widget_artist_name">Nama artis</string>
     <string name="widget_album_name">Nama album</string>
+    <string name="set_as_ringtone_permission_denied">Tidak dapat disetel sebagai nada dering: berikan "Ubah setelan sistem" ke Eleven di setelan sistem</string>
+    <string name="manage_storage_permission_denied">Akses semua file ditolak: berikan "Akses semua file" ke Eleven di setelan sistem</string>
 </resources>

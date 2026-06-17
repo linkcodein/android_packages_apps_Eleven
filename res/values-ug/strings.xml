@@ -140,4 +140,6 @@
     <string name="widget_track_name">نەغمە ئاتى</string>
     <string name="widget_artist_name">سەنئەتكار ئاتى</string>
     <string name="widget_album_name">ئالبوم ئاتى</string>
+    <string name="set_as_ringtone_permission_denied">قوڭغۇراق قىلىپ تەڭشىگىلى بولمىدى: سىستېما تەڭشىكىدە Eleven غا «سىستېما تەڭشىكىنى ئۆزگەرتىش» ھوقۇقىنى بېرىڭ</string>
+    <string name="manage_storage_permission_denied">بارلىق ھۆججەتلەرنى زىيارەت قىلىش رەت قىلىندى: سىستېما تەڭشىكىدە Eleven غا «بارلىق ھۆججەتلەرنى زىيارەت قىلىش» ھوقۇقىنى بېرىڭ</string>
 </resources>

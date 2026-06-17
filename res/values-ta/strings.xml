@@ -140,4 +140,6 @@
     <string name="widget_track_name">தடப்பெயர்</string>
     <string name="widget_artist_name">கலைஞர் பெயர்</string>
     <string name="widget_album_name">தொகுப்புப் பெயர்</string>
+    <string name="set_as_ringtone_permission_denied">ரிங்டோனாக அமைக்க முடியவில்லை: கணினி அமைப்புகளில் Eleven-க்கு "கணினி அமைப்புகளை மாற்று" அனுமதியை வழங்கவும்</string>
+    <string name="manage_storage_permission_denied">அனைத்து கோப்புகளுக்கான அணுகல் மறுக்கப்பட்டது: கணினி அமைப்புகளில் Eleven-க்கு "அனைத்து கோப்புகளுக்கான அணுகல்" அனுமதியை வழங்கவும்</string>
 </resources>

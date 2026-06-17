@@ -128,4 +128,6 @@
     <string name="header_5_plus_albums">೫+ ಇಡುವಹಿಗಳು</string>
     <string name="header_other">"ಇತರೆ"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">ರಿಂಗ್‌ಟೋನ್ ಆಗಿ ಹೊಂದಿಸಲಾಗುತ್ತಿಲ್ಲ: ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ Eleven ಗೆ "ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮಾರ್ಪಡಿಸಿ" ಅನುಮತಿ ನೀಡಿ</string>
+    <string name="manage_storage_permission_denied">ಎಲ್ಲಾ ಫೈಲ್‌ಗಳಿಗೆ ಪ್ರವೇಶ ನಿರಾಕರಿಸಲಾಗಿದೆ: ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ Eleven ಗೆ "ಎಲ್ಲಾ ಫೈಲ್‌ಗಳ ಪ್ರವೇಶ" ಅನುಮತಿ ನೀಡಿ</string>
 </resources>

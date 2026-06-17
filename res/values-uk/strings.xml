@@ -135,4 +135,6 @@
     <string name="header_other">"Інші"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="channel_music">Відтворення музики</string>
+    <string name="set_as_ringtone_permission_denied">Неможливо встановити як рингтон: надайте Eleven дозвіл "Зміна системних налаштувань" у системних налаштуваннях</string>
+    <string name="manage_storage_permission_denied">Доступ до всіх файлів заблоковано: надайте Eleven дозвіл "Доступ до всіх файлів" у системних налаштуваннях</string>
 </resources>

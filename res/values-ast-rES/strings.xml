@@ -139,4 +139,6 @@
     <string name="widget_track_name">Nome de la pista</string>
     <string name="widget_artist_name">Nome del artista</string>
     <string name="widget_album_name">Nome del álbum</string>
+    <string name="set_as_ringtone_permission_denied">Nun pue afitase como tonu de llama: concede "Camudar axustes del sistema" a Eleven nos axustes del sistema</string>
+    <string name="manage_storage_permission_denied">Accesu a tolos ficheros denegáu: concede "Accesu a tolos ficheros" a Eleven nos axustes del sistema</string>
 </resources>

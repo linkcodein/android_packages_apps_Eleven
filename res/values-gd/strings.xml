@@ -136,4 +136,6 @@
     <string name="header_other">"Eile"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="channel_music">Cluiche ciùil</string>
+    <string name="set_as_ringtone_permission_denied">Cha ghabh a shuidheachadh mar sheirm fòn: thoir cead "Atharraich roghainnean an t-siostaim" gu Eleven ann an roghainnean an t-siostaim</string>
+    <string name="manage_storage_permission_denied">Chaidh inntrigeadh dhan a h-uile faidhle a dhiùltadh: thoir cead "Inntrigeadh dhan a h-uile faidhle" gu Eleven ann an roghainnean an t-siostaim</string>
 </resources>

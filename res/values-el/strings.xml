@@ -140,4 +140,6 @@
     <string name="widget_track_name">Όνομα κομματιού</string>
     <string name="widget_artist_name">Όνομα καλλιτέχνη</string>
     <string name="widget_album_name">Όνομα άλμπουμ</string>
+    <string name="set_as_ringtone_permission_denied">Δεν είναι δυνατός ο ορισμός ως Ringsstone: εκχωρήστε στο Eleven το "Τροποποίηση ρυθμίσεων συστήματος" στις ρυθμίσεις συστήματος</string>
+    <string name="manage_storage_permission_denied">Η πρόσβαση σε όλα τα αρχεία απορρίφθηκε: εκχωρήστε στο Eleven το "Πρόσβαση σε όλα τα αρχεία" στις ρυθμίσεις συστήματος</string>
 </resources>

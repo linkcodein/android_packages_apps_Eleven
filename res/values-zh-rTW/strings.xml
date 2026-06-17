@@ -140,4 +140,6 @@
     <string name="widget_track_name">曲目名稱</string>
     <string name="widget_artist_name">演出者名稱</string>
     <string name="widget_album_name">專輯名稱</string>
+    <string name="set_as_ringtone_permission_denied">無法設為鈴聲：請在系統設定中授予 Eleven 「修改系統設定」權限</string>
+    <string name="manage_storage_permission_denied">所有檔案存取權限被拒絕：請在系統設定中授予 Eleven 「所有檔案存取」權限</string>
 </resources>

@@ -134,4 +134,6 @@
     <string name="header_5_plus_albums">5 oder méi Alben</string>
     <string name="header_other">"Aner"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
+    <string name="set_as_ringtone_permission_denied">Kann net als Ringtoun gesat ginn: gitt Eleven d\'Erlabnis "Systemastellunge änneren" an de Systemastellungen</string>
+    <string name="manage_storage_permission_denied">Zougang zu all Fichieren refuséiert: gitt Eleven d\'Erlabnis "Zougang zu all Fichieren" an de Systemastellungen</string>
 </resources>

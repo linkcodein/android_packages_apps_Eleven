@@ -140,4 +140,6 @@
     <string name="widget_track_name">Emri i këngës</string>
     <string name="widget_artist_name">Emri i artistit</string>
     <string name="widget_album_name">Emri i albumit</string>
+    <string name="set_as_ringtone_permission_denied">S\'mund të caktohet si zile: jepni Eleven lejen "Modifiko cilësimet e sistemit" në cilësimet e sistemit</string>
+    <string name="manage_storage_permission_denied">Hyrja në krejt skedarët u mohua: jepni Eleven lejen "Hyrje në krejt skedarët" në cilësimet e sistemit</string>
 </resources>

@@ -140,4 +140,6 @@
     <string name="widget_track_name">Non dal toc</string>
     <string name="widget_artist_name">Non dal artist</string>
     <string name="widget_album_name">Non dal album</string>
+    <string name="set_as_ringtone_permission_denied">Impussibil meti come sun di clamar: da a Eleven il permès "Modifiche impostazions dal sisteme" tes impostazions dal sisteme</string>
+    <string name="manage_storage_permission_denied">Acès a ducj i files dineât: da a Eleven il permès "Acès a ducj i files" tes impostazions dal sisteme</string>
 </resources>

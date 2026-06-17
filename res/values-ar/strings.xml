@@ -135,4 +135,6 @@
     <string name="header_other">"أخرى"</string>
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="channel_music">تشغيل الموسيقى</string>
+    <string name="set_as_ringtone_permission_denied">لا يمكن التعيين كنغمة رنين: امنح "تعديل إعدادات النظام" لتطبيق Eleven في إعدادات النظام</string>
+    <string name="manage_storage_permission_denied">تم رفض الوصول إلى جميع الملفات: امنح "الوصول إلى جميع الملفات" لتطبيق Eleven في إعدادات النظام</string>
 </resources>

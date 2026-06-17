@@ -140,4 +140,6 @@
     <string name="widget_track_name">Název skladby</string>
     <string name="widget_artist_name">Jméno umělce</string>
     <string name="widget_album_name">Název alba</string>
+    <string name="set_as_ringtone_permission_denied">Nelze nastavit jako vyzváněcí tón: udělte aplikaci Eleven oprávnění "Upravovat systémová nastavení" v nastavení systému</string>
+    <string name="manage_storage_permission_denied">Přístup ke všem souborům odepřen: udělte aplikaci Eleven oprávnění "Přístup ke všem souborům" v nastavení systému</string>
 </resources>
