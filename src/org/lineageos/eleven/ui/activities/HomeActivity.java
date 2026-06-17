@@ -483,31 +483,36 @@ public class HomeActivity extends SlidingPanelActivity implements
     }
 
     private boolean needRequestStoragePermission() {
-        boolean needRequest = false;
-        String[] permissions = {
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-        };
         ArrayList<String> permissionList = new ArrayList<>();
-        for (String permission : permissions) {
-            if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
-                permissionList.add(permission);
-                needRequest = true;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            String audioPermission = Manifest.permission.READ_MEDIA_AUDIO;
+            if (checkSelfPermission(audioPermission) != PackageManager.PERMISSION_GRANTED) {
+                permissionList.add(audioPermission);
+            }
+        } else {
+            String readPermission = Manifest.permission.READ_EXTERNAL_STORAGE;
+            if (checkSelfPermission(readPermission) != PackageManager.PERMISSION_GRANTED) {
+                permissionList.add(readPermission);
+            }
+            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.Q) {
+                String writePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+                if (checkSelfPermission(writePermission) != PackageManager.PERMISSION_GRANTED) {
+                    permissionList.add(writePermission);
+                }
             }
         }
 
+        boolean needRequest = !permissionList.isEmpty();
         if (needRequest) {
             setRequestingPermissions(true);
 
             int count = permissionList.size();
-            if (count > 0) {
-                String[] permissionArray = new String[count];
-                for (int i = 0; i < count; i++) {
-                    permissionArray[i] = permissionList.get(i);
-                }
-
-                requestPermissions(permissionArray, PERMISSION_REQUEST_STORAGE);
+            String[] permissionArray = new String[count];
+            for (int i = 0; i < count; i++) {
+                permissionArray[i] = permissionList.get(i);
             }
+
+            requestPermissions(permissionArray, PERMISSION_REQUEST_STORAGE);
         }
 
         return needRequest;
