@@ -16,12 +16,14 @@
  */
 package org.lineageos.eleven.ui.activities;
 
+import static org.lineageos.eleven.utils.PreferenceUtils.PERMISSION_REQUEST_RECORD_AUDIO;
 import static org.lineageos.eleven.utils.PreferenceUtils.PERMISSION_REQUEST_STORAGE;
 
 import android.Manifest;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -30,10 +32,12 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -259,7 +263,7 @@ public class HomeActivity extends SlidingPanelActivity implements
         filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
         filter.addDataScheme("package");
-        registerReceiver(mEffectsPackageReceiver, filter);
+        registerReceiver(mEffectsPackageReceiver, filter, Context.RECEIVER_EXPORTED);
     }
 
     @Override
@@ -532,6 +536,9 @@ public class HomeActivity extends SlidingPanelActivity implements
             } else {
                 finish();
             }
+        } else if (requestCode == PERMISSION_REQUEST_RECORD_AUDIO) {
+            // RECORD_AUDIO is optional; the app works without it.
+            // The user can enable visualizer later from Settings.
         }
     }
 
@@ -553,6 +560,13 @@ public class HomeActivity extends SlidingPanelActivity implements
                     permissionList.add(writePermission);
                 }
             }
+        }
+
+        // Request RECORD_AUDIO on first launch so the user can use
+        // the music visualizer without having to visit Settings later.
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.RECORD_AUDIO);
         }
 
         boolean needRequest = !permissionList.isEmpty();
