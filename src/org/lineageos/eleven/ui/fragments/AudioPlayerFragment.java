@@ -339,6 +339,15 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         // pause the update callback for the play pause progress button
         mTimeHandler.removeMessages(REFRESH_TIME);
 
+        // The visualizer is in-app only; make sure it is fully torn down
+        // whenever the fragment stops so the audio capture can never
+        // continue while the user is on the lock screen or the notification
+        // shade.
+        if (mVisualizerView != null) {
+            mVisualizerView.setVisible(false);
+            mVisualizerView.setPlaying(false);
+        }
+
         if (mAlertDialog != null) {
             mAlertDialog.dismiss();
         }
