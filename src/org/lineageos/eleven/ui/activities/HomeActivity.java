@@ -513,6 +513,13 @@ public class HomeActivity extends SlidingPanelActivity implements
             }
 
             requestPermissions(permissionArray, PERMISSION_REQUEST_STORAGE);
+        } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R
+                && !org.lineageos.eleven.utils.MusicUtils.hasManageStoragePermission(this)) {
+            // The basic media permission is granted but we still need
+            // "All files access" for cache folders / file deletion. Open the
+            // system screen so the user can opt in; the app continues to work
+            // without it.
+            org.lineageos.eleven.utils.MusicUtils.requestManageStoragePermission(this);
         }
 
         return needRequest;
