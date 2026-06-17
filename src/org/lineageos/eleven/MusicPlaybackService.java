@@ -665,13 +665,21 @@ public class MusicPlaybackService extends MediaBrowserService
         mIsBound = true;
     }
 
+    private boolean hasMediaReadPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            return checkSelfPermission(permission.READ_MEDIA_AUDIO) ==
+                    PackageManager.PERMISSION_GRANTED;
+        }
+        return checkSelfPermission(permission.READ_EXTERNAL_STORAGE) ==
+                PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     public void onCreate() {
         if (D) Log.d(TAG, "Creating service");
         super.onCreate();
 
-        if (checkSelfPermission(permission.READ_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED) {
+        if (!hasMediaReadPermission()) {
             stopSelf();
             return;
         } else {
