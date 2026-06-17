@@ -156,7 +156,7 @@ public class HomeActivity extends SlidingPanelActivity implements
             }
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.activity_base_content, fragment)
-                    .commit();
+                    .commitAllowingStateLoss();
 
             mLoadedBaseFragment = true;
             mTopLevelActivity = true;
@@ -204,7 +204,7 @@ public class HomeActivity extends SlidingPanelActivity implements
             if (frag == getTopFragment()) {
                 getSupportFragmentManager().popBackStack();
             } else {
-                getSupportFragmentManager().beginTransaction().remove(frag).commit();
+                getSupportFragmentManager().beginTransaction().remove(frag).commitAllowingStateLoss();
             }
         });
     }
@@ -388,7 +388,7 @@ public class HomeActivity extends SlidingPanelActivity implements
                     oldTop.setMenuVisibility(false);
                 }
 
-                transaction.commit();
+                transaction.commitAllowingStateLoss();
                 handled = true;
             }
         }
@@ -527,8 +527,8 @@ public class HomeActivity extends SlidingPanelActivity implements
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_STORAGE) {
             if (checkPermissionGrantResults(grantResults)) {
-                setRequestingPermissions(false);
                 init(mSavedInstanceState);
+                setRequestingPermissions(false);
             } else {
                 finish();
             }
