@@ -31,7 +31,10 @@ public class ElevenApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        DynamicColors.applyToActivitiesIfAvailable(this);
+        try {
+            DynamicColors.applyToActivitiesIfAvailable(this);
+        } catch (Throwable ignored) {
+        }
 
         if (BuildConfig.DEBUG) {
             enableStrictMode();

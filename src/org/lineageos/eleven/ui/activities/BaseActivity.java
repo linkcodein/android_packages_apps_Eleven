@@ -237,11 +237,14 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         MusicUtils.unbindFromService(mToken);
         mToken = null;
 
-        // Unregister the receiver
-        try {
-            unregisterReceiver(mPlaybackStatus);
-        } catch (final Throwable e) {
-            //$FALL-THROUGH$
+        // Unregister the receiver (may not be registered if init() was skipped)
+        if (mPlaybackStatus != null) {
+            try {
+                unregisterReceiver(mPlaybackStatus);
+                mPlaybackStatus = null;
+            } catch (final Throwable e) {
+                //$FALL-THROUGH$
+            }
         }
     }
 
