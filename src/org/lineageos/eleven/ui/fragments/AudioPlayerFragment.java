@@ -574,6 +574,20 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
     }
 
     /**
+     * Re-evaluates whether an audio effects panel is available and refreshes
+     * the player options menu so the equalizer entry appears or disappears
+     * without restarting the activity. Called whenever something on the
+     * device might have changed the answer (an FX app was installed,
+     * uninstalled or updated, or a package was replaced).
+     */
+    public void refreshEqualizerAvailability() {
+        final FragmentActivity activity = getActivity();
+        if (activity != null) {
+            activity.invalidateOptionsMenu();
+        }
+    }
+
+    /**
      * Used to update the current time string
      */
     private static final class TimeHandler extends Handler {
