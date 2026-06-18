@@ -32,10 +32,17 @@ public class BitmapWithColors {
         public final int mDominantColor;
 
         public BitmapColors(Palette palette) {
-            mVibrantColor = determineColor(palette.getVibrantSwatch());
-            mVibrantDarkColor = determineColor(palette.getDarkVibrantSwatch());
-            mVibrantLightColor = determineColor(palette.getLightVibrantSwatch());
-            mDominantColor = determineColor(getDominantSwatch(palette));
+            if (palette != null) {
+                mVibrantColor = determineColor(palette.getVibrantSwatch());
+                mVibrantDarkColor = determineColor(palette.getDarkVibrantSwatch());
+                mVibrantLightColor = determineColor(palette.getLightVibrantSwatch());
+                mDominantColor = determineColor(getDominantSwatch(palette));
+            } else {
+                mVibrantColor = Color.TRANSPARENT;
+                mVibrantDarkColor = Color.TRANSPARENT;
+                mVibrantLightColor = Color.TRANSPARENT;
+                mDominantColor = Color.TRANSPARENT;
+            }
         }
 
         public BitmapColors(int vibrantColor, int vibrantDarkColor) {
@@ -101,6 +108,9 @@ public class BitmapWithColors {
 
     public int getVibrantColor() {
         loadColorsIfNeeded();
+        if (mColors == null) {
+            return Color.TRANSPARENT;
+        }
         if (mColors.mVibrantColor == Color.TRANSPARENT) {
             return mColors.mVibrantDarkColor;
         }
@@ -109,6 +119,9 @@ public class BitmapWithColors {
 
     public int getVibrantDarkColor() {
         loadColorsIfNeeded();
+        if (mColors == null) {
+            return Color.TRANSPARENT;
+        }
         if (mColors.mVibrantDarkColor == Color.TRANSPARENT) {
             return mColors.mVibrantColor;
         }
@@ -117,6 +130,9 @@ public class BitmapWithColors {
 
     public int getContrastingColor() {
         loadColorsIfNeeded();
+        if (mColors == null) {
+            return Color.TRANSPARENT;
+        }
 
         float contrastToDark = computeContrastBetweenColors(mColors.mDominantColor,
                 mColors.mVibrantDarkColor);
@@ -182,11 +198,17 @@ public class BitmapWithColors {
             return;
         }
 
-        final Palette p = Palette.from(mBitmap).generate();
+        if (mBitmap == null || mBitmap.isRecycled()) {
+            return;
+        }
 
-        mColors = new BitmapColors(p);
-        synchronized (sCachedColors) {
-            sCachedColors.put(mBitmapKey, mColors);
+        try {
+            final Palette p = Palette.from(mBitmap).generate();
+            mColors = new BitmapColors(p);
+            synchronized (sCachedColors) {
+                sCachedColors.put(mBitmapKey, mColors);
+            }
+        } catch (final Throwable ignored) {
         }
     }
 
