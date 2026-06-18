@@ -2621,8 +2621,6 @@ public class MusicPlaybackService extends MediaBrowserService
             mPlayerHandler.sendEmptyMessage(FADEUP);
 
             setIsSupposedToBePlaying(true, true);
-        } else if (mPlaylist.size() <= 0) {
-            setShuffleMode(SHUFFLE_AUTO);
         }
     }
 
@@ -2640,21 +2638,27 @@ public class MusicPlaybackService extends MediaBrowserService
         switch (focusChange) {
             case AudioManager.AUDIOFOCUS_LOSS:
             case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
-                pause(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT);
+                if (mPlayerHandler != null) {
+                    pause(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT);
+                }
                 break;
             case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
-                mPlayerHandler.removeMessages(FADEUP);
-                mPlayerHandler.sendEmptyMessage(FADEDOWN);
+                if (mPlayerHandler != null) {
+                    mPlayerHandler.removeMessages(FADEUP);
+                    mPlayerHandler.sendEmptyMessage(FADEDOWN);
+                }
                 break;
             case AudioManager.AUDIOFOCUS_GAIN:
-                if (!isPlaying() && mPausedByTransientLossOfFocus) {
-                    mPausedByTransientLossOfFocus = false;
-                    mPlayerHandler.mCurrentVolume = 0f;
-                    mPlayer.setVolume(0f);
-                    play();
-                } else {
-                    mPlayerHandler.removeMessages(FADEDOWN);
-                    mPlayerHandler.sendEmptyMessage(FADEUP);
+                if (mPlayerHandler != null && mPlayer != null) {
+                    if (!isPlaying() && mPausedByTransientLossOfFocus) {
+                        mPausedByTransientLossOfFocus = false;
+                        mPlayerHandler.mCurrentVolume = 0f;
+                        mPlayer.setVolume(0f);
+                        play();
+                    } else {
+                        mPlayerHandler.removeMessages(FADEDOWN);
+                        mPlayerHandler.sendEmptyMessage(FADEUP);
+                    }
                 }
                 break;
             default:
@@ -3484,11 +3488,14 @@ public class MusicPlaybackService extends MediaBrowserService
                 // resolve the content resolver path to a file path
                 Cursor cursor = null;
                 try {
-                    final String[] proj = {MediaStore.Audio.Media.DATA};
-                    cursor = mService.get().getContentResolver().query(uri, proj,
-                            null, null, null);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        filePath = cursor.getString(0);
+                    final MusicPlaybackService service = mService.get();
+                    if (service != null) {
+                        final String[] proj = {MediaStore.Audio.Media.DATA};
+                        cursor = service.getContentResolver().query(uri, proj,
+                                null, null, null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            filePath = cursor.getString(0);
+                        }
                     }
                 } finally {
                     if (cursor != null) {
@@ -3522,7 +3529,11 @@ public class MusicPlaybackService extends MediaBrowserService
                 player.reset();
                 player.setOnPreparedListener(null);
                 if (path.startsWith("content://")) {
-                    player.setDataSource(mService.get(), Uri.parse(path));
+                    final MusicPlaybackService service = mService.get();
+                    if (service == null) {
+                        return false;
+                    }
+                    player.setDataSource(service, Uri.parse(path));
                 } else {
                     player.setDataSource(path);
                 }
@@ -3584,16 +3595,28 @@ public class MusicPlaybackService extends MediaBrowserService
          * Starts or resumes playback.
          */
         public void start() {
-            mCurrentMediaPlayer.start();
-            mSrtManager.play();
+            try {
+                if (mCurrentMediaPlayer != null) {
+                    mCurrentMediaPlayer.start();
+                }
+            } catch (final IllegalStateException exc) {
+                Log.e(TAG, "Could not start playback", exc);
+            }
+            if (mSrtManager != null) {
+                mSrtManager.play();
+            }
         }
 
         /**
          * Resets the MediaPlayer to its uninitialized state.
          */
         public void stop() {
-            mCurrentMediaPlayer.reset();
-            mSrtManager.reset();
+            if (mCurrentMediaPlayer != null) {
+                mCurrentMediaPlayer.reset();
+            }
+            if (mSrtManager != null) {
+                mSrtManager.reset();
+            }
             mIsInitialized = false;
         }
 
@@ -3601,17 +3624,25 @@ public class MusicPlaybackService extends MediaBrowserService
          * Releases resources associated with this MediaPlayer object.
          */
         public void release() {
-            mCurrentMediaPlayer.release();
-            mSrtManager.release();
-            mSrtManager = null;
+            if (mCurrentMediaPlayer != null) {
+                mCurrentMediaPlayer.release();
+            }
+            if (mSrtManager != null) {
+                mSrtManager.release();
+                mSrtManager = null;
+            }
         }
 
         /**
          * Pauses playback. Call start() to resume.
          */
         public void pause() {
-            mCurrentMediaPlayer.pause();
-            mSrtManager.pause();
+            if (mCurrentMediaPlayer != null) {
+                mCurrentMediaPlayer.pause();
+            }
+            if (mSrtManager != null) {
+                mSrtManager.pause();
+            }
         }
 
         /**
@@ -3621,7 +3652,7 @@ public class MusicPlaybackService extends MediaBrowserService
          */
         public long duration() {
             try {
-                return mCurrentMediaPlayer.getDuration();
+                return mCurrentMediaPlayer != null ? mCurrentMediaPlayer.getDuration() : 0L;
             } catch (IllegalStateException exc) {
                 Log.e(TAG, "Could not get duration", exc);
             }
@@ -3635,7 +3666,7 @@ public class MusicPlaybackService extends MediaBrowserService
          */
         public long position() {
             try {
-                return mCurrentMediaPlayer.getCurrentPosition();
+                return mCurrentMediaPlayer != null ? mCurrentMediaPlayer.getCurrentPosition() : 0L;
             } catch (IllegalStateException exc) {
                 Log.e(TAG, "Could not get current position", exc);
             }
@@ -3649,8 +3680,16 @@ public class MusicPlaybackService extends MediaBrowserService
          * @return The offset in milliseconds from the start to seek to
          */
         public long seek(final long whereto) {
-            mCurrentMediaPlayer.seekTo((int) whereto);
-            mSrtManager.seekTo(whereto);
+            try {
+                if (mCurrentMediaPlayer != null) {
+                    mCurrentMediaPlayer.seekTo((int) whereto);
+                }
+            } catch (final IllegalStateException exc) {
+                Log.e(TAG, "Could not seek", exc);
+            }
+            if (mSrtManager != null) {
+                mSrtManager.seekTo(whereto);
+            }
             return whereto;
         }
 
@@ -3660,7 +3699,9 @@ public class MusicPlaybackService extends MediaBrowserService
          * @param vol Left and right volume scalar
          */
         public void setVolume(final float vol) {
-            mCurrentMediaPlayer.setVolume(vol, vol);
+            if (mCurrentMediaPlayer != null) {
+                mCurrentMediaPlayer.setVolume(vol, vol);
+            }
         }
 
         /**
@@ -3669,7 +3710,12 @@ public class MusicPlaybackService extends MediaBrowserService
          * @return The current audio session ID.
          */
         public int getAudioSessionId() {
-            return mCurrentMediaPlayer.getAudioSessionId();
+            try {
+                return mCurrentMediaPlayer != null ? mCurrentMediaPlayer.getAudioSessionId() : 0;
+            } catch (final IllegalStateException exc) {
+                Log.e(TAG, "Could not get audio session id", exc);
+            }
+            return 0;
         }
 
         @Override
@@ -3717,229 +3763,310 @@ public class MusicPlaybackService extends MediaBrowserService
             mService = new WeakReference<>(service);
         }
 
+        private MusicPlaybackService getServiceOrNull() {
+            return mService.get();
+        }
+
         @Override
         public void openFile(final String path) {
-            mService.get().openFile(path);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.openFile(path);
+            }
         }
 
         @Override
         public void open(final long[] list, final int position, long sourceId, int sourceType) {
-            mService.get().open(list, position, sourceId, IdType.getTypeById(sourceType));
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.open(list, position, sourceId, IdType.getTypeById(sourceType));
+            }
         }
 
         @Override
         public void stop() {
-            mService.get().stop();
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.stop();
+            }
         }
 
         @Override
         public void pause() {
-            mService.get().pause(false);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.pause(false);
+            }
         }
 
         @Override
         public void play() {
-            mService.get().play();
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.play();
+            }
         }
 
         @Override
         public void prev(boolean forcePrevious) {
-            mService.get().prev(forcePrevious);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.prev(forcePrevious);
+            }
         }
 
         @Override
         public void next() {
-            mService.get().gotoNext(true);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.gotoNext(true);
+            }
         }
 
         @Override
         public void enqueue(final long[] list, final int action, long sourceId, int sourceType) {
-            mService.get().enqueue(list, action, sourceId, IdType.getTypeById(sourceType));
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.enqueue(list, action, sourceId, IdType.getTypeById(sourceType));
+            }
         }
 
         @Override
         public void setQueuePosition(final int index) {
-            mService.get().setQueuePosition(index);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.setQueuePosition(index);
+            }
         }
 
         @Override
         public void setShuffleMode(final int shufflemode) {
-            mService.get().setShuffleMode(shufflemode);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.setShuffleMode(shufflemode);
+            }
         }
 
         @Override
         public void setRepeatMode(final int repeatmode) {
-            mService.get().setRepeatMode(repeatmode);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.setRepeatMode(repeatmode);
+            }
         }
 
         @Override
         public void moveQueueItem(final int from, final int to) {
-            mService.get().moveQueueItem(from, to);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.moveQueueItem(from, to);
+            }
         }
 
         @Override
         public void refresh() {
-            mService.get().refresh();
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.refresh();
+            }
         }
 
         @Override
         public void playlistChanged() {
-            mService.get().playlistChanged();
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.playlistChanged();
+            }
         }
 
         @Override
         public boolean isPlaying() {
-            return mService.get().isPlaying();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null && service.isPlaying();
         }
 
         @Override
         public long[] getQueue() {
-            return mService.get().getQueue();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueue() : new long[0];
         }
 
         @Override
         public long getQueueItemAtPosition(int position) {
-            return mService.get().getQueueItemAtPosition(position);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueueItemAtPosition(position) : -1;
         }
 
         @Override
         public int getQueueSize() {
-            return mService.get().getQueueSize();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueueSize() : 0;
         }
 
         @Override
         public int getQueueHistoryPosition(int position) {
-            return mService.get().getQueueHistoryPosition(position);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueueHistoryPosition(position) : -1;
         }
 
         @Override
         public int getQueueHistorySize() {
-            return mService.get().getQueueHistorySize();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueueHistorySize() : 0;
         }
 
         @Override
         public int[] getQueueHistoryList() {
-            return mService.get().getQueueHistoryList();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueueHistoryList() : new int[0];
         }
 
         @Override
         public long duration() {
-            return mService.get().duration();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.duration() : 0;
         }
 
         @Override
         public long position() {
-            return mService.get().position();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.position() : 0;
         }
 
         @Override
         public long seek(final long position) {
-            return mService.get().seek(position);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.seek(position) : 0;
         }
 
         @Override
         public void seekRelative(final long deltaInMs) {
-            mService.get().seekRelative(deltaInMs);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.seekRelative(deltaInMs);
+            }
         }
 
         @Override
         public long getAudioId() {
-            return mService.get().getAudioId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getAudioId() : -1;
         }
 
         @Override
         public MusicPlaybackTrack getCurrentTrack() {
-            return mService.get().getCurrentTrack();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getCurrentTrack() : null;
         }
 
         @Override
         public MusicPlaybackTrack getTrack(int index) {
-            return mService.get().getTrack(index);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getTrack(index) : null;
         }
 
         @Override
         public long getNextAudioId() {
-            return mService.get().getNextAudioId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getNextAudioId() : -1;
         }
 
         @Override
         public long getPreviousAudioId() {
-            return mService.get().getPreviousAudioId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getPreviousAudioId() : -1;
         }
 
         @Override
         public long getArtistId() {
-            return mService.get().getArtistId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getArtistId() : -1;
         }
 
         @Override
         public long getAlbumId() {
-            return mService.get().getAlbumId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getAlbumId() : -1;
         }
 
         @Override
         public String getArtistName() {
-            return mService.get().getArtistName();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getArtistName() : null;
         }
 
         @Override
         public String getTrackName() {
-            return mService.get().getTrackName();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getTrackName() : null;
         }
 
         @Override
         public String getAlbumName() {
-            return mService.get().getAlbumName();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getAlbumName() : null;
         }
 
         @Override
         public String getPath() {
-            return mService.get().getPath();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getPath() : null;
         }
 
         @Override
         public int getQueuePosition() {
-            return mService.get().getQueuePosition();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getQueuePosition() : 0;
         }
 
         @Override
         public int getShuffleMode() {
-            return mService.get().getShuffleMode();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getShuffleMode() : 0;
         }
 
         @Override
         public int getRepeatMode() {
-            return mService.get().getRepeatMode();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getRepeatMode() : 0;
         }
 
         @Override
         public int removeTracks(final int first, final int last) {
-            return mService.get().removeTracks(first, last);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.removeTracks(first, last) : 0;
         }
 
         @Override
         public int removeTrack(final long id) {
-            return mService.get().removeTrack(id);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.removeTrack(id) : 0;
         }
 
         @Override
         public boolean removeTrackAtPosition(final long id, final int position) {
-            return mService.get().removeTrackAtPosition(id, position);
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null && service.removeTrackAtPosition(id, position);
         }
 
         @Override
         public int getMediaMountedCount() {
-            return mService.get().getMediaMountedCount();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getMediaMountedCount() : 0;
         }
 
         @Override
         public int getAudioSessionId() {
-            return mService.get().getAudioSessionId();
+            final MusicPlaybackService service = getServiceOrNull();
+            return service != null ? service.getAudioSessionId() : 0;
         }
 
         @Override
         public void setShakeToPlayEnabled(boolean enabled) {
-            mService.get().setShakeToPlayEnabled(enabled);
+            final MusicPlaybackService service = getServiceOrNull();
+            if (service != null) {
+                service.setShakeToPlayEnabled(enabled);
+            }
         }
     }
 
