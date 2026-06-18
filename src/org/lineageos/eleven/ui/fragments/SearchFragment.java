@@ -46,6 +46,8 @@ import org.lineageos.eleven.loaders.SearchLoader;
 import org.lineageos.eleven.model.Song;
 import org.lineageos.eleven.service.MusicPlaybackTrack;
 import org.lineageos.eleven.utils.MusicUtils;
+import org.lineageos.eleven.utils.PopupMenuHelper;
+import org.lineageos.eleven.utils.SongPopupMenuHelper;
 import org.lineageos.eleven.widgets.LoadingEmptyContainer;
 import org.lineageos.eleven.widgets.NoResultsContainer;
 
@@ -59,6 +61,7 @@ public class SearchFragment extends BaseFragment implements
 
     private RecyclerView mListView;
     private SongListAdapter mAdapter;
+    private PopupMenuHelper mPopupMenuHelper;
     private SearchView mSearchView;
     private TextView mSearchSrcTextView;
     private ImageView mSearchCloseButton;
@@ -73,7 +76,26 @@ public class SearchFragment extends BaseFragment implements
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
+        mPopupMenuHelper = new SongPopupMenuHelper(getActivity(), getChildFragmentManager()) {
+            @Override
+            public Song getSong(int position) {
+                return mAdapter.getItem(position);
+            }
+
+            @Override
+            protected long getSourceId() {
+                return -1;
+            }
+
+            @Override
+            protected Config.IdType getSourceType() {
+                return Config.IdType.NA;
+            }
+        };
+
         mAdapter = createAdapter();
+        mAdapter.setPopupMenuClickedListener((v, position) ->
+                mPopupMenuHelper.showPopupMenu(v, position));
         mSearchHandler = new Handler(Looper.getMainLooper());
     }
 
