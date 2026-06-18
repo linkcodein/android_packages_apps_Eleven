@@ -537,6 +537,14 @@ public class HomeActivity extends SlidingPanelActivity implements
             if (checkPermissionGrantResults(grantResults)) {
                 init(mSavedInstanceState);
                 setRequestingPermissions(false);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                        && !MusicUtils.hasManageStoragePermission(this)) {
+                    mHandler.post(() -> {
+                        if (!isFinishing()) {
+                            MusicUtils.requestManageStoragePermission(HomeActivity.this);
+                        }
+                    });
+                }
             } else {
                 finish();
             }
