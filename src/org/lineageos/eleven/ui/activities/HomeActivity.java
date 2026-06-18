@@ -347,7 +347,8 @@ public class HomeActivity extends SlidingPanelActivity implements
                     androidx.fragment.R.animator.fragment_fade_enter,
                     androidx.fragment.R.animator.fragment_fade_exit);
 
-            if (action.equals(ACTION_VIEW_SMART_PLAYLIST)) {
+            if (action.equals(ACTION_VIEW_SMART_PLAYLIST)
+                    && intent.getExtras() != null) {
                 long playlistId = intent.getExtras().getLong(Config.SMART_PLAYLIST_TYPE);
                 Config.SmartPlaylistType type = Config.SmartPlaylistType.getTypeById(playlistId);
                 if (Config.SmartPlaylistType.LastAdded.equals(type)) {
@@ -516,11 +517,10 @@ public class HomeActivity extends SlidingPanelActivity implements
     public void onBackStackChanged() {
         Fragment topFragment = getTopFragment();
         if (topFragment != null) {
-            // the fragment that has come back to the top should now have its menu items
-            // added to the action bar -- so tell it to make it menu items visible
             topFragment.setMenuVisibility(true);
-            ISetupActionBar setupActionBar = (ISetupActionBar) topFragment;
-            setupActionBar.setupActionBar();
+            if (topFragment instanceof ISetupActionBar) {
+                ((ISetupActionBar) topFragment).setupActionBar();
+            }
 
             final androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
@@ -534,7 +534,14 @@ public class HomeActivity extends SlidingPanelActivity implements
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_STORAGE) {
-            if (checkPermissionGrantResults(grantResults)) {
+            boolean storageGranted = true;
+            for (int i = 0; i < permissions.length; i++) {
+                if (!Manifest.permission.RECORD_AUDIO.equals(permissions[i])
+                        && grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    storageGranted = false;
+                }
+            }
+            if (storageGranted) {
                 init(mSavedInstanceState);
                 setRequestingPermissions(false);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R

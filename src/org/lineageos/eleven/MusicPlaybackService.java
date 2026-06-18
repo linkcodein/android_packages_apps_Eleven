@@ -863,6 +863,7 @@ public class MusicPlaybackService extends MediaBrowserService
     public void onDestroy() {
         if (D) Log.d(TAG, "Destroying service");
         if (!mReadGranted) {
+            super.onDestroy();
             return;
         }
         super.onDestroy();
