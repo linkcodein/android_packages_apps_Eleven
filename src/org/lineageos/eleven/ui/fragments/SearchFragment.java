@@ -25,8 +25,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -53,11 +59,14 @@ public class SearchFragment extends BaseFragment implements
 
     private RecyclerView mListView;
     private SongListAdapter mAdapter;
-    private androidx.appcompat.widget.SearchView mSearchView;
+    private SearchView mSearchView;
+    private TextView mSearchSrcTextView;
+    private ImageView mSearchCloseButton;
     private LoadingEmptyContainer mLoadingEmptyContainer;
     private Handler mSearchHandler;
     private String mLastQuery;
     private List<Song> mSearchedSongs;
+    private boolean mClearingQuery;
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -84,9 +93,40 @@ public class SearchFragment extends BaseFragment implements
         setupNoResultsContainer(mLoadingEmptyContainer.getNoResultsContainer());
 
         mSearchView = mRootView.findViewById(R.id.search_view);
+        setupSearchView();
+
+        LoaderManager.getInstance(this).initLoader(SEARCH_LOADER, null, this);
+    }
+
+    private void setupSearchView() {
         mSearchView.setIconified(false);
-        mSearchView.requestFocus();
-        mSearchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+        mSearchView.setIconifiedByDefault(false);
+        mSearchView.setQueryHint(getString(R.string.search_hint));
+        mSearchView.setSubmitButtonEnabled(false);
+        mSearchView.clearFocus();
+
+        mSearchSrcTextView = mSearchView.findViewById(
+                androidx.appcompat.R.id.search_src_text);
+        mSearchCloseButton = mSearchView.findViewById(
+                androidx.appcompat.R.id.search_close_btn);
+
+        if (mSearchSrcTextView != null) {
+            mSearchSrcTextView.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    mSearchHandler.removeCallbacks(mSearchRunnable);
+                    final String query = mSearchSrcTextView.getText().toString();
+                    startSearch(query);
+                    return true;
+                }
+                return false;
+            });
+        }
+
+        if (mSearchCloseButton != null) {
+            mSearchCloseButton.setOnClickListener(v -> handleClearQuery());
+        }
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(final String query) {
                 mSearchHandler.removeCallbacks(mSearchRunnable);
@@ -96,26 +136,84 @@ public class SearchFragment extends BaseFragment implements
 
             @Override
             public boolean onQueryTextChange(final String newText) {
+                updateCloseButtonVisibility(newText);
+                if (mClearingQuery) {
+                    return false;
+                }
                 mSearchHandler.removeCallbacks(mSearchRunnable);
                 if (newText != null && newText.length() >= 1) {
+                    mLoadingEmptyContainer.showLoading();
                     mSearchHandler.postDelayed(mSearchRunnable, SEARCH_DELAY_MS);
                 } else {
-                    mLoadingEmptyContainer.showNoResults();
-                    mAdapter.unload();
-                    mLastQuery = null;
+                    cancelSearch();
                 }
                 return false;
             }
         });
 
-        LoaderManager.getInstance(this).initLoader(SEARCH_LOADER, null, this);
+        mSearchView.requestFocus();
+        updateCloseButtonVisibility("");
+    }
+
+    private void handleClearQuery() {
+        if (mSearchView == null) {
+            return;
+        }
+        final String current = mSearchView.getQuery() == null
+                ? "" : mSearchView.getQuery().toString();
+        if (current.isEmpty()) {
+            return;
+        }
+
+        mClearingQuery = true;
+        try {
+            mSearchView.setQuery("", false);
+        } finally {
+            mClearingQuery = false;
+        }
+        cancelSearch();
+        updateCloseButtonVisibility("");
+
+        if (mSearchView.requestFocus()) {
+            final InputMethodManager imm = (InputMethodManager)
+                    getContainingActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.showSoftInput(mSearchView.findFocus(), InputMethodManager.SHOW_IMPLICIT);
+            }
+        }
+    }
+
+    private void cancelSearch() {
+        mSearchHandler.removeCallbacks(mSearchRunnable);
+        mLastQuery = null;
+        mSearchedSongs = null;
+        mAdapter.unload();
+        try {
+            LoaderManager.getInstance(SearchFragment.this)
+                    .destroyLoader(SEARCH_LOADER);
+        } catch (final Exception ignored) {
+        }
+        LoaderManager.getInstance(SearchFragment.this)
+                .initLoader(SEARCH_LOADER, null, SearchFragment.this);
+        mLoadingEmptyContainer.setVisibility(View.VISIBLE);
+        mLoadingEmptyContainer.showNoResults();
+    }
+
+    private void updateCloseButtonVisibility(final CharSequence text) {
+        if (mSearchCloseButton == null) {
+            return;
+        }
+        final boolean hasText = text != null && text.length() > 0;
+        mSearchCloseButton.setVisibility(hasText ? View.VISIBLE : View.GONE);
     }
 
     private final Runnable mSearchRunnable = new Runnable() {
         @Override
         public void run() {
-            if (mSearchView != null) {
-                startSearch(mSearchView.getQuery().toString());
+            if (mSearchView != null && !mClearingQuery) {
+                final String query = mSearchView.getQuery() == null
+                        ? "" : mSearchView.getQuery().toString();
+                startSearch(query);
             }
         }
     };
