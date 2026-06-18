@@ -142,4 +142,12 @@
     <string name="widget_album_name">專輯名稱</string>
     <string name="set_as_ringtone_permission_denied">無法設為鈴聲：請在系統設定中授予 Eleven 「修改系統設定」權限</string>
     <string name="manage_storage_permission_denied">所有檔案存取權限被拒絕：請在系統設定中授予 Eleven 「所有檔案存取」權限</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">修改系統設定</string>
+    <string name="write_settings_dialog_message">若要設為鈴聲，Eleven 需要變更系統設定的權限。
+
+在下一個畫面中，開啟「允許修改系統設定」的開關，然後返回 Eleven 並再次點按「設為鈴聲」。</string>
+    <string name="write_settings_dialog_go_to_settings">前往設定</string>
+
 </resources>

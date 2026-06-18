@@ -138,4 +138,12 @@
     <string name="channel_music">Reproducir música</string>
     <string name="set_as_ringtone_permission_denied">Non se pode estabelecer como ton de chamada: concede "Modificar axustes do sistema" a Eleven nos axustes do sistema</string>
     <string name="manage_storage_permission_denied">Acceso a todos os ficheiros denegado: concede "Acceso a todos os ficheiros" a Eleven nos axustes do sistema</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modificar a configuración do sistema</string>
+    <string name="write_settings_dialog_message">Para estabelecer un ton de chamada, Eleven precisa permiso para modificar a configuración do sistema.
+
+Na seguinte pantalla, activa o interruptor de \"Permitir modificar a configuración do sistema\", despois volve a Eleven e toca \"Usar como ton de chamada\" de novo.</string>
+    <string name="write_settings_dialog_go_to_settings">Ir á configuración</string>
+
 </resources>

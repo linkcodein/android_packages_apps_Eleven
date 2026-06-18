@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Nedá sa nastaviť ako tón zvonenia: povoľte Eleven oprávnenie „Upravovať systémové nastavenia" v systémových nastaveniach</string>
     <string name="manage_storage_permission_denied">Prístup ku všetkým súborom zamietnutý: povoľte Eleven oprávnenie „Prístup ku všetkým súborom" v systémových nastaveniach</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Upravovať systémové nastavenia</string>
+    <string name="write_settings_dialog_message">Ak chcete nastaviť tón zvonenia, Eleven potrebuje povolenie na úpravu systémových nastavení.
+
+Na ďalšej obrazovke zapnite prepínač pre „Povoliť úpravu systémových nastavení“, potom sa vráťte do Eleven a znova ťuknite na „Použiť ako tón zvonenia\".</string>
+    <string name="write_settings_dialog_go_to_settings">Prejsť do nastavení</string>
+
 </resources>

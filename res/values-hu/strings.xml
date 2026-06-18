@@ -142,4 +142,12 @@
     <string name="widget_album_name">Az album címe</string>
     <string name="set_as_ringtone_permission_denied">Nem állítható be csengőhangként: adja meg az Elevennek a "Rendszerbeállítások módosítása" engedélyt a rendszerbeállításokban</string>
     <string name="manage_storage_permission_denied">Az összes fájlhoz való hozzáférés megtagadva: adja meg az Elevennek a "Hozzáférés az összes fájlhoz" engedélyt a rendszerbeállításokban</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Rendszerbeállítások módosítása</string>
+    <string name="write_settings_dialog_message">Csengőhang beállításához az Elevennek engedélyre van szüksége a rendszerbeállítások módosításához.
+
+A következő képernyőn kapcsolja BE a „Rendszerbeállítások módosításának engedélyezése\" kapcsolót, majd lépjen vissza az Elevenbe, és koppintson újra a „Használat csengőhangként\" gombra.</string>
+    <string name="write_settings_dialog_go_to_settings">Ugrás a beállításokhoz</string>
+
 </resources>

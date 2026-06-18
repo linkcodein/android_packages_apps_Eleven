@@ -137,4 +137,12 @@
     <string name="channel_music">تشغيل الموسيقى</string>
     <string name="set_as_ringtone_permission_denied">لا يمكن التعيين كنغمة رنين: امنح "تعديل إعدادات النظام" لتطبيق Eleven في إعدادات النظام</string>
     <string name="manage_storage_permission_denied">تم رفض الوصول إلى جميع الملفات: امنح "الوصول إلى جميع الملفات" لتطبيق Eleven في إعدادات النظام</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">تعديل إعدادات النظام</string>
+    <string name="write_settings_dialog_message">لتعيين نغمة رنين، يحتاج Eleven إلى إذن تعديل إعدادات النظام.
+
+في الشاشة التالية، قم بتشغيل مفتاح \"السماح بتعديل إعدادات النظام\"، ثم عد إلى Eleven واضغط على \"استخدام كنغمة رنين\" مرة أخرى.</string>
+    <string name="write_settings_dialog_go_to_settings">الذهاب إلى الإعدادات</string>
+
 </resources>

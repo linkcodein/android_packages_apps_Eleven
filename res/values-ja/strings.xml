@@ -142,4 +142,12 @@
     <string name="widget_album_name">アルバム名</string>
     <string name="set_as_ringtone_permission_denied">着信音として設定できません: システム設定でElevenに「システム設定の変更」権限を付与してください</string>
     <string name="manage_storage_permission_denied">すべてのファイルへのアクセスが拒否されました: システム設定でElevenに「すべてのファイルへのアクセス」権限を付与してください</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">システム設定の変更</string>
+    <string name="write_settings_dialog_message">着信音を設定するには、Elevenがシステム設定を変更する許可が必要です。
+
+次の画面で、「システム設定の変更を許可」のスイッチをオンにしてから、Elevenに戻り、「着信音として使用」をもう一度タップしてください。</string>
+    <string name="write_settings_dialog_go_to_settings">設定に移動</string>
+
 </resources>

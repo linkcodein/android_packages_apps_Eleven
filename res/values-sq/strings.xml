@@ -142,4 +142,12 @@
     <string name="widget_album_name">Emri i albumit</string>
     <string name="set_as_ringtone_permission_denied">S\'mund të caktohet si zile: jepni Eleven lejen "Modifiko cilësimet e sistemit" në cilësimet e sistemit</string>
     <string name="manage_storage_permission_denied">Hyrja në krejt skedarët u mohua: jepni Eleven lejen "Hyrje në krejt skedarët" në cilësimet e sistemit</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modifiko cilësimet e sistemit</string>
+    <string name="write_settings_dialog_message">Për të caktuar një zile, Eleven ka nevojë për lejen e modifikimit të cilësimeve të sistemit.
+
+Në ekranin tjetër, aktivizoni ndërprerësin për \"Lejo modifikimin e cilësimeve të sistemit\", pastaj kthehuni te Eleven dhe prekni përsëri \"Përdor si zile\".</string>
+    <string name="write_settings_dialog_go_to_settings">Shko te cilësimet</string>
+
 </resources>

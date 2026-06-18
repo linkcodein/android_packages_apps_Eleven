@@ -142,4 +142,12 @@
     <string name="widget_album_name">ئالبوم ئاتى</string>
     <string name="set_as_ringtone_permission_denied">قوڭغۇراق قىلىپ تەڭشىگىلى بولمىدى: سىستېما تەڭشىكىدە Eleven غا «سىستېما تەڭشىكىنى ئۆزگەرتىش» ھوقۇقىنى بېرىڭ</string>
     <string name="manage_storage_permission_denied">بارلىق ھۆججەتلەرنى زىيارەت قىلىش رەت قىلىندى: سىستېما تەڭشىكىدە Eleven غا «بارلىق ھۆججەتلەرنى زىيارەت قىلىش» ھوقۇقىنى بېرىڭ</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">سىستېما تەڭشىكىنى ئۆزگەرتىش</string>
+    <string name="write_settings_dialog_message">قوڭغۇراق قىلىپ تەڭشەش ئۈچۈن، Eleven نىڭ سىستېما تەڭشىكىنى ئۆزگەرتىش ھوقۇقى بولۇشى كېرەك.
+
+كېيىنكى ئېكراندىكى «سىستېما تەڭشىكىنى ئۆزگەرتىشكە يول قوي» نى ئېچىپ، ئاندىن Eleven غا قايتىپ «قوڭغۇراق قىلىپ ئىشلەت» نى قايتا چېكىڭ.</string>
+    <string name="write_settings_dialog_go_to_settings">تەڭشەككە كىرىڭ</string>
+
 </resources>

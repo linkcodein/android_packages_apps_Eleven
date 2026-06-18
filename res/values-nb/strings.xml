@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Kan ikke settes som ringetone: gi Eleven tillatelsen "Endre systeminnstillinger" i systeminnstillingene</string>
     <string name="manage_storage_permission_denied">Tilgang til alle filer nektet: gi Eleven tillatelsen "Tilgang til alle filer" i systeminnstillingene</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Endre systeminnstillinger</string>
+    <string name="write_settings_dialog_message">For å angi en ringetone, trenger Eleven tillatelse til å endre systeminnstillinger.
+
+På neste skjerm slår du PÅ bryteren for \"Tillat endring av systeminnstillinger\", og deretter går du tilbake til Eleven og tapper \"Bruk som ringetone\" igjen.</string>
+    <string name="write_settings_dialog_go_to_settings">Gå til innstillinger</string>
+
 </resources>

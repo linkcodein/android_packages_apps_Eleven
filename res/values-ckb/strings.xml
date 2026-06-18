@@ -142,4 +142,12 @@
     <string name="widget_album_name">ناوی ئەلبووم</string>
     <string name="set_as_ringtone_permission_denied">ناتوانرێت وەک تۆنی زەنگ دابنرێت: مۆڵەتی "گۆڕینی ڕێکخستنەکانی سیستەم" بە Eleven لە ڕێکخستنەکانی سیستەم بدە</string>
     <string name="manage_storage_permission_denied">دەستگەیشتن بە هەموو فایلەکان ڕەتکرایەوە: مۆڵەتی "دەستگەیشتن بە هەموو فایلەکان" بە Eleven لە ڕێکخستنەکانی سیستەم بدە</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">دەستکاریکردنی ڕێکخستنەکانی سیستەم</string>
+    <string name="write_settings_dialog_message">بۆ دانانی تۆنی زەنگ، Eleven پێویستی بە مۆڵەتی دەستکاریکردنی ڕێکخستنەکانی سیستەم هەیە.
+
+لە شاشەی دواتر، کلیلی \"ڕێگە بە دەستکاریکردنی ڕێکخستنەکانی سیستەم بدە\" کارابکە، پاشان بگەڕێوە بۆ Eleven و دووبارە \"بەکارھێنان وەک تۆنی زەنگ\" داگرە.</string>
+    <string name="write_settings_dialog_go_to_settings">بچۆ بۆ ڕێکخستنەکان</string>
+
 </resources>

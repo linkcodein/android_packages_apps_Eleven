@@ -142,4 +142,12 @@
     <string name="widget_album_name">Name des Albums</string>
     <string name="set_as_ringtone_permission_denied">Kann nicht als Klingelton festgelegt werden: gewähre Eleven "Systemeinstellungen ändern" in den Systemeinstellungen</string>
     <string name="manage_storage_permission_denied">Zugriff auf alle Dateien verweigert: gewähre Eleven "Zugriff auf alle Dateien" in den Systemeinstellungen</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Systemeinstellungen ändern</string>
+    <string name="write_settings_dialog_message">Um einen Klingelton festzulegen, benötigt Eleven die Berechtigung, Systemeinstellungen zu ändern.
+
+Aktivieren Sie auf dem nächsten Bildschirm den Schalter für „Systemeinstellungen ändern zulassen“, gehen Sie dann zurück zu Eleven und tippen Sie erneut auf \"Als Klingelton verwenden\".</string>
+    <string name="write_settings_dialog_go_to_settings">Zu den Einstellungen</string>
+
 </resources>

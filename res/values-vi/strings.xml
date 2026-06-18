@@ -142,4 +142,12 @@
     <string name="widget_album_name">Tên album</string>
     <string name="set_as_ringtone_permission_denied">Không thể đặt làm nhạc chuông: cấp quyền "Chỉnh sửa cài đặt hệ thống" cho Eleven trong cài đặt hệ thống</string>
     <string name="manage_storage_permission_denied">Truy cập tất cả tệp bị từ chối: cấp quyền "Truy cập tất cả tệp" cho Eleven trong cài đặt hệ thống</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Chỉnh sửa cài đặt hệ thống</string>
+    <string name="write_settings_dialog_message">Để đặt nhạc chuông, Eleven cần quyền chỉnh sửa cài đặt hệ thống.
+
+Trong màn hình tiếp theo, bật công tắc cho \"Cho phép chỉnh sửa cài đặt hệ thống\", sau đó quay lại Eleven và nhấn \"Dùng làm nhạc chuông\" lại.</string>
+    <string name="write_settings_dialog_go_to_settings">Đến cài đặt</string>
+
 </resources>

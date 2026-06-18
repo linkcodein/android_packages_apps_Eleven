@@ -117,4 +117,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g><xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Ur izmir ara ad ittwabeyyey d lawan n usiw: efk-as i Eleven tasiret "Beddel iɣewwaṛen n unagraw" deg iɣewwaṛen n unagraw</string>
     <string name="manage_storage_permission_denied">Anekcum ɣer yifuyla meṛṛa yeggi: efk-as i Eleven tasiret "Anekcum ɣer yifuyla meṛṛa" deg iɣewwaṛen n unagraw</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Snifel iɣewwaṛen n unagraw</string>
+    <string name="write_settings_dialog_message">Akken ad tesbaduḍ aṣekruṛ, isef-as i Eleven ttwasireg ad isnifel iɣewwaṛen n unagraw.
+
+Deg ugdil i d-iteddun, rmed taselḍi n \"Sireg asnifel n iɣewwaṛen n unagraw\", sakin uɣal ɣer Eleven sakin seddem \"Seqdec d aṣekruṛ\" tikkelt-nniḍen.</string>
+    <string name="write_settings_dialog_go_to_settings">Ddu ɣer iɣewwaṛen</string>
+
 </resources>

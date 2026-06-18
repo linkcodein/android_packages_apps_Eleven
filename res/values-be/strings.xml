@@ -118,4 +118,12 @@
     <string name="channel_music">Прайграванне музыкі</string>
     <string name="set_as_ringtone_permission_denied">Немагчыма задаць як рынгтон: дайце Eleven дазвол "Змяняць сістэмныя налады" у сістэмных наладах</string>
     <string name="manage_storage_permission_denied">Доступ да ўсіх файлах адхілены: дайце Eleven дазвол "Доступ да ўсіх файлаў" у сістэмных наладах</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Змяніць сістэмныя налады</string>
+    <string name="write_settings_dialog_message">Каб усталяваць рынгтон, Eleven патрабуе дазволу на змяненне сістэмных налад.
+
+На наступным экране ўключыце перамыкач \"Дазволіць змяняць сістэмныя налады\", затым верніцеся ў Eleven і націсніце \"Выкарыстоўваць як рынгтон\" зноў.</string>
+    <string name="write_settings_dialog_go_to_settings"> Перайсці да налад</string>
+
 </resources>

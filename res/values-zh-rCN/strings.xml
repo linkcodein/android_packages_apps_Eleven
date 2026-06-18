@@ -142,4 +142,12 @@
     <string name="widget_album_name">专辑名称</string>
     <string name="set_as_ringtone_permission_denied">无法设为铃声：请在系统设置中授予 Eleven "修改系统设置" 权限</string>
     <string name="manage_storage_permission_denied">所有文件访问权限被拒绝：请在系统设置中授予 Eleven "所有文件访问" 权限</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">修改系统设置</string>
+    <string name="write_settings_dialog_message">要设置铃声，Eleven 需要修改系统设置的权限。
+
+在下一个屏幕上，打开\"允许修改系统设置 \"的开关，然后返回 Eleven，再次点击\"设为铃声\"。</string>
+    <string name="write_settings_dialog_go_to_settings">前往设置</string>
+
 </resources>

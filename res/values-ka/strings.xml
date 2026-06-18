@@ -142,4 +142,12 @@
     <string name="widget_album_name">კრებულის სახელი</string>
     <string name="set_as_ringtone_permission_denied">შეუძლებელია რინგტონად დაყენება: მიეცით Eleven-ს "სისტემური პარამეტრების შეცვლის" ნებართვა სისტემურ პარამეტრებში</string>
     <string name="manage_storage_permission_denied">ყველა ფაილზე წვდომა უარყოფილია: მიეცით Eleven-ს "ყველა ფაილზე წვდომის" ნებართვა სისტემურ პარამეტრებში</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">სისტემური პარამეტრების შეცვლა</string>
+    <string name="write_settings_dialog_message">რингტონის დასაყენებლად, Eleven-ს სჭირდება სისტემური პარამეტრების შეცვლის ნებართვა.
+
+შემდეგ ეკრანზე, ჩართეთ გადამრთველი \"სისტემური პარამეტრების შეცვლის ნებართვა\", შემდეგ დაბრუნდით Eleven-ზე და შეეხეთ \"გამოყენება რინგტონად\" ხელახც.</string>
+    <string name="write_settings_dialog_go_to_settings">პარამეტრებზე გადასვლა</string>
+
 </resources>

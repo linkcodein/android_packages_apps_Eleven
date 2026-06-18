@@ -141,4 +141,12 @@
     <string name="widget_album_name">Heiti plötu</string>
     <string name="set_as_ringtone_permission_denied">Get ekki stillt sem hringtitón: veittu Eleven heimildina "Breyta kerfisstillingum" í kerfisstillingum</string>
     <string name="manage_storage_permission_denied">Aðgangur að öllum skrám hafnað: veittu Eleven heimildina "Aðgangur að öllum skrám" í kerfisstillingum</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Breyta kerfisstillingum</string>
+    <string name="write_settings_dialog_message">Til að setja hringitón þarfnast Eleven heimild til að breyta kerfisstillingum.
+
+Á næsta skjá, settu rofann fyrir \"Leyfa breytingu á kerfisstillingum\" Á, farðu þá aftur í Eleven og ýttu á \"Nota sem hringitón\" aftur.</string>
+    <string name="write_settings_dialog_go_to_settings">Fara í stillingar</string>
+
 </resources>

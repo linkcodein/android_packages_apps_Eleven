@@ -142,4 +142,12 @@
     <string name="widget_album_name">שם האלבום</string>
     <string name="set_as_ringtone_permission_denied">לא ניתן להגדיר כרינגטון: הענק ל-Eleven את ההרשאה "שינוי הגדרות מערכת" בהגדרות המערכת</string>
     <string name="manage_storage_permission_denied">הגישה לכל הקבצים נדחתה: הענק ל-Eleven את ההרשאה "גישה לכל הקבצים" בהגדרות המערכת</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">שינוי הגדרות מערכת</string>
+    <string name="write_settings_dialog_message">כדי להגדיר צלצול, Eleven זקוק להרשאה לשנות הגדרות מערכת.
+
+במסך הבא, הפעל את המתג של \"אפשר שינוי הגדרות מערכת\", לאחר מכן חזור ל-Eleven והקש שוב על \"השתמש כצלצול\".</string>
+    <string name="write_settings_dialog_go_to_settings">מעבר להגדרות</string>
+
 </resources>

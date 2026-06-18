@@ -142,4 +142,12 @@
     <string name="widget_album_name">Име на албума</string>
     <string name="set_as_ringtone_permission_denied">Не може да се зададе като мелодия: дайте разрешение "Промяна на системните настройки" на Eleven в системните настройки</string>
     <string name="manage_storage_permission_denied">Достъпът до всички файлове е отказан: дайте разрешение "Достъп до всички файлове" на Eleven в системните настройки</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Промяна на системните настройки</string>
+    <string name="write_settings_dialog_message">За да зададете мелодия за звънене, Eleven се нуждае от разрешение за промяна на системните настройки.
+
+На следващия екран включете превключвателя за „Разрешаване на промяна на системните настройки“, след това се върнете в Eleven и докоснете „Използване като мелодия за звънене“ отново.</string>
+    <string name="write_settings_dialog_go_to_settings">Отиване в настройките</string>
+
 </resources>

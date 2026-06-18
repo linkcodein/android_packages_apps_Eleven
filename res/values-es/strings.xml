@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nombre del álbum</string>
     <string name="set_as_ringtone_permission_denied">No se puede establecer como tono de llamada: concede "Modificar ajustes del sistema" a Eleven en los ajustes del sistema</string>
     <string name="manage_storage_permission_denied">Acceso a todos los archivos denegado: concede "Acceso a todos los archivos" a Eleven en los ajustes del sistema</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modificar ajustes del sistema</string>
+    <string name="write_settings_dialog_message">Para establecer un tono de llamada, Eleven necesita permiso para modificar los ajustes del sistema.
+
+En la siguiente pantalla, activa el interruptor de «Permitir modificar los ajustes del sistema», luego vuelve a Eleven y toca «Usar como tono de llamada» de nuevo.</string>
+    <string name="write_settings_dialog_go_to_settings">Ir a los ajustes</string>
+
 </resources>

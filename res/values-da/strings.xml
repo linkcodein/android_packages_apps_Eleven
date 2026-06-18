@@ -141,4 +141,12 @@
     <string name="widget_album_name">Albumnavn</string>
     <string name="set_as_ringtone_permission_denied">Kan ikke angives som ringetone: giv Eleven tilladelsen "Rediger systemindstillinger" i systemindstillinger</string>
     <string name="manage_storage_permission_denied">Adgang til alle filer nægtet: giv Eleven tilladelsen "Adgang til alle filer" i systemindstillinger</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Rediger systemindstillinger</string>
+    <string name="write_settings_dialog_message">For at indstille en ringetone skal Eleven have tilladelse til at redigere systemindstillinger.
+
+På næste skærm skal du slå kontakten for \"Tillad redigering af systemindstillinger\" TIL, gå derefter tilbage til Eleven og tryk på \"Brug som ringetone\" igen.</string>
+    <string name="write_settings_dialog_go_to_settings">Gå til indstillinger</string>
+
 </resources>

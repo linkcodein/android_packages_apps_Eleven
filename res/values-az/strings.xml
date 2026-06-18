@@ -142,4 +142,12 @@
     <string name="widget_album_name">Albom adı</string>
     <string name="set_as_ringtone_permission_denied">Zəng səsi kimi təyin etmək mümkün deyil: sistem parametrlərində Eleven-ə "Sistem parametrlərini dəyiş" icazəsi verin</string>
     <string name="manage_storage_permission_denied">Bütün fayllara giriş rədd edildi: sistem parametrlərində Eleven-ə "Bütün fayllara giriş" icazəsi verin</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Sistem parametrlərini dəyişdirin</string>
+    <string name="write_settings_dialog_message">Zil səsi olaraq təyin etmək üçün, Eleven-ə sistem parametrlərini dəyişdirmək icazəsi lazımdır.
+
+Növbəti ekranda, \"Sistem parametrlərini dəyişməyə icazə ver\" açarını AÇIN, sonra Eleven-ə qayıdın və \"Zil səsi kimi istifadə et\"-ə yenidən toxunun.</string>
+    <string name="write_settings_dialog_go_to_settings">Parametrlərə keçin</string>
+
 </resources>

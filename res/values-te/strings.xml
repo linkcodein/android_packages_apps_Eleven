@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">రింగ్‌టోన్‌గా సెట్ చేయడం సాధ్యపడదు: సిస్టమ్ సెట్టింగ్‌లలో Elevenకి "సిస్టమ్ సెట్టింగ్‌లను సవరించు" అనుమతిని మంజూరు చేయండి</string>
     <string name="manage_storage_permission_denied">అన్ని ఫైల్‌లకు యాక్సెస్ తిరస్కరించబడింది: సిస్టమ్ సెట్టింగ్‌లలో Elevenకి "అన్ని ఫైల్‌లకు యాక్సెస్" అనుమతిని మంజూరు చేయండి</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">సిస్టమ్ సెట్టింగ్‌లను సవరించు</string>
+    <string name="write_settings_dialog_message">రింగ్‌టోన్‌ని సెట్ చేయడానికి, Elevenకి సిస్టమ్ సెట్టింగ్‌లను సవరించే అనుమతి అవసరం.
+
+తదుపరి స్క్రీన్‌లో, \"సిస్టమ్ సెట్టింగ్‌లను సవరించడానికి అనుమతించు\" స్విచ్‌ను ON చేయండి, ఆపై Eleven‌కి తిరిగి వెళ్లి \"రింగ్‌టోన్‌గా ఉపయోగించు\" మళ్ళీ ట్యాప్ చేయండి.</string>
+    <string name="write_settings_dialog_go_to_settings">సెట్టింగ్‌లకు వెళ్ళు</string>
+
 </resources>

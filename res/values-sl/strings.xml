@@ -142,4 +142,12 @@
     <string name="widget_album_name">Naslov albuma</string>
     <string name="set_as_ringtone_permission_denied">Ni mogoče nastaviti kot zvonjenje: v sistemskih nastavitvah dodelite aplikaciji Eleven dovoljenje »Spreminjanje sistemskih nastavitev«</string>
     <string name="manage_storage_permission_denied">Dostop do vseh datotek je zavrnjen: v sistemskih nastavitvah dodelite aplikaciji Eleven dovoljenje »Dostop do vseh datotek«</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Spreminjanje sistemskih nastavitev</string>
+    <string name="write_settings_dialog_message">Za nastavitev zvonjenja mora Eleven dobiti dovoljenje za spremembo sistemskih nastavitev.
+
+Na naslednjem zaslonu vklopite stikalo za »Dovoli spreminjanje sistemskih nastavitev«, nato se vrnite v Eleven in znova tapnite »Uporabi kot zvonjenje«.</string>
+    <string name="write_settings_dialog_go_to_settings">Pojdi v nastavitve</string>
+
 </resources>

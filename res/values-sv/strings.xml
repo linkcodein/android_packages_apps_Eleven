@@ -142,4 +142,12 @@
     <string name="widget_album_name">Albumets namn</string>
     <string name="set_as_ringtone_permission_denied">Kan inte ställas in som ringsignal: ge Eleven "Ändra systeminställningar"-rättigheten i systeminställningarna</string>
     <string name="manage_storage_permission_denied">Åtkomst till alla filer nekad: ge Eleven "Åtkomst till alla filer"-rättigheten i systeminställningarna</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Ändra systeminställningar</string>
+    <string name="write_settings_dialog_message">För att ställa in en ringsignal behöver Eleven rättighet att ändra systeminställningar.
+
+På nästa skärm slår du PÅ strömbrytaren för \"Tillåt ändring av systeminställningar\", gå sedan tillbaka till Eleven och tryck på \"Använd som ringsignal\" igen.</string>
+    <string name="write_settings_dialog_go_to_settings">Gå till inställningar</string>
+
 </resources>

@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nama album</string>
     <string name="set_as_ringtone_permission_denied">Tidak dapat disetel sebagai nada dering: berikan "Ubah setelan sistem" ke Eleven di setelan sistem</string>
     <string name="manage_storage_permission_denied">Akses semua file ditolak: berikan "Akses semua file" ke Eleven di setelan sistem</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Ubah setelan sistem</string>
+    <string name="write_settings_dialog_message">Untuk menyetel nada dering, Eleven memerlukan izin untuk mengubah setelan sistem.
+
+Di layar berikutnya, nyalakan sakelar untuk \"Izinkan ubah setelan sistem\", lalu kembali ke Eleven dan ketuk \"Jadikan nada dering\" lagi.</string>
+    <string name="write_settings_dialog_go_to_settings">Buka setelan</string>
+
 </resources>

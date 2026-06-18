@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nazwa albumu</string>
     <string name="set_as_ringtone_permission_denied">Nie można ustawić jako dzwonka: nadaj Eleven uprawnienie "Modyfikuj ustawienia systemu" w ustawieniach systemu</string>
     <string name="manage_storage_permission_denied">Odmowa dostępu do wszystkich plików: nadaj Eleven uprawnienie "Dostęp do wszystkich plików" w ustawieniach systemu</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modyfikuj ustawienia systemu</string>
+    <string name="write_settings_dialog_message">Aby ustawić dzwonek, Eleven potrzebuje uprawnień do modyfikacji ustawień systemu.
+
+Na następnym ekranie włącz przełącznik „Zezwalaj na modyfikowanie ustawień systemu\", a następnie wróć do Eleven i ponownie dotknij „Użyj jako dzwonek\".</string>
+    <string name="write_settings_dialog_go_to_settings">Przejdź do ustawień</string>
+
 </resources>

@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">ରିଙ୍ଗଟୋନ୍ ଭାବରେ ସେଟ୍ କରିପାରିବେ ନାହିଁ: ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗରେ Eleven କୁ "ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ ପରିବର୍ତ୍ତନ କରନ୍ତୁ" ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="manage_storage_permission_denied">ସମସ୍ତ ଫାଇଲଙ୍କୁ ପ୍ରବେଶ ଅସ୍ୱୀକାର କରାଯାଇଛି: ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗରେ Eleven କୁ "ସମସ୍ତ ଫାଇଲଙ୍କୁ ପ୍ରବେଶ" ଅନୁମତି ଦିଅନ୍ତୁ</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ ପରିବର୍ତ୍ତନ କରନ୍ତୁ</string>
+    <string name="write_settings_dialog_message">ରିଙ୍ଗଟୋନ୍ ସେଟ୍ କରିବା ପାଇଁ, Eleven କୁ ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ ପରିବର୍ତ୍ତନ କରିବା ଅନୁମତି ଆବଶ୍ୟକ।
+
+ପରବର୍ତ୍ତୀ ସ୍କ୍ରିନରେ, \"ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ ପରିବର୍ତ୍ତନ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ\" ସୁଇଚ୍ଚକୁ ଅନ୍ କରନ୍ତୁ, ତାପରେ Eleven କୁ ଫେରି ଯାଇ \"ରିଙ୍ଗଟୋନ୍ ଭାବରେ ବ୍ୟବହାର କରନ୍ତୁ\" ପୁଣି ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="write_settings_dialog_go_to_settings">ସେଟିଙ୍ଗକୁ ଯାଆନ୍ତୁ</string>
+
 </resources>

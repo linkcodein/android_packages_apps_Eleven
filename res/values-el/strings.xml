@@ -142,4 +142,12 @@
     <string name="widget_album_name">Όνομα άλμπουμ</string>
     <string name="set_as_ringtone_permission_denied">Δεν είναι δυνατός ο ορισμός ως Ringsstone: εκχωρήστε στο Eleven το "Τροποποίηση ρυθμίσεων συστήματος" στις ρυθμίσεις συστήματος</string>
     <string name="manage_storage_permission_denied">Η πρόσβαση σε όλα τα αρχεία απορρίφθηκε: εκχωρήστε στο Eleven το "Πρόσβαση σε όλα τα αρχεία" στις ρυθμίσεις συστήματος</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Τροποποίηση ρυθμίσεων συστήματος</string>
+    <string name="write_settings_dialog_message">Για να ορίσετε μια μελωδία κλήσης, το Eleven χρειάζεται άδεια για την τροποποίηση των ρυθμίσεων συστήματος.
+
+Στην επόμενη οθόνη, ενεργοποιήστε τον διακόπτη για το \"Να επιτρέπεται η τροποποίηση ρυθμίσεων συστήματος\", και μετά επιστρέψτε στο Eleven και πατήστε ξανά \"Χρήση ως μελωδίας κλήσης\".</string>
+    <string name="write_settings_dialog_go_to_settings">Μετάβαση στις ρυθμίσεις</string>
+
 </resources>

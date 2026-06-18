@@ -142,4 +142,12 @@
     <string name="widget_album_name">தொகுப்புப் பெயர்</string>
     <string name="set_as_ringtone_permission_denied">ரிங்டோனாக அமைக்க முடியவில்லை: கணினி அமைப்புகளில் Eleven-க்கு "கணினி அமைப்புகளை மாற்று" அனுமதியை வழங்கவும்</string>
     <string name="manage_storage_permission_denied">அனைத்து கோப்புகளுக்கான அணுகல் மறுக்கப்பட்டது: கணினி அமைப்புகளில் Eleven-க்கு "அனைத்து கோப்புகளுக்கான அணுகல்" அனுமதியை வழங்கவும்</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">கணினி அமைப்புகளை மாற்று</string>
+    <string name="write_settings_dialog_message">ரிங்டோனை அமைக்க, Eleven-க்கு கணினி அமைப்புகளை மாற்றும் அனுமதி தேவை.
+
+அடுத்த திரையில், \"கணினி அமைப்புகளை மாற்றுவதற்கு அனுமதி\" என்ற மாற்றியை இயக்கவும், பின்னர் Eleven-க்குத் திரும்பி \"ரிங்டோனாகப் பயன்படுத்து\" என்பதை மீண்டும் தட்டவும்.</string>
+    <string name="write_settings_dialog_go_to_settings">அமைப்புகளுக்குச் செல்</string>
+
 </resources>

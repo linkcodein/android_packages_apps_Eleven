@@ -142,4 +142,12 @@
     <string name="widget_album_name">Название альбома</string>
     <string name="set_as_ringtone_permission_denied">Невозможно установить как рингтон: предоставьте Eleven разрешение "Изменение системных настроек" в настройках системы</string>
     <string name="manage_storage_permission_denied">Доступ ко всем файлам отклонён: предоставьте Eleven разрешение "Доступ ко всем файлам" в настройках системы</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Изменение системных настроек</string>
+    <string name="write_settings_dialog_message">Чтобы установить рингтон, Eleven требуется разрешение на изменение системных настроек.
+
+На следующем экране включите переключатель «Разрешить изменение системных настроек», затем вернитесь в Eleven и снова нажмите «Использовать как рингтон».</string>
+    <string name="write_settings_dialog_go_to_settings">Перейти к настройкам</string>
+
 </resources>

@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">रिंगटोन म्हणून सेट करता येत नाही: सिस्टम सेटिंग्जमध्ये Eleven ला "सिस्टम सेटिंग्ज बदला" परवानगी द्या</string>
     <string name="manage_storage_permission_denied">सर्व फायलींमध्ये प्रवेश नाकारला: सिस्टम सेटिंग्जमध्ये Eleven ला "सर्व फायलींमध्ये प्रवेश" परवानगी द्या</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">सिस्टम सेटिंग्ज बदला</string>
+    <string name="write_settings_dialog_message">रिंगटोन सेट करण्यासाठी, Eleven ला सिस्टम सेटिंग्ज बदलण्याची परवानगी लागते.
+
+पुढील स्क्रीनवर, \"सिस्टम सेटिंग्ज बदलण्याची परवानगी द्या\" चा स्विच चालू करा, नंतर Eleven वर परत जा आणि \"रिंगटोन म्हणून वापरा\" पुन्हा टॅप करा.</string>
+    <string name="write_settings_dialog_go_to_settings">सेटिंग्जवर जा</string>
+
 </resources>

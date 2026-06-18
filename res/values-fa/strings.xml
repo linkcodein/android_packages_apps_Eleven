@@ -142,4 +142,12 @@
     <string name="widget_album_name">نام آلبوم</string>
     <string name="set_as_ringtone_permission_denied">نمی‌توان به عنوان آهنگ زنگ تنظیم کرد: در تنظیمات سیستم، مجوز «تغییر تنظیمات سیستم» را به Eleven بدهید</string>
     <string name="manage_storage_permission_denied">دسترسی به همه پرونده‌ها رد شد: در تنظیمات سیستم، مجوز «دسترسی به همه پرونده‌ها» را به Eleven بدهید</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">تغییر تنظیمات سیستم</string>
+    <string name="write_settings_dialog_message">برای تنظیم آهنگ زنگ، Eleven به اجازه تغییر تنظیمات سیستم نیاز دارد.
+
+در صفحه بعد، کلید «اجازه تغییر تنظیمات سیستم» را روشن کنید، سپس به Eleven برگردید و دوباره «استفاده به عنوان آهنگ زنگ» را بزنید.</string>
+    <string name="write_settings_dialog_go_to_settings">رفتن به تنظیمات</string>
+
 </resources>

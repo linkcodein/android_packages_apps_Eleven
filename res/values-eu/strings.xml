@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Ezin da tonu gisa ezarri: eman Eleven-i "Aldatu sistemaren ezarpenak" baimena sistemaren ezarpenetan</string>
     <string name="manage_storage_permission_denied">Fitxategi guztietarako sarbidea ukatua: eman Eleven-i "Fitxategi guztietarako sarbidea" baimena sistemaren ezarpenetan</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Aldatu sistemaren ezarpenak</string>
+    <string name="write_settings_dialog_message">Tonu bat ezartzeko, Eleven-ek baimena behar du sistemaren ezarpenak aldatzeko.
+
+Hurrengo pantailan, aktibatu \"Baimendu sistemaren ezarpenak aldatzea\" aldatzailea, ondorioz, itzuli Eleven-era eta ukitu \"Erabili tonu gisa\" berriro.</string>
+    <string name="write_settings_dialog_go_to_settings">Joan ezarpenetara</string>
+
 </resources>

@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">ตั้งเป็นเสียงเรียกไม่ได้: ให้สิทธิ์ "แก้ไขการตั้งค่าระบบ" แก่ Eleven ในการตั้งค่าระบบ</string>
     <string name="manage_storage_permission_denied">การเข้าถึงไฟล์ทั้งหมดถูกปฏิเสธ: ให้สิทธิ์ "การเข้าถึงไฟล์ทั้งหมด" แก่ Eleven ในการตั้งค่าระบบ</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">แก้ไขการตั้งค่าระบบ</string>
+    <string name="write_settings_dialog_message">หากต้องการตั้งเป็นเสียงเรียก Eleven ต้องได้รับสิทธิ์ในการแก้ไขการตั้งค่าระบบ
+
+ในหน้าจอถัดไป ให้เปิดสวิตช์ \"อนุญาตให้แก้ไขการตั้งค่าระบบ\" จากนั้นกลับไปที่ Eleven แล้วแตะ \"ใช้เป็นเสียงเรียก\" อีกครั้ง</string>
+    <string name="write_settings_dialog_go_to_settings">ไปยังการตั้งค่า</string>
+
 </resources>

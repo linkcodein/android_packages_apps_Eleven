@@ -142,4 +142,12 @@
     <string name="widget_album_name">Albumnamn</string>
     <string name="set_as_ringtone_permission_denied">Kan ikkje setjast som ringjetone: gje Eleven løyvet "Endra systeminnstillingar" i systeminnstillingane</string>
     <string name="manage_storage_permission_denied">Tilgang til alle filer avvist: gje Eleven løyvet "Tilgang til alle filer" i systeminnstillingane</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Endra systeminnstillingar</string>
+    <string name="write_settings_dialog_message">For å setja ei ringjetone, treng Eleven løyve til å endra systeminnstillingar.
+
+På neste skjerm skru PÅ brytaren for \"Tillat endring av systeminnstillingar\", og gå deretter tilbake til Eleven og trykk \"Bruk som ringjetone\" igjen.</string>
+    <string name="write_settings_dialog_go_to_settings">Gå til innstillingar</string>
+
 </resources>

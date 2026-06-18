@@ -142,4 +142,12 @@
     <string name="widget_album_name">Non dal album</string>
     <string name="set_as_ringtone_permission_denied">Impussibil meti come sun di clamar: da a Eleven il permès "Modifiche impostazions dal sisteme" tes impostazions dal sisteme</string>
     <string name="manage_storage_permission_denied">Acès a ducj i files dineât: da a Eleven il permès "Acès a ducj i files" tes impostazions dal sisteme</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modifiche impostazions di sisteme</string>
+    <string name="write_settings_dialog_message">Par impostâ un ton di clamade, Eleven al à bisugne dal permès par modificâ lis impostazions di sisteme.
+
+inte prossime videade, piâlistu l\'interutôr par \"Permet la modifiche des impostazions di sisteme\", podopo tornait a Eleven e tocjâit \"Dopre come ton di clamade\" ancjemò.</string>
+    <string name="write_settings_dialog_go_to_settings">Va aes impostazions</string>
+
 </resources>

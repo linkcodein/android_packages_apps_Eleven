@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">റിംഗ്ടോണായി സജ്ജമാക്കാനായില്ല: സിസ്റ്റം ക്രമീകരണത്തിൽ Eleven-ന് "സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കുക" അനുമതി നൽകുക</string>
     <string name="manage_storage_permission_denied">എല്ലാ ഫയലുകളിലേക്കുമുള്ള ആക്സസ് നിഷേധിച്ചു: സിസ്റ്റം ക്രമീകരണത്തിൽ Eleven-ന് "എല്ലാ ഫയലുകളിലേക്കുമുള്ള ആക്സസ്" അനുമതി നൽകുക</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കുക</string>
+    <string name="write_settings_dialog_message">റിംഗ്ടോൺ സജ്ജമാക്കാൻ, Eleven-ന് സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കാനുള്ള അനുമതി ആവശ്യമാണ്.
+
+അടുത്ത സ്ക്രീനിൽ, \"സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കാൻ അനുവദിക്കുക\" എന്ന സ്വിച്ച് ഓൺ ചെയ്യുക, തുടർന്ന് Eleven-ലേക്ക് മടങ്ങി \"റിംഗ്ടോണായി ഉപയോഗിക്കുക\" വീണ്ടും ടാപ്പ് ചെയ്യുക.</string>
+    <string name="write_settings_dialog_go_to_settings">ക്രമീകരണത്തിലേക്ക് പോകുക</string>
+
 </resources>

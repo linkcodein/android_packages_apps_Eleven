@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nome album</string>
     <string name="set_as_ringtone_permission_denied">Impossibile impostare come suoneria: concedi "Modifica impostazioni di sistema" a Eleven nelle impostazioni di sistema</string>
     <string name="manage_storage_permission_denied">Accesso a tutti i file negato: concedi "Accesso a tutti i file" a Eleven nelle impostazioni di sistema</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modifica impostazioni di sistema</string>
+    <string name="write_settings_dialog_message">Per impostare una suoneria, Eleven necessita dell\'autorizzazione per modificare le impostazioni di sistema.
+
+Nella schermata successiva, attiva l\'interruttore per \"Consenti modifica impostazioni di sistema\", quindi torna a Eleven e tocca di nuovo \"Usa come suoneria\".</string>
+    <string name="write_settings_dialog_go_to_settings">Vai alle impostazioni</string>
+
 </resources>

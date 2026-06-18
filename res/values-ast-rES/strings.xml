@@ -141,4 +141,12 @@
     <string name="widget_album_name">Nome del álbum</string>
     <string name="set_as_ringtone_permission_denied">Nun pue afitase como tonu de llama: concede "Camudar axustes del sistema" a Eleven nos axustes del sistema</string>
     <string name="manage_storage_permission_denied">Accesu a tolos ficheros denegáu: concede "Accesu a tolos ficheros" a Eleven nos axustes del sistema</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modificar la configuración del sistema</string>
+    <string name="write_settings_dialog_message">P\'afitar un tonu de ll llamar, Eleven precisa permisu pa modificar la configuración del sistema.
+
+Na pantalla siguiente, activa l\'interruptor de «Permitir modificar la configuración del sistema», dempués vuelve a Eleven y toca «Usar como tonu de ll llamar» otra vegada.</string>
+    <string name="write_settings_dialog_go_to_settings">Dir a la configuración</string>
+
 </resources>

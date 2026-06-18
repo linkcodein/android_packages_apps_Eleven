@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Ei saa määrata helinaks: anna Elevenile luba "Muuda süsteemi sätteid" süsteemi sätetes</string>
     <string name="manage_storage_permission_denied">Juurdepääs kõigile failidele keelatud: anna Elevenile luba "Juurdepääs kõigile failidele" süsteemi sätetes</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Muuda süsteemi sätteid</string>
+    <string name="write_settings_dialog_message">Helina määramiseks vajab Eleven luba süsteemi sätete muutmiseks.
+
+Järgmisel ekraanil lülitage sisse lüliti \"Luba muuta süsteemi sätteid\", seejärel minge tagasi Elevenisse ja puudutage uuesti \"Kasuta helina jaoks\".</string>
+    <string name="write_settings_dialog_go_to_settings">Ava sätted</string>
+
 </resources>

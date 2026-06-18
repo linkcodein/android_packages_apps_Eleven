@@ -142,4 +142,12 @@
     <string name="widget_album_name">Ainm albam</string>
     <string name="set_as_ringtone_permission_denied">Ní féidir é a shocrú mar fhuaim rheata: tabhair "Socraigh socruithe an chórais" do Eleven i socruithe an chórais</string>
     <string name="manage_storage_permission_denied">Rochtain ar gach comhad diúltaithe: tabhair "Rochtain ar gach comhad" do Eleven i socruithe an chórais</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Mionathra socruithe an chórais</string>
+    <string name="write_settings_dialog_message">Chun fónail a shocrú, tá cead de dhianach ag Eleven socruithe an chórais a mionathrú.
+
+Ar an chéad scáileán eile, cas an lasc um \"Ceadaigh mionathrú socruithe an chórais\" AIR, ansin téigh ar ais go Eleven agus tapáil \"Úsáid mar fhónail\" arís.</string>
+    <string name="write_settings_dialog_go_to_settings">Téigh chuig na socruithe</string>
+
 </resources>

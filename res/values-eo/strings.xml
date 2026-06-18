@@ -43,4 +43,12 @@
     <string name="header_5_plus_albums">pli of 5 albumoj</string>
     <string name="set_as_ringtone_permission_denied">Ne eblas agordi kiel voksonoro: donu al Eleven la permeson "Modifi sistemajn agordojn" en sistemaj agordoj</string>
     <string name="manage_storage_permission_denied">Aliro al ĉiuj dosieroj rifuzita: donu al Eleven la permeson "Aliro al ĉiuj dosieroj" en sistemaj agordoj</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modifi sistemajn agordojn</string>
+    <string name="write_settings_dialog_message">Por agordi voksonoron, Eleven bezonas permeson modifi sistemajn agordojn.
+
+En la sekva ekrano, ŝaltu la ŝaltilon por \"Permesi modifi sistemajn agordojn\", poste reiru al Eleven kaj tuŝu \"Uzi kiel voksonoro\" denove.</string>
+    <string name="write_settings_dialog_go_to_settings">Iri al agordoj</string>
+
 </resources>

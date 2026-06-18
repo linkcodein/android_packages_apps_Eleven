@@ -142,4 +142,12 @@
     <string name="widget_album_name">Albumnaam</string>
     <string name="set_as_ringtone_permission_denied">Kan niet worden ingesteld als beltoon: verleen Eleven "Systeeminstellingen wijzigen" in de systeeminstellingen</string>
     <string name="manage_storage_permission_denied">Toegang tot alle bestanden geweigerd: verleen Eleven "Toegang tot alle bestanden" in de systeeminstellingen</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Systeeminstellingen wijzigen</string>
+    <string name="write_settings_dialog_message">Om een beltoon in te stellen, heeft Eleven toestemming nodig om systeeminstellingen te wijzigen.
+
+Schakel in het volgende scherm de schakelaar voor \"Systeeminstellingen wijzigen toestaan\" IN, ga daarna terug naar Eleven en tik opnieuw op \"Als beltoon gebruiken\".</string>
+    <string name="write_settings_dialog_go_to_settings">Naar instellingen</string>
+
 </resources>

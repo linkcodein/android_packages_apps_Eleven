@@ -142,4 +142,12 @@
     <string name="widget_album_name">Název alba</string>
     <string name="set_as_ringtone_permission_denied">Nelze nastavit jako vyzváněcí tón: udělte aplikaci Eleven oprávnění "Upravovat systémová nastavení" v nastavení systému</string>
     <string name="manage_storage_permission_denied">Přístup ke všem souborům odepřen: udělte aplikaci Eleven oprávnění "Přístup ke všem souborům" v nastavení systému</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Upravit systémová nastavení</string>
+    <string name="write_settings_dialog_message">Pro nastavení vyzváněcího tónu potřebuje Eleven oprávnění upravovat systémová nastavení.
+
+Na další obrazovce zapněte přepínač pro „Povolit úpravu systémových nastavení“, poté se vraťte do Eleven a znovu klepněte na „Použít jako vyzváněcí tón“.</string>
+    <string name="write_settings_dialog_go_to_settings">Přejít do nastavení</string>
+
 </resources>

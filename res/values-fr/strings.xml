@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nom de l\'album</string>
     <string name="set_as_ringtone_permission_denied">Impossible de définir comme sonnerie : accordez à Eleven "Modifier les paramètres système" dans les paramètres système</string>
     <string name="manage_storage_permission_denied">Accès à tous les fichiers refusé : accordez à Eleven "Accès à tous les fichiers" dans les paramètres système</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modifier les paramètres système</string>
+    <string name="write_settings_dialog_message">Pour définir une sonnerie, Eleven a besoin de la permission de modifier les paramètres système.
+
+Dans l\'écran suivant, activez l\'interrupteur pour « Autoriser la modification des paramètres système », puis revenez dans Eleven et appuyez à nouveau sur « Utiliser comme sonnerie ».</string>
+    <string name="write_settings_dialog_go_to_settings">Accéder aux paramètres</string>
+
 </resources>

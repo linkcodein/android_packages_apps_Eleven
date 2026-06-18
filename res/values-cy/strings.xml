@@ -142,4 +142,12 @@
     <string name="widget_album_name">Enw\u2019r albwm</string>
     <string name="set_as_ringtone_permission_denied">Methu gosod fel ton genhedlu: rhoi "Addasu gosodiadau system" i Eleven yng ngosodiadau system</string>
     <string name="manage_storage_permission_denied">Mynediad i\'r holl ffeiliau wedi\'i wrthod: rhoi "Mynediad i\'r holl ffeiliau" i Eleven yng ngosodiadau system</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Addasu gosodiadau system</string>
+    <string name="write_settings_dialog_message">I osod ton genhedlu, mae angen caniatâd i Eleven addasu gosodiadau system.
+
+Yn y sgrin nesaf, trowch y switsh ar gyfer \"Caniatáu addasu gosodiadau system\" YMLAEN, yna ewch yn ôl i Eleven a thaipiwch \"Defnyddio fel ton genhedlu\" eto.</string>
+    <string name="write_settings_dialog_go_to_settings">Ewch i osodiadau</string>
+
 </resources>

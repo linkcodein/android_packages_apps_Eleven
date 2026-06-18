@@ -142,4 +142,12 @@
     <string name="widget_album_name">Albüm ismi</string>
     <string name="set_as_ringtone_permission_denied">Zil sesi olarak ayarlanamıyor: sistem ayarlarında Eleven uygulamasına "Sistem ayarlarını değiştir" iznini verin</string>
     <string name="manage_storage_permission_denied">Tüm dosyalara erişim reddedildi: sistem ayarlarında Eleven uygulamasına "Tüm dosyalara erişim" iznini verin</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Sistem ayarlarını değiştir</string>
+    <string name="write_settings_dialog_message">Zil sesi olarak ayarlamak için Eleven, sistem ayarlarını değiştirme iznine ihtiyaç duyar.
+
+Sonraki ekranda, \"Sistem ayarlarını değiştirmeye izin ver\" anahtarını AÇIN, ardından Eleven uygulamasına dönün ve \"Zil sesi olarak kullan\" seçeneğine tekrar dokunun.</string>
+    <string name="write_settings_dialog_go_to_settings">Ayarlara git</string>
+
 </resources>

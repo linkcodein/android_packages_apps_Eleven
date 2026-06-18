@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Не може да се постави као мелодија звона: одобрите Eleven дозволу "Измена системских подешавања" у системским подешавањима</string>
     <string name="manage_storage_permission_denied">Приступ свим датотекама је одбијен: одобрите Eleven дозволу "Приступ свим датотекама" у системским подешавањима</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Измена системских подешавања</string>
+    <string name="write_settings_dialog_message">Да бисте поставили мелодију звона, Eleven треба дозволу за измену системских подешавања.
+
+На следећем екрану укључите прекидач за „Дозволи измену системских подешавања“, затим се вратите у Eleven и поново додирните „Користи као мелодију звона\".</string>
+    <string name="write_settings_dialog_go_to_settings">Иди у подешавања</string>
+
 </resources>

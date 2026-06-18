@@ -142,4 +142,12 @@
     <string name="widget_album_name">Nòmine de s\'album</string>
     <string name="set_as_ringtone_permission_denied">Impossìbile impostare comente suoneria: cede a Eleven su permissu "Modìfica impostatziones de sistema" in sas impostatziones de sistema</string>
     <string name="manage_storage_permission_denied">Atzessu a totu is archìvios negadu: cede a Eleven su permissu "Atzessu a totu is archìvios" in sas impostatziones de sistema</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Modìfica impostatziones de sistema</string>
+    <string name="write_settings_dialog_message">Pro impostare una suoneria, Eleven tenet bisòngiu de su permissu pro modìfare is impostatziones de sistema.
+
+In s\'ischera imbeniente, allìghe s\'interrutore pro \"Permite sa modìfica de is impostatziones de sistema\", a pustis torra a Eleven e toca \"Imprea comente suoneria\" un\'àtera bia.</string>
+    <string name="write_settings_dialog_go_to_settings">Bae a is impostatziones</string>
+
 </resources>

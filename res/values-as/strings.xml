@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">ৰিংট\'ন হিচাপে সংহতি কৰিব নোৱাৰি: ছিষ্টেম ছেটিংছত Eleven-ক "ছিষ্টেম ছেটিংছ সলনি কৰক" অনুমতি দিয়ক</string>
     <string name="manage_storage_permission_denied">সকলো ফাইল অভিগমন অস্বীকাৰ কৰা হৈছে: ছিষ্টেম ছেটিংছত Eleven-ক "সকলো ফাইল অভিগমন" অনুমতি দিয়ক</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">ছিষ্টেম ছেটিং সলনি কৰক</string>
+    <string name="write_settings_dialog_message">ৰিংট\'ন ছেট কৰিবলৈ, Eleven ক ছিষ্টেম ছেটিং সলনি কৰাৰ অনুমতি লাগে।
+
+পৰৱৰ্তী স্ক্ৰীনত, \"ছিষ্টেম ছেটিং সলনি কৰিবলৈ অনুমতি দিয়ক\" ছুইচ্চ অন কৰক, তাৰ পিছত Eleven লৈ উভতি আহি \"ৰিংট\'ন হিচাপে ব্যৱহাৰ কৰক\" পুনৰ টেপ কৰক।</string>
+    <string name="write_settings_dialog_go_to_settings">ছেটিংলৈ যাওক</string>
+
 </resources>

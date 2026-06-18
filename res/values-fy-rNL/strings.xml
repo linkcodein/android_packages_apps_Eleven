@@ -136,4 +136,12 @@
     <string name="duration_format"><xliff:g id="hours">%1$s</xliff:g> <xliff:g id="minutes">%2$s</xliff:g></string>
     <string name="set_as_ringtone_permission_denied">Kin net ynsteld wurde as ringtoan: jou Eleven "Systeemynstellingen wizigje" tastimming yn de systeemynstellingen</string>
     <string name="manage_storage_permission_denied">Tagong ta alle bestannen wegere: jou Eleven "Tagong ta alle bestannen" tastimming yn de systeemynstellingen</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Systeemynstellingen wizigje</string>
+    <string name="write_settings_dialog_message">Om in ringtoan yn te stellen, hat Eleven tastimming nedich om systeemynstellingen te wizigjen.
+
+Op it folgjende skerm, set de skeakeler foar \"Systeemynstellingen wizigje tastean\" OAN, gean dan werom nei Eleven en tik op \"As ringtoan brûke\" opnij.</string>
+    <string name="write_settings_dialog_go_to_settings">Nei ynstellingen gean</string>
+
 </resources>

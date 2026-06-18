@@ -137,4 +137,12 @@
     <string name="channel_music">Відтворення музики</string>
     <string name="set_as_ringtone_permission_denied">Неможливо встановити як рингтон: надайте Eleven дозвіл "Зміна системних налаштувань" у системних налаштуваннях</string>
     <string name="manage_storage_permission_denied">Доступ до всіх файлів заблоковано: надайте Eleven дозвіл "Доступ до всіх файлів" у системних налаштуваннях</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Зміна системних налаштувань</string>
+    <string name="write_settings_dialog_message">Щоб установити рингтон, Eleven потрібен дозвіл на зміну системних налаштувань.
+
+На наступному екрані ввімкніть перемикач \"Дозволити змінювати системні налаштування\", потім поверніться в Eleven і знову натисніть \"Використати як рингтон\".</string>
+    <string name="write_settings_dialog_go_to_settings">Перейти до налаштувань</string>
+
 </resources>

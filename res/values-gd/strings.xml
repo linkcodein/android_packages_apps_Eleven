@@ -138,4 +138,12 @@
     <string name="channel_music">Cluiche ciùil</string>
     <string name="set_as_ringtone_permission_denied">Cha ghabh a shuidheachadh mar sheirm fòn: thoir cead "Atharraich roghainnean an t-siostaim" gu Eleven ann an roghainnean an t-siostaim</string>
     <string name="manage_storage_permission_denied">Chaidh inntrigeadh dhan a h-uile faidhle a dhiùltadh: thoir cead "Inntrigeadh dhan a h-uile faidhle" gu Eleven ann an roghainnean an t-siostaim</string>
+
+    <!-- Write settings dialog -->
+    <string name="write_settings_dialog_title">Atharraich roghainnean an t-siostaim</string>
+    <string name="write_settings_dialog_message">Gus fònail a shuidheachadh, tha Eleven ag iarraidh cead gus roghainnean an t-siostaim atharrachadh.
+
+Air an ath-sgrìn, cuir an suidse airson \"Ceadaich atharrachadh roghainnean an t-siostaim\" AIR, an uairsin till gu Eleven agus thog \"Cleachd mar fhònail\" a-rithist.</string>
+    <string name="write_settings_dialog_go_to_settings">Rach dhan na roghainnean</string>
+
 </resources>
