@@ -1605,11 +1605,11 @@ public class MusicPlaybackService extends MediaBrowserService
             intent.putExtra("lyrics", mLyrics);
         }
 
-        sendStickyBroadcast(intent);
+        sendBroadcast(intent);
 
         final Intent musicIntent = new Intent(intent);
         musicIntent.setAction(what.replace(ELEVEN_PACKAGE_NAME, MUSIC_PACKAGE_NAME));
-        sendStickyBroadcast(musicIntent);
+        sendBroadcast(musicIntent);
 
         if (META_CHANGED.equals(what)) {
             // Add the track to the recently played list.

@@ -227,6 +227,27 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         if (!mRequestingPermissions) {
             mToken = MusicUtils.bindToService(this, this);
         }
+
+        // Re-register the playback-status receiver if it was torn down in
+        // onStop().  The first registration happens inside init() but
+        // onStop() -> unregisterReceiver + null-out creates a gap that
+        // must be repaired here so the activity continues to receive
+        // meta-changed / playlist-changed / refresh broadcasts after it
+        // returns from the background.
+        //
+        // Only re-create the receiver when the activity has been
+        // initialised (isInitialized() true) because PlaybackStatus
+        // references UI widgets that are set up during init().
+        if (isInitialized() && mPlaybackStatus == null) {
+            mPlaybackStatus = new PlaybackStatus(this);
+            final IntentFilter filter = new IntentFilter();
+            filter.addAction(MusicPlaybackService.PLAYSTATE_CHANGED);
+            filter.addAction(MusicPlaybackService.META_CHANGED);
+            filter.addAction(MusicPlaybackService.REFRESH);
+            filter.addAction(MusicPlaybackService.PLAYLIST_CHANGED);
+            filter.addAction(MusicPlaybackService.TRACK_ERROR);
+            registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
+        }
     }
 
     @Override
