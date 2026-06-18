@@ -2122,9 +2122,13 @@ public class MusicPlaybackService extends MediaBrowserService
      * @return the number of tracks deleted
      */
     public int removeTracks(final int first, final int last) {
+        final boolean wasPlaying = isPlaying();
         final int numremoved = removeTracksInternal(first, last);
         if (numremoved > 0) {
             notifyChange(QUEUE_CHANGED);
+            if (wasPlaying && !isPlaying()) {
+                notifyChange(PLAYSTATE_CHANGED);
+            }
         }
         return numremoved;
     }
