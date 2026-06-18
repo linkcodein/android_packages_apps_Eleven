@@ -150,4 +150,9 @@
 Sonraki ekranda, \"Sistem ayarlarını değiştirmeye izin ver\" anahtarını AÇIN, ardından Eleven uygulamasına dönün ve \"Zil sesi olarak kullan\" seçeneğine tekrar dokunun.</string>
     <string name="write_settings_dialog_go_to_settings">Ayarlara git</string>
 
+    <!-- Search -->
+    <string name="menu_search">Ara</string>
+    <string name="search_hint">Şarkı, sanatçı veya albüm ara</string>
+    <string name="search_no_results">Sonuç bulunamadı</string>
+
 </resources>

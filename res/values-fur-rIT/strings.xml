@@ -150,4 +150,9 @@
 inte prossime videade, piâlistu l\'interutôr par \"Permet la modifiche des impostazions di sisteme\", podopo tornait a Eleven e tocjâit \"Dopre come ton di clamade\" ancjemò.</string>
     <string name="write_settings_dialog_go_to_settings">Va aes impostazions</string>
 
+    <!-- Search -->
+    <string name="menu_search">Sercje</string>
+    <string name="search_hint">Sercje cjançons, artiscj o albums</string>
+    <string name="search_no_results">Nissun risultât cjatât</string>
+
 </resources>

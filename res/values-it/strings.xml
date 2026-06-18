@@ -150,4 +150,9 @@
 Nella schermata successiva, attiva l\'interruttore per \"Consenti modifica impostazioni di sistema\", quindi torna a Eleven e tocca di nuovo \"Usa come suoneria\".</string>
     <string name="write_settings_dialog_go_to_settings">Vai alle impostazioni</string>
 
+    <!-- Search -->
+    <string name="menu_search">Cerca</string>
+    <string name="search_hint">Cerca brani, artisti o album</string>
+    <string name="search_no_results">Nessun risultato trovato</string>
+
 </resources>

@@ -144,4 +144,9 @@
 Järgmisel ekraanil lülitage sisse lüliti \"Luba muuta süsteemi sätteid\", seejärel minge tagasi Elevenisse ja puudutage uuesti \"Kasuta helina jaoks\".</string>
     <string name="write_settings_dialog_go_to_settings">Ava sätted</string>
 
+    <!-- Search -->
+    <string name="menu_search">Otsi</string>
+    <string name="search_hint">Otsi laule, esitajaid või albumeid</string>
+    <string name="search_no_results">Tulemusi ei leitud</string>
+
 </resources>

@@ -182,4 +182,9 @@
     <string name="widget_track_name">Track name</string>
     <string name="widget_artist_name">Artist name</string>
     <string name="widget_album_name">Album name</string>
+
+    <!-- Search -->
+    <string name="menu_search">Search</string>
+    <string name="search_hint">Search songs, artists, or albums</string>
+    <string name="search_no_results">No results found</string>
 </resources>

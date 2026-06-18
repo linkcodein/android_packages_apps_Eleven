@@ -150,4 +150,9 @@
 次の画面で、「システム設定の変更を許可」のスイッチをオンにしてから、Elevenに戻り、「着信音として使用」をもう一度タップしてください。</string>
     <string name="write_settings_dialog_go_to_settings">設定に移動</string>
 
+    <!-- Search -->
+    <string name="menu_search">検索</string>
+    <string name="search_hint">曲、アーティスト、またはアルバムを検索</string>
+    <string name="search_no_results">結果が見つかりませんでした</string>
+
 </resources>

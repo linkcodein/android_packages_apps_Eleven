@@ -150,4 +150,9 @@
 Në ekranin tjetër, aktivizoni ndërprerësin për \"Lejo modifikimin e cilësimeve të sistemit\", pastaj kthehuni te Eleven dhe prekni përsëri \"Përdor si zile\".</string>
     <string name="write_settings_dialog_go_to_settings">Shko te cilësimet</string>
 
+    <!-- Search -->
+    <string name="menu_search">Kërko</string>
+    <string name="search_hint">Kërko këngë, artistë ose albume</string>
+    <string name="search_no_results">Nuk u gjet asnjë rezultat</string>
+
 </resources>

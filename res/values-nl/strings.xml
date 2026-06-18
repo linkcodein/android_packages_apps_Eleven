@@ -150,4 +150,9 @@
 Schakel in het volgende scherm de schakelaar voor \"Systeeminstellingen wijzigen toestaan\" IN, ga daarna terug naar Eleven en tik opnieuw op \"Als beltoon gebruiken\".</string>
     <string name="write_settings_dialog_go_to_settings">Naar instellingen</string>
 
+    <!-- Search -->
+    <string name="menu_search">Zoeken</string>
+    <string name="search_hint">Zoek naar nummers, artiesten of albums</string>
+    <string name="search_no_results">Geen resultaten gevonden</string>
+
 </resources>

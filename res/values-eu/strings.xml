@@ -144,4 +144,9 @@
 Hurrengo pantailan, aktibatu \"Baimendu sistemaren ezarpenak aldatzea\" aldatzailea, ondorioz, itzuli Eleven-era eta ukitu \"Erabili tonu gisa\" berriro.</string>
     <string name="write_settings_dialog_go_to_settings">Joan ezarpenetara</string>
 
+    <!-- Search -->
+    <string name="menu_search">Bilatu</string>
+    <string name="search_hint">Bilatu abestiak, artistak edo albumak</string>
+    <string name="search_no_results">Ez da emaitzarik aurkitu</string>
+
 </resources>

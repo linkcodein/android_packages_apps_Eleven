@@ -150,4 +150,9 @@
 Στην επόμενη οθόνη, ενεργοποιήστε τον διακόπτη για το \"Να επιτρέπεται η τροποποίηση ρυθμίσεων συστήματος\", και μετά επιστρέψτε στο Eleven και πατήστε ξανά \"Χρήση ως μελωδίας κλήσης\".</string>
     <string name="write_settings_dialog_go_to_settings">Μετάβαση στις ρυθμίσεις</string>
 
+    <!-- Search -->
+    <string name="menu_search">Αναζήτηση</string>
+    <string name="search_hint">Αναζήτηση τραγουδιών, καλλιτεχνών ή άλμπουμ</string>
+    <string name="search_no_results">Δεν βρέθηκαν αποτελέσματα</string>
+
 </resources>

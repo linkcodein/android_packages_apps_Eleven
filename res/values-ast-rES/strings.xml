@@ -149,4 +149,9 @@
 Na pantalla siguiente, activa l\'interruptor de «Permitir modificar la configuración del sistema», dempués vuelve a Eleven y toca «Usar como tonu de ll llamar» otra vegada.</string>
     <string name="write_settings_dialog_go_to_settings">Dir a la configuración</string>
 
+    <!-- Search -->
+    <string name="menu_search">Buscar</string>
+    <string name="search_hint">Buscar cantares, artistes o álbumes</string>
+    <string name="search_no_results">Nun s\'alcontraron resultaos</string>
+
 </resources>

@@ -150,4 +150,9 @@
 På neste skjerm skru PÅ brytaren for \"Tillat endring av systeminnstillingar\", og gå deretter tilbake til Eleven og trykk \"Bruk som ringjetone\" igjen.</string>
     <string name="write_settings_dialog_go_to_settings">Gå til innstillingar</string>
 
+    <!-- Search -->
+    <string name="menu_search">Søk</string>
+    <string name="search_hint">Søk etter songar, artistar eller album</string>
+    <string name="search_no_results">Ingen resultat funne</string>
+
 </resources>

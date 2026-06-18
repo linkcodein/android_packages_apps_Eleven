@@ -150,4 +150,9 @@
 Dans l\'écran suivant, activez l\'interrupteur pour « Autoriser la modification des paramètres système », puis revenez dans Eleven et appuyez à nouveau sur « Utiliser comme sonnerie ».</string>
     <string name="write_settings_dialog_go_to_settings">Accéder aux paramètres</string>
 
+    <!-- Search -->
+    <string name="menu_search">Rechercher</string>
+    <string name="search_hint">Rechercher des chansons, artistes ou albums</string>
+    <string name="search_no_results">Aucun résultat trouvé</string>
+
 </resources>

@@ -150,4 +150,9 @@
 En la siguiente pantalla, activa el interruptor de «Permitir modificar los ajustes del sistema», luego vuelve a Eleven y toca «Usar como tono de llamada» de nuevo.</string>
     <string name="write_settings_dialog_go_to_settings">Ir a los ajustes</string>
 
+    <!-- Search -->
+    <string name="menu_search">Buscar</string>
+    <string name="search_hint">Buscar canciones, artistas o álbumes</string>
+    <string name="search_no_results">No se encontraron resultados</string>
+
 </resources>

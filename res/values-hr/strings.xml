@@ -144,4 +144,9 @@
 Na sljedećem zaslonu uključite prekidač za \"Dopusti izmjenu postavki sustava\", zatim se vratite u Eleven i ponovno dodirnite \"Koristi kao melodiju zvona\".</string>
     <string name="write_settings_dialog_go_to_settings">Idi na postavke</string>
 
+    <!-- Search -->
+    <string name="menu_search">Traži</string>
+    <string name="search_hint">Traži pjesme, izvođače ili albume</string>
+    <string name="search_no_results">Nema pronađenih rezultata</string>
+
 </resources>

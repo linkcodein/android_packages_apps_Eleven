@@ -39,6 +39,7 @@ import org.lineageos.eleven.ui.fragments.ArtistFragment;
 import org.lineageos.eleven.ui.fragments.BaseFragment;
 import org.lineageos.eleven.ui.fragments.SongFragment;
 import org.lineageos.eleven.utils.MusicUtils;
+import org.lineageos.eleven.utils.NavUtils;
 import org.lineageos.eleven.utils.PreferenceUtils;
 import org.lineageos.eleven.utils.SortOrder;
 
@@ -218,6 +219,7 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
         super.onCreateOptionsMenu(menu, inflater);
 
         inflater.inflate(R.menu.shuffle_all, menu);
+        inflater.inflate(R.menu.search, menu);
         if (isArtistPage()) {
             inflater.inflate(R.menu.artist_sort_by, menu);
         } else if (isAlbumPage()) {
@@ -307,6 +309,8 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
                 CreateNewPlaylist.getInstance(new long[0])
                         .show(getChildFragmentManager(), "CreatePlaylist");
             }
+        } else if (id == R.id.menu_search) {
+            NavUtils.openSearch(getActivity());
         } else {
             return super.onOptionsItemSelected(item);
         }

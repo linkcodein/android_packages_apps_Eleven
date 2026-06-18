@@ -144,4 +144,9 @@
 Op nécksten Écran, schalt de Schalter fir \"Systemastellungen änneren erlaben\" AN, gitt dann zeréck op Eleven an tippt \"Als Ringtoun benotzen\" nach eng Kéier.</string>
     <string name="write_settings_dialog_go_to_settings">Op d\'Astellungen goen</string>
 
+    <!-- Search -->
+    <string name="menu_search">Sichen</string>
+    <string name="search_hint">No Lidder, Künstler oder Albume sichen</string>
+    <string name="search_no_results">Keng Resultater fonnt</string>
+
 </resources>

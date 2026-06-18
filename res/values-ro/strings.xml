@@ -150,4 +150,9 @@
 În ecranul următor, activați comutatorul pentru „Permite modificarea setărilor de sistem\", apoi reveniți la Eleven și atingeți din nou „Utilizare ca ton de apel\".</string>
     <string name="write_settings_dialog_go_to_settings">Mergeți la setări</string>
 
+    <!-- Search -->
+    <string name="menu_search">Căutare</string>
+    <string name="search_hint">Căutați melodii, artiști sau albume</string>
+    <string name="search_no_results">Niciun rezultat găsit</string>
+
 </resources>

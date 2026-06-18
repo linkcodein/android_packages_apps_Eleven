@@ -144,4 +144,9 @@
 Na ďalšej obrazovke zapnite prepínač pre „Povoliť úpravu systémových nastavení“, potom sa vráťte do Eleven a znova ťuknite na „Použiť ako tón zvonenia\".</string>
     <string name="write_settings_dialog_go_to_settings">Prejsť do nastavení</string>
 
+    <!-- Search -->
+    <string name="menu_search">Hľadať</string>
+    <string name="search_hint">Hľadať skladby, interpretov alebo albumy</string>
+    <string name="search_no_results">Nenašli sa žiadne výsledky</string>
+
 </resources>

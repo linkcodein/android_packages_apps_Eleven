@@ -149,4 +149,9 @@
 Á næsta skjá, settu rofann fyrir \"Leyfa breytingu á kerfisstillingum\" Á, farðu þá aftur í Eleven og ýttu á \"Nota sem hringitón\" aftur.</string>
     <string name="write_settings_dialog_go_to_settings">Fara í stillingar</string>
 
+    <!-- Search -->
+    <string name="menu_search">Leita</string>
+    <string name="search_hint">Leita að lögum, flytjendum eða plötum</string>
+    <string name="search_no_results">Engar niðurstöður fundust</string>
+
 </resources>

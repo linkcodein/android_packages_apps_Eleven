@@ -144,4 +144,9 @@
 Op die volgende skerm, skakel die skakelaar vir \"Laat wysig van stelselinstellings toe\" AAN, gaan dan terug na Eleven en tik \"Gebruik as luitoon\" weer.</string>
     <string name="write_settings_dialog_go_to_settings">Gaan na instellings</string>
 
+    <!-- Search -->
+    <string name="menu_search">Soek</string>
+    <string name="search_hint">Soek liedjies, kunstenaars, of albums</string>
+    <string name="search_no_results">Geen resultate gevind nie</string>
+
 </resources>

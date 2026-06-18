@@ -144,4 +144,9 @@
 ในหน้าจอถัดไป ให้เปิดสวิตช์ \"อนุญาตให้แก้ไขการตั้งค่าระบบ\" จากนั้นกลับไปที่ Eleven แล้วแตะ \"ใช้เป็นเสียงเรียก\" อีกครั้ง</string>
     <string name="write_settings_dialog_go_to_settings">ไปยังการตั้งค่า</string>
 
+    <!-- Search -->
+    <string name="menu_search">ค้นหา</string>
+    <string name="search_hint">ค้นหาเพลงสด์ ศิลปิน หรืออัลบั้ม</string>
+    <string name="search_no_results">ไม่พบผลลัพธ์</string>
+
 </resources>

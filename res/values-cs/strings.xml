@@ -150,4 +150,9 @@
 Na další obrazovce zapněte přepínač pro „Povolit úpravu systémových nastavení“, poté se vraťte do Eleven a znovu klepněte na „Použít jako vyzváněcí tón“.</string>
     <string name="write_settings_dialog_go_to_settings">Přejít do nastavení</string>
 
+    <!-- Search -->
+    <string name="menu_search">Hledat</string>
+    <string name="search_hint">Hledat skladby, umělce nebo alba</string>
+    <string name="search_no_results">Nebyly nalezeny žádné výsledky</string>
+
 </resources>

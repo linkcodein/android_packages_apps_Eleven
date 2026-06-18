@@ -150,4 +150,9 @@
 Na następnym ekranie włącz przełącznik „Zezwalaj na modyfikowanie ustawień systemu\", a następnie wróć do Eleven i ponownie dotknij „Użyj jako dzwonek\".</string>
     <string name="write_settings_dialog_go_to_settings">Przejdź do ustawień</string>
 
+    <!-- Search -->
+    <string name="menu_search">Szukaj</string>
+    <string name="search_hint">Szukaj utworów, wykonawców lub albumów</string>
+    <string name="search_no_results">Nie znaleziono wyników</string>
+
 </resources>

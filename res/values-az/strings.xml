@@ -150,4 +150,9 @@
 Növbəti ekranda, \"Sistem parametrlərini dəyişməyə icazə ver\" açarını AÇIN, sonra Eleven-ə qayıdın və \"Zil səsi kimi istifadə et\"-ə yenidən toxunun.</string>
     <string name="write_settings_dialog_go_to_settings">Parametrlərə keçin</string>
 
+    <!-- Search -->
+    <string name="menu_search">Axtar</string>
+    <string name="search_hint">Mahnıları, ifaçıları və ya albomları axtar</string>
+    <string name="search_no_results">Nəticə tapılmadı</string>
+
 </resources>

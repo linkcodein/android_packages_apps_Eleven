@@ -144,4 +144,9 @@
 తదుపరి స్క్రీన్‌లో, \"సిస్టమ్ సెట్టింగ్‌లను సవరించడానికి అనుమతించు\" స్విచ్‌ను ON చేయండి, ఆపై Eleven‌కి తిరిగి వెళ్లి \"రింగ్‌టోన్‌గా ఉపయోగించు\" మళ్ళీ ట్యాప్ చేయండి.</string>
     <string name="write_settings_dialog_go_to_settings">సెట్టింగ్‌లకు వెళ్ళు</string>
 
+    <!-- Search -->
+    <string name="menu_search">వెతుకు</string>
+    <string name="search_hint">పాటలు, కళాకారులు లేదా ఆల్బమ్లను వెతుకు</string>
+    <string name="search_no_results">ఛేదాఫితాలు ఏ౱కాని కనుగొలేదు</string>
+
 </resources>

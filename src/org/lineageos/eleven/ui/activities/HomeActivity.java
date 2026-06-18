@@ -62,6 +62,7 @@ import org.lineageos.eleven.ui.fragments.AudioPlayerFragment;
 import org.lineageos.eleven.ui.fragments.ISetupActionBar;
 import org.lineageos.eleven.ui.fragments.PlaylistDetailFragment;
 import org.lineageos.eleven.ui.fragments.RecentFragment;
+import org.lineageos.eleven.ui.fragments.SearchFragment;
 import org.lineageos.eleven.ui.fragments.phone.MusicBrowserPhoneFragment;
 import org.lineageos.eleven.ui.fragments.profile.LastAddedFragment;
 import org.lineageos.eleven.ui.fragments.profile.TopTracksFragment;
@@ -83,6 +84,7 @@ public class HomeActivity extends SlidingPanelActivity implements
     public static final String ACTION_VIEW_PLAYLIST_DETAILS =
             ACTION_PREFIX + ".view.PlaylistDetails";
     public static final String ACTION_VIEW_SMART_PLAYLIST = ACTION_PREFIX + ".view.SmartPlaylist";
+    public static final String ACTION_VIEW_SEARCH = ACTION_PREFIX + ".view.Search";
     public static final String EXTRA_BROWSE_PAGE_IDX = "BrowsePageIndex";
 
     private static final String STATE_KEY_BASE_FRAGMENT = "BaseFragment";
@@ -361,6 +363,8 @@ public class HomeActivity extends SlidingPanelActivity implements
                 targetFragment = new AlbumDetailFragment();
             } else if (action.equals(ACTION_VIEW_ARTIST_DETAILS)) {
                 targetFragment = new ArtistDetailFragment();
+            } else if (action.equals(ACTION_VIEW_SEARCH)) {
+                targetFragment = new SearchFragment();
             }
 
             if (targetFragment != null) {

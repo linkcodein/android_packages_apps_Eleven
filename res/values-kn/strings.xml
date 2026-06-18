@@ -138,4 +138,9 @@
 ಮುಂದಿನ ಪರದೆಯಲ್ಲಿ, \"ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು ಅನುಮತಿಸು\" ಬದಲಾವಣೆಯನ್ನು ಆನ್ ಮಾಡಿ, ನಂತರ Eleven ಗೆ ಹಿಂದಿರುಗಿ ಮತ್ತೆ \"ರಿಂಗ್‌ಟೋನ್ ಆಗಿ ಬಳಸಿ\" ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="write_settings_dialog_go_to_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ</string>
 
+    <!-- Search -->
+    <string name="menu_search">ಹುಡಕಿ</string>
+    <string name="search_hint">ಹಾಡುಗಳು, ಕಲಾವಿದರು, ಅಥವಾ ಆಲ್ಬಂಗಳನ್ನು ಹುಡಕಿ</string>
+    <string name="search_no_results">ಯಾವುದೂ ಫಲಿತಾಂಶಗಳು ಸಿಗಲಿಲ್ಲ</string>
+
 </resources>

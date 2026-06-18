@@ -150,4 +150,9 @@
 На следващия екран включете превключвателя за „Разрешаване на промяна на системните настройки“, след това се върнете в Eleven и докоснете „Използване като мелодия за звънене“ отново.</string>
     <string name="write_settings_dialog_go_to_settings">Отиване в настройките</string>
 
+    <!-- Search -->
+    <string name="menu_search">Търсене</string>
+    <string name="search_hint">Търсене на песни, изпълнители или албуми</string>
+    <string name="search_no_results">Няма намерени резултати</string>
+
 </resources>

@@ -150,4 +150,9 @@
 På nästa skärm slår du PÅ strömbrytaren för \"Tillåt ändring av systeminställningar\", gå sedan tillbaka till Eleven och tryck på \"Använd som ringsignal\" igen.</string>
     <string name="write_settings_dialog_go_to_settings">Gå till inställningar</string>
 
+    <!-- Search -->
+    <string name="menu_search">Sök</string>
+    <string name="search_hint">Sök efter låtar, artister eller album</string>
+    <string name="search_no_results">Inga resultat hittades</string>
+
 </resources>

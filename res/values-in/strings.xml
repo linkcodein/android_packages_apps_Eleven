@@ -150,4 +150,9 @@
 Di layar berikutnya, nyalakan sakelar untuk \"Izinkan ubah setelan sistem\", lalu kembali ke Eleven dan ketuk \"Jadikan nada dering\" lagi.</string>
     <string name="write_settings_dialog_go_to_settings">Buka setelan</string>
 
+    <!-- Search -->
+    <string name="menu_search">Cari</string>
+    <string name="search_hint">Cari lagu, artis, atau album</string>
+    <string name="search_no_results">Tidak ada hasil ditemukan</string>
+
 </resources>

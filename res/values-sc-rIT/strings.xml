@@ -150,4 +150,9 @@
 In s\'ischera imbeniente, allìghe s\'interrutore pro \"Permite sa modìfica de is impostatziones de sistema\", a pustis torra a Eleven e toca \"Imprea comente suoneria\" un\'àtera bia.</string>
     <string name="write_settings_dialog_go_to_settings">Bae a is impostatziones</string>
 
+    <!-- Search -->
+    <string name="menu_search">Chirca</string>
+    <string name="search_hint">Chirca cantzones, artistas o album</string>
+    <string name="search_no_results">Perunu resultadu agatadu</string>
+
 </resources>

@@ -144,4 +144,9 @@
 अगली स्क्रीन पर, \"सिस्टम सेटिंग बदलने की अनुमति दें\" का स्विच चालू करें, फिर Eleven पर वापस जाएं और फिर से \"रिंगटोन के रूप में उपयोग करें\" टैप करें।</string>
     <string name="write_settings_dialog_go_to_settings">सेटिंग पर जाएं</string>
 
+    <!-- Search -->
+    <string name="menu_search">खोजें</string>
+    <string name="search_hint">गाने, कलाकार या एल्बम खोजें</string>
+    <string name="search_no_results">कोई परिणाम नहीं मिला</string>
+
 </resources>

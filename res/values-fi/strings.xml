@@ -144,4 +144,9 @@
 Seuraavassa näkymässä LAITA päälle vivan \"Salli järjestelmäasetusten muuttaminen\", palaa sitten Eleveniin ja napauta uudelleen \"Käytä soittoäänenä\".</string>
     <string name="write_settings_dialog_go_to_settings">Siirry asetuksiin</string>
 
+    <!-- Search -->
+    <string name="menu_search">Etsi</string>
+    <string name="search_hint">Etsi kappaleita, esittäjiä tai albumeja</string>
+    <string name="search_no_results">Ei tuloksia</string>
+
 </resources>

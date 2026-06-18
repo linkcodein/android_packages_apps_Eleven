@@ -149,4 +149,9 @@
 På næste skærm skal du slå kontakten for \"Tillad redigering af systemindstillinger\" TIL, gå derefter tilbage til Eleven og tryk på \"Brug som ringetone\" igen.</string>
     <string name="write_settings_dialog_go_to_settings">Gå til indstillinger</string>
 
+    <!-- Search -->
+    <string name="menu_search">Søg</string>
+    <string name="search_hint">Søg efter sange, kunstnere eller albums</string>
+    <string name="search_no_results">Ingen resultater fundet</string>
+
 </resources>

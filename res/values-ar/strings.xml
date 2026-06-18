@@ -145,4 +145,9 @@
 في الشاشة التالية، قم بتشغيل مفتاح \"السماح بتعديل إعدادات النظام\"، ثم عد إلى Eleven واضغط على \"استخدام كنغمة رنين\" مرة أخرى.</string>
     <string name="write_settings_dialog_go_to_settings">الذهاب إلى الإعدادات</string>
 
+    <!-- Search -->
+    <string name="menu_search">بحث</string>
+    <string name="search_hint">البحث عن الأغاني أو الفنانين أو الألبومات</string>
+    <string name="search_no_results">لم يتم العثور على نتائج</string>
+
 </resources>

@@ -144,4 +144,9 @@
 На следећем екрану укључите прекидач за „Дозволи измену системских подешавања“, затим се вратите у Eleven и поново додирните „Користи као мелодију звона\".</string>
     <string name="write_settings_dialog_go_to_settings">Иди у подешавања</string>
 
+    <!-- Search -->
+    <string name="menu_search">Претрага</string>
+    <string name="search_hint">Претрага песама, извођача или албума</string>
+    <string name="search_no_results">Није пронађен ниједан резултат</string>
+
 </resources>

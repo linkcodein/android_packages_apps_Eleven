@@ -150,4 +150,9 @@
 In the next screen, turn ON the switch for \"Allow modify system settings\", then go back to Eleven and tap \"Use as ringtone\" again.</string>
     <string name="write_settings_dialog_go_to_settings">Go to settings</string>
 
+    <!-- Search -->
+    <string name="menu_search">Search</string>
+    <string name="search_hint">Search songs, artists, or albums</string>
+    <string name="search_no_results">No results found</string>
+
 </resources>

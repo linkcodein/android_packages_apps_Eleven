@@ -150,4 +150,9 @@
 Na próxima tela, ative o interruptor para \"Permitir modificar configurações do sistema\", depois volte ao Eleven e toque em \"Usar como toque\" novamente.</string>
     <string name="write_settings_dialog_go_to_settings">Ir para configurações</string>
 
+    <!-- Search -->
+    <string name="menu_search">Pesquisar</string>
+    <string name="search_hint">Pesquisar músicas, artistas ou álbuns</string>
+    <string name="search_no_results">Nenhum resultado encontrado</string>
+
 </resources>

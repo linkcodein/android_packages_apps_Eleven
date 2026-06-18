@@ -150,4 +150,9 @@
 A la pantalla següent, activeu l\'interruptor de \"Permet modificar la configuració del sistema\", després torneu a Eleven i toqueu \"Utilitza com a to de trucada\" una altra vegada.</string>
     <string name="write_settings_dialog_go_to_settings">Vés a la configuració</string>
 
+    <!-- Search -->
+    <string name="menu_search">Cerca</string>
+    <string name="search_hint">Cerca cançons, artistes o àlbums</string>
+    <string name="search_no_results">No s\'han trobat resultats</string>
+
 </resources>

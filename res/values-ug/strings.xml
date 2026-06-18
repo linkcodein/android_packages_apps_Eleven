@@ -150,4 +150,9 @@
 كېيىنكى ئېكراندىكى «سىستېما تەڭشىكىنى ئۆزگەرتىشكە يول قوي» نى ئېچىپ، ئاندىن Eleven غا قايتىپ «قوڭغۇراق قىلىپ ئىشلەت» نى قايتا چېكىڭ.</string>
     <string name="write_settings_dialog_go_to_settings">تەڭشەككە كىرىڭ</string>
 
+    <!-- Search -->
+    <string name="menu_search">إزدەش</string>
+    <string name="search_hint">ناخشالار، ناخشاندەنلار ياكى ئالبوملارنى إزدەڭ</string>
+    <string name="search_no_results">ھەچقاندەك نەتىجە تاپىلمىدى</string>
+
 </resources>

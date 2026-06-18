@@ -140,4 +140,9 @@
 Nākamajā ekrānā ieslēdziet pārslēgu „Atļaut modificēt sistēmas iestatījumus\", pēc tam atgriezieties programmā Eleven un vēlreiz pieskarieties „Izmantot kā zvanu toni\".</string>
     <string name="write_settings_dialog_go_to_settings">Iet uz iestatījumiem</string>
 
+    <!-- Search -->
+    <string name="menu_search">Meklēt</string>
+    <string name="search_hint">Meklēt dziesmas, izpildītājus vai albumus</string>
+    <string name="search_no_results">Nav atrasts neviens rezultāts</string>
+
 </resources>

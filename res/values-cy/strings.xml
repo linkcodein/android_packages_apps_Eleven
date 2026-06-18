@@ -150,4 +150,9 @@
 Yn y sgrin nesaf, trowch y switsh ar gyfer \"Caniatáu addasu gosodiadau system\" YMLAEN, yna ewch yn ôl i Eleven a thaipiwch \"Defnyddio fel ton genhedlu\" eto.</string>
     <string name="write_settings_dialog_go_to_settings">Ewch i osodiadau</string>
 
+    <!-- Search -->
+    <string name="menu_search">Chwilio</string>
+    <string name="search_hint">Chwilio am ganeuon, artistiaid, neu albymau</string>
+    <string name="search_no_results">Ni chafwyd unrhyw ganlyniadau</string>
+
 </resources>

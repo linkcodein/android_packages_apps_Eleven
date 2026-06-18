@@ -28,4 +28,9 @@
 War ar skramm war-lerc\'h, gweredekit an afell evit \"Aotren kemmañ arventennoù ar sistem\", goude-se distroit da Eleven ha stokit \"Ober gant evel tonrinig\" adarre.</string>
     <string name="write_settings_dialog_go_to_settings">Mont er arventennoù</string>
 
+    <!-- Search -->
+    <string name="menu_search">Klask</string>
+    <string name="search_hint">Klask kanaouennoù, arzourien, pe albomoù</string>
+    <string name="search_no_results">Disoc\'h ebet kavet</string>
+
 </resources>

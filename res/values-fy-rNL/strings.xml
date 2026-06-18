@@ -144,4 +144,9 @@
 Op it folgjende skerm, set de skeakeler foar \"Systeemynstellingen wizigje tastean\" OAN, gean dan werom nei Eleven en tik op \"As ringtoan brûke\" opnij.</string>
     <string name="write_settings_dialog_go_to_settings">Nei ynstellingen gean</string>
 
+    <!-- Search -->
+    <string name="menu_search">Sykje</string>
+    <string name="search_hint">Sykje nei ferskes, artysten of albums</string>
+    <string name="search_no_results">Gjin resultaten fûn</string>
+
 </resources>

@@ -125,4 +125,9 @@
 Deg ugdil i d-iteddun, rmed taselḍi n \"Sireg asnifel n iɣewwaṛen n unagraw\", sakin uɣal ɣer Eleven sakin seddem \"Seqdec d aṣekruṛ\" tikkelt-nniḍen.</string>
     <string name="write_settings_dialog_go_to_settings">Ddu ɣer iɣewwaṛen</string>
 
+    <!-- Search -->
+    <string name="menu_search">Nadi</string>
+    <string name="search_hint">Nadi deg iɣenniyen, imarazen, neɣ lelbum</string>
+    <string name="search_no_results">Ulac igmamen</string>
+
 </resources>

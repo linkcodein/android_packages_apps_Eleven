@@ -150,4 +150,9 @@
 Aktivieren Sie auf dem nächsten Bildschirm den Schalter für „Systemeinstellungen ändern zulassen“, gehen Sie dann zurück zu Eleven und tippen Sie erneut auf \"Als Klingelton verwenden\".</string>
     <string name="write_settings_dialog_go_to_settings">Zu den Einstellungen</string>
 
+    <!-- Search -->
+    <string name="menu_search">Suchen</string>
+    <string name="search_hint">Songs, Künstler oder Alben durchsuchen</string>
+    <string name="search_no_results">Keine Ergebnisse gefunden</string>
+
 </resources>

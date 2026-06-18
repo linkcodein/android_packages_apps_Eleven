@@ -150,4 +150,9 @@
 במסך הבא, הפעל את המתג של \"אפשר שינוי הגדרות מערכת\", לאחר מכן חזור ל-Eleven והקש שוב על \"השתמש כצלצול\".</string>
     <string name="write_settings_dialog_go_to_settings">מעבר להגדרות</string>
 
+    <!-- Search -->
+    <string name="menu_search">חיפוש</string>
+    <string name="search_hint">חפש שירים, אמנים או אלבומים</string>
+    <string name="search_no_results">לא נמצאו תוצאות</string>
+
 </resources>

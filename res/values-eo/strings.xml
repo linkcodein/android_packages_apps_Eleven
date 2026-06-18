@@ -51,4 +51,9 @@
 En la sekva ekrano, ŝaltu la ŝaltilon por \"Permesi modifi sistemajn agordojn\", poste reiru al Eleven kaj tuŝu \"Uzi kiel voksonoro\" denove.</string>
     <string name="write_settings_dialog_go_to_settings">Iri al agordoj</string>
 
+    <!-- Search -->
+    <string name="menu_search">Serĉi</string>
+    <string name="search_hint">Serĉi kantojn, artistojn aŭ albumojn</string>
+    <string name="search_no_results">Neniuj rezultoj trovitaj</string>
+
 </resources>

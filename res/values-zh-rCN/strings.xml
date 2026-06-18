@@ -150,4 +150,9 @@
 在下一个屏幕上，打开\"允许修改系统设置 \"的开关，然后返回 Eleven，再次点击\"设为铃声\"。</string>
     <string name="write_settings_dialog_go_to_settings">前往设置</string>
 
+    <!-- Search -->
+    <string name="menu_search">搜索</string>
+    <string name="search_hint">搜索歌曲、歌手或专辑</string>
+    <string name="search_no_results">未找到结果</string>
+
 </resources>

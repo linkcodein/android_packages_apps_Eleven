@@ -144,4 +144,9 @@
 পৰৱৰ্তী স্ক্ৰীনত, \"ছিষ্টেম ছেটিং সলনি কৰিবলৈ অনুমতি দিয়ক\" ছুইচ্চ অন কৰক, তাৰ পিছত Eleven লৈ উভতি আহি \"ৰিংট\'ন হিচাপে ব্যৱহাৰ কৰক\" পুনৰ টেপ কৰক।</string>
     <string name="write_settings_dialog_go_to_settings">ছেটিংলৈ যাওক</string>
 
+    <!-- Search -->
+    <string name="menu_search">সন্ধান কৰক</string>
+    <string name="search_hint">গীত, শিল্পী, বা এলবাম সন্ধান কৰক</string>
+    <string name="search_no_results">কোনো ফলাফল পোৱা নগল</string>
+
 </resources>

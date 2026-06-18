@@ -150,4 +150,9 @@
 Trong màn hình tiếp theo, bật công tắc cho \"Cho phép chỉnh sửa cài đặt hệ thống\", sau đó quay lại Eleven và nhấn \"Dùng làm nhạc chuông\" lại.</string>
     <string name="write_settings_dialog_go_to_settings">Đến cài đặt</string>
 
+    <!-- Search -->
+    <string name="menu_search">Tìm kiếm</string>
+    <string name="search_hint">Tìm bài hát, nghệ sĩ hoặc album</string>
+    <string name="search_no_results">Không tìm thấy kết quả</string>
+
 </resources>

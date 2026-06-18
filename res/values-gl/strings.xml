@@ -146,4 +146,9 @@
 Na seguinte pantalla, activa o interruptor de \"Permitir modificar a configuración do sistema\", despois volve a Eleven e toca \"Usar como ton de chamada\" de novo.</string>
     <string name="write_settings_dialog_go_to_settings">Ir á configuración</string>
 
+    <!-- Search -->
+    <string name="menu_search">Buscar</string>
+    <string name="search_hint">Buscar cancións, artistas ou álbums</string>
+    <string name="search_no_results">Non se atoparon resultados</string>
+
 </resources>

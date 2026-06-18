@@ -150,4 +150,9 @@
 در صفحه بعد، کلید «اجازه تغییر تنظیمات سیستم» را روشن کنید، سپس به Eleven برگردید و دوباره «استفاده به عنوان آهنگ زنگ» را بزنید.</string>
     <string name="write_settings_dialog_go_to_settings">رفتن به تنظیمات</string>
 
+    <!-- Search -->
+    <string name="menu_search">جستجو</string>
+    <string name="search_hint">جستجوی آهنگ‌ها، هنرمندان یا آلبوم‌ها</string>
+    <string name="search_no_results">نتیجه‌ای یافت نشد</string>
+
 </resources>

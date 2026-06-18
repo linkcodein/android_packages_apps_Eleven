@@ -102,6 +102,13 @@ public final class NavUtils {
         context.startActivity(intent);
     }
 
+    public static void openSearch(final Activity context) {
+        final Intent intent = new Intent(context, HomeActivity.class);
+        intent.setAction(HomeActivity.ACTION_VIEW_SEARCH);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity(intent);
+    }
+
     /**
      * Opens the playlist view
      *

@@ -144,4 +144,9 @@
 આગળની સ્ક્રીન પર, \"સિસ્ટમ સેટિંગ્સ સંશોધિત કરવાની મંજૂરી આપો\" નો સ્વિચ ચાલુ કરો, પછી Eleven પર પાછા જાઓ અને ફરીથી \"રિંગટોન તરીકે ઉપયોગ કરો\" ટેપ કરો.</string>
     <string name="write_settings_dialog_go_to_settings">સેટિંગ્સ પર જાઓ</string>
 
+    <!-- Search -->
+    <string name="menu_search">શોધો</string>
+    <string name="search_hint">ગીતો, કલાકારો અથવા આલ્બમ શોધો</string>
+    <string name="search_no_results">કોઈ પરિણામ મળ્યું નથી</string>
+
 </resources>

@@ -144,4 +144,9 @@
 Kitame ekrane įjunkite „Leisti keisti sistemos nustatymus\" perjungiklį, tada grįžkite į „Eleven\" ir dar kartą bakstelėkite „Naudoti kaip skambėjimo toną\".</string>
     <string name="write_settings_dialog_go_to_settings">Eiti į nustatymus</string>
 
+    <!-- Search -->
+    <string name="menu_search">Ieškoti</string>
+    <string name="search_hint">Ieškoti dainų, atlikėjų ar albumų</string>
+    <string name="search_no_results">Rezultatų nerasta</string>
+
 </resources>

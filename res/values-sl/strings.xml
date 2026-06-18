@@ -150,4 +150,9 @@
 Na naslednjem zaslonu vklopite stikalo za »Dovoli spreminjanje sistemskih nastavitev«, nato se vrnite v Eleven in znova tapnite »Uporabi kot zvonjenje«.</string>
     <string name="write_settings_dialog_go_to_settings">Pojdi v nastavitve</string>
 
+    <!-- Search -->
+    <string name="menu_search">Išči</string>
+    <string name="search_hint">Išči skladbe, izvajalce ali albume</string>
+    <string name="search_no_results">Ni najdenih rezultatov</string>
+
 </resources>

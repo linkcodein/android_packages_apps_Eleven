@@ -144,4 +144,9 @@
 ପରବର୍ତ୍ତୀ ସ୍କ୍ରିନରେ, \"ସିଷ୍ଟମ୍ ସେଟିଙ୍ଗ ପରିବର୍ତ୍ତନ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ\" ସୁଇଚ୍ଚକୁ ଅନ୍ କରନ୍ତୁ, ତାପରେ Eleven କୁ ଫେରି ଯାଇ \"ରିଙ୍ଗଟୋନ୍ ଭାବରେ ବ୍ୟବହାର କରନ୍ତୁ\" ପୁଣି ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="write_settings_dialog_go_to_settings">ସେଟିଙ୍ଗକୁ ଯାଆନ୍ତୁ</string>
 
+    <!-- Search -->
+    <string name="menu_search">ଖୁ୰ଜିବା</string>
+    <string name="search_hint">ଗୀତ, କଲାକାର କିଂବା ଆଲବଂ ଖୁ୰ଜିବା</string>
+    <string name="search_no_results">କୋଣସି ଫଲାଫଲ ମିଳିଲଧାରି</string>
+
 </resources>

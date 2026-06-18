@@ -150,4 +150,9 @@
 لە شاشەی دواتر، کلیلی \"ڕێگە بە دەستکاریکردنی ڕێکخستنەکانی سیستەم بدە\" کارابکە، پاشان بگەڕێوە بۆ Eleven و دووبارە \"بەکارھێنان وەک تۆنی زەنگ\" داگرە.</string>
     <string name="write_settings_dialog_go_to_settings">بچۆ بۆ ڕێکخستنەکان</string>
 
+    <!-- Search -->
+    <string name="menu_search">گەڕان</string>
+    <string name="search_hint">گەڕان بۆ گۆرانی، هونەرمەند، یان ئەلبوم</string>
+    <string name="search_no_results">هیچ ئەنجامێک نەدۆزرایەوە</string>
+
 </resources>

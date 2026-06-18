@@ -150,4 +150,9 @@
 შემდეგ ეკრანზე, ჩართეთ გადამრთველი \"სისტემური პარამეტრების შეცვლის ნებართვა\", შემდეგ დაბრუნდით Eleven-ზე და შეეხეთ \"გამოყენება რინგტონად\" ხელახც.</string>
     <string name="write_settings_dialog_go_to_settings">პარამეტრებზე გადასვლა</string>
 
+    <!-- Search -->
+    <string name="menu_search">ძებნა</string>
+    <string name="search_hint">მოძებნე სიმღერებს, შემსრულებლებს ან ალბომებს</string>
+    <string name="search_no_results">შედეგები ვერ მოიძებნა</string>
+
 </resources>

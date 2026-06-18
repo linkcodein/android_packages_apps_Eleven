@@ -150,4 +150,9 @@
 A következő képernyőn kapcsolja BE a „Rendszerbeállítások módosításának engedélyezése\" kapcsolót, majd lépjen vissza az Elevenbe, és koppintson újra a „Használat csengőhangként\" gombra.</string>
     <string name="write_settings_dialog_go_to_settings">Ugrás a beállításokhoz</string>
 
+    <!-- Search -->
+    <string name="menu_search">Keresés</string>
+    <string name="search_hint">Dalok, előadók vagy albumok keresése</string>
+    <string name="search_no_results">Nincs találat</string>
+
 </resources>

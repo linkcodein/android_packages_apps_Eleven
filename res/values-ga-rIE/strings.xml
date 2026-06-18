@@ -150,4 +150,9 @@
 Ar an chéad scáileán eile, cas an lasc um \"Ceadaigh mionathrú socruithe an chórais\" AIR, ansin téigh ar ais go Eleven agus tapáil \"Úsáid mar fhónail\" arís.</string>
     <string name="write_settings_dialog_go_to_settings">Téigh chuig na socruithe</string>
 
+    <!-- Search -->
+    <string name="menu_search">Cuardaigh</string>
+    <string name="search_hint">Cuardaigh amhráin, ealaíontóirí, nó albaim</string>
+    <string name="search_no_results">Níor aimsíodh aon toradh</string>
+
 </resources>

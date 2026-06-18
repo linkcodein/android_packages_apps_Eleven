@@ -146,4 +146,9 @@
 Air an ath-sgrìn, cuir an suidse airson \"Ceadaich atharrachadh roghainnean an t-siostaim\" AIR, an uairsin till gu Eleven agus thog \"Cleachd mar fhònail\" a-rithist.</string>
     <string name="write_settings_dialog_go_to_settings">Rach dhan na roghainnean</string>
 
+    <!-- Search -->
+    <string name="menu_search">Lorg</string>
+    <string name="search_hint">Lorg òrain, luchd-ealain, no clàran</string>
+    <string name="search_no_results">Cha deach toradh sam bith a lorg</string>
+
 </resources>

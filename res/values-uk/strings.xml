@@ -145,4 +145,9 @@
 На наступному екрані ввімкніть перемикач \"Дозволити змінювати системні налаштування\", потім поверніться в Eleven і знову натисніть \"Використати як рингтон\".</string>
     <string name="write_settings_dialog_go_to_settings">Перейти до налаштувань</string>
 
+    <!-- Search -->
+    <string name="menu_search">Пошук</string>
+    <string name="search_hint">Пошук пісень, виконавців або альбомів</string>
+    <string name="search_no_results">Результатів не знайдено</string>
+
 </resources>

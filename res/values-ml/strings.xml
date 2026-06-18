@@ -144,4 +144,9 @@
 അടുത്ത സ്ക്രീനിൽ, \"സിസ്റ്റം ക്രമീകരണം പരിഷ്ക്കരിക്കാൻ അനുവദിക്കുക\" എന്ന സ്വിച്ച് ഓൺ ചെയ്യുക, തുടർന്ന് Eleven-ലേക്ക് മടങ്ങി \"റിംഗ്ടോണായി ഉപയോഗിക്കുക\" വീണ്ടും ടാപ്പ് ചെയ്യുക.</string>
     <string name="write_settings_dialog_go_to_settings">ക്രമീകരണത്തിലേക്ക് പോകുക</string>
 
+    <!-- Search -->
+    <string name="menu_search">തിരയ്വുക</string>
+    <string name="search_hint">ഗാനങ്ങൾ, കളാക്കാരർ അല്ലെങ്കിൽ ആളബംങ്ങൾ തിരയ്വുക</string>
+    <string name="search_no_results">ഫലിതംങ്ങൾ ഒന്നും കണ്ടെത്തിട്ടില്ല</string>
+
 </resources>

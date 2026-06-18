@@ -126,4 +126,9 @@
 На наступным экране ўключыце перамыкач \"Дазволіць змяняць сістэмныя налады\", затым верніцеся ў Eleven і націсніце \"Выкарыстоўваць як рынгтон\" зноў.</string>
     <string name="write_settings_dialog_go_to_settings"> Перайсці да налад</string>
 
+    <!-- Search -->
+    <string name="menu_search">Пошук</string>
+    <string name="search_hint">Пошук песень, выканаўцаў або альбомаў</string>
+    <string name="search_no_results">Нічога не знойдзена</string>
+
 </resources>
