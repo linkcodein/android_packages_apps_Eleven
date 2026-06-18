@@ -32,7 +32,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.loader.app.LoaderManager;
@@ -118,7 +117,7 @@ public class SearchFragment extends Fragment implements
         if (context != null) {
             TypedValue c = new TypedValue();
             context.getTheme().resolveAttribute(R.attr.colorSurface, c, true);
-            rootView.setBackgroundColor(ContextCompat.getColor(context, c.resourceId));
+            rootView.setBackgroundColor(c.data);
         }
 
         mListView = rootView.findViewById(R.id.list_base);
