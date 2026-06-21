@@ -46,7 +46,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -298,6 +297,12 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         createAndSetAdapter();
         // Current info
         updateNowPlayingInfo();
+
+        // Pass the current audio session ID to the visualizer
+        int sessionId = MusicUtils.getAudioSessionId();
+        if (sessionId > 0) {
+            mVisualizerView.setAudioSessionId(sessionId);
+        }
     }
 
     @Override
@@ -650,6 +655,12 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
                 return;
             }
             if (MusicPlaybackService.META_CHANGED.equals(action)) {
+                // Update audio session ID for the visualizer
+                int sessionId = MusicUtils.getAudioSessionId();
+                if (sessionId > 0) {
+                    audioPlayerFragment.mVisualizerView.setAudioSessionId(sessionId);
+                }
+
                 // if we are repeating current and the track has changed, re-create the adapter
                 if (MusicUtils.getRepeatMode() == MusicPlaybackService.REPEAT_CURRENT) {
                     audioPlayerFragment.createAndSetAdapter();
@@ -659,7 +670,11 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
                 audioPlayerFragment.updateNowPlayingInfo();
             } else if (MusicPlaybackService.PLAYSTATE_CHANGED.equals(action)) {
                 audioPlayerFragment.mMainPlaybackControls.updatePlayPauseState();
-                audioPlayerFragment.mVisualizerView.setPlaying(MusicUtils.isPlaying());
+                boolean isPlaying = MusicUtils.isPlaying();
+                audioPlayerFragment.mVisualizerView.setPlaying(isPlaying);
+                if (!isPlaying) {
+                    audioPlayerFragment.mVisualizerView.resetBars();
+                }
             } else if (MusicPlaybackService.REPEATMODE_CHANGED.equals(action) ||
                     MusicPlaybackService.SHUFFLEMODE_CHANGED.equals(action)) {
                 // Set the repeat image

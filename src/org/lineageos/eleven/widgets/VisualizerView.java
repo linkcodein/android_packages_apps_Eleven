@@ -56,6 +56,8 @@ public class VisualizerView extends View {
     private boolean mDisplaying = false; // the state we're animating to
 
     private int mColor;
+    private int mAudioSessionId;
+    private int mViewHeight;
 
     private final Visualizer.OnDataCaptureListener mVisualizerListener =
             new Visualizer.OnDataCaptureListener() {
@@ -93,8 +95,9 @@ public class VisualizerView extends View {
     private final Runnable mLinkVisualizer = new Runnable() {
         @Override
         public void run() {
+            final int sessionId = mAudioSessionId > 0 ? mAudioSessionId : 0;
             try {
-                mVisualizer = new Visualizer(0);
+                mVisualizer = new Visualizer(sessionId);
             } catch (Exception e) {
                 Log.e(TAG, "error initializing visualizer", e);
                 return;
@@ -149,6 +152,7 @@ public class VisualizerView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+        mViewHeight = h;
 
         float barUnit = w / (float) POINTS_SIZE;
         float barWidth = barUnit * 8f / 9f;
@@ -274,9 +278,25 @@ public class VisualizerView extends View {
         }
     }
 
+    public void setAudioSessionId(int audioSessionId) {
+        mAudioSessionId = audioSessionId;
+    }
+
+    public void resetBars() {
+        for (int i = 0; i < POINTS_SIZE; i++) {
+            int j = i * 4 + 1;
+            mFFTPoints[j] = mViewHeight;
+            if (mValueAnimators[i] != null) {
+                mValueAnimators[i].cancel();
+            }
+        }
+        postInvalidate();
+    }
+
     private void checkStateChanged() {
         if (mVisible && mPlaying && !mPowerSaveMode) {
             if (!mDisplaying) {
+                resetBars();
                 mDisplaying = true;
 
                 AsyncTask.execute(mLinkVisualizer);
@@ -287,6 +307,7 @@ public class VisualizerView extends View {
         } else {
             if (mDisplaying) {
                 mDisplaying = false;
+                resetBars();
 
                 final long unlinkDuration = (mVisible ? DURATION_UNLINK : 0);
                 animate()
