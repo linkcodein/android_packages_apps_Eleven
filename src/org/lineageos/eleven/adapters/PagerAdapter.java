@@ -167,6 +167,23 @@ public class PagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
+    public long getItemId(int position) {
+        if (position >= 0 && position < mHolderList.size()) {
+            final String className = mHolderList.get(position).mClassName;
+            if (ArtistFragment.class.getName().equals(className)) {
+                return MusicFragments.ARTIST.ordinal();
+            } else if (AlbumFragment.class.getName().equals(className)) {
+                return MusicFragments.ALBUM.ordinal();
+            } else if (SongFragment.class.getName().equals(className)) {
+                return MusicFragments.SONG.ordinal();
+            } else if (PlaylistFragment.class.getName().equals(className)) {
+                return MusicFragments.PLAYLIST.ordinal();
+            }
+        }
+        return position;
+    }
+
+    @Override
     public int getItemPosition(@NonNull Object object) {
         return POSITION_NONE;
     }
