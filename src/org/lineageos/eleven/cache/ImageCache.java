@@ -94,7 +94,7 @@ public final class ImageCache {
     /**
      * Disk LRU cache
      */
-    private DiskLruCache mDiskCache;
+    private volatile DiskLruCache mDiskCache;
 
     private static ImageCache sInstance;
 
@@ -117,7 +117,7 @@ public final class ImageCache {
      * @param context The {@link Context} to use
      * @return A new instance of this class.
      */
-    public static ImageCache getInstance(final Context context) {
+    public static synchronized ImageCache getInstance(final Context context) {
         if (sInstance == null) {
             sInstance = new ImageCache(context.getApplicationContext());
         }
@@ -280,27 +280,29 @@ public final class ImageCache {
             OutputStream out = null;
             try {
                 final DiskLruCache.Snapshot snapshot = mDiskCache.get(key);
-                if (snapshot != null) {
-                    snapshot.getInputStream(DISK_CACHE_INDEX).close();
-                }
-
-                if (snapshot == null || replace) {
-                    final DiskLruCache.Editor editor = mDiskCache.edit(key);
-                    if (editor != null) {
-                        out = editor.newOutputStream(DISK_CACHE_INDEX);
-                        bitmap.compress(COMPRESS_FORMAT, COMPRESS_QUALITY, out);
-                        editor.commit();
-                        out.close();
-                        flush();
+                try {
+                    if (snapshot != null && !replace) {
+                        return;
+                    }
+                } finally {
+                    if (snapshot != null) {
+                        snapshot.close();
                     }
                 }
+
+                final DiskLruCache.Editor editor = mDiskCache.edit(key);
+                if (editor != null) {
+                    try {
+                        out = editor.newOutputStream(DISK_CACHE_INDEX);
+                        bitmap.compress(COMPRESS_FORMAT, COMPRESS_QUALITY, out);
+                    } finally {
+                        IoUtils.closeQuietly(out);
+                    }
+                    editor.commit();
+                    flush();
+                }
             } catch (final IOException e) {
-                // if the user clears the cache while we have an async task going we could try
-                // writing to the disk cache while it isn't ready. Catching here will silently
-                // fail instead
                 Log.e(TAG, "addBitmapToCache", e);
-            } finally {
-                IoUtils.closeQuietly(out);
             }
         }
     }

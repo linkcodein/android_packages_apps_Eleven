@@ -151,24 +151,25 @@ public class PlaylistArtworkStore {
         final SQLiteDatabase database = mMusicDatabase.getWritableDatabase();
         database.beginTransaction();
 
-        // gets the existing values for the entry if it exists
-        ContentValues values = getExistingContentValues(database, playlistId);
-        boolean existingEntry = values.size() > 0;
-        // update the values
-        values.put(PlaylistArtworkStoreColumns.ID, playlistId);
-        values.put(columnName, System.currentTimeMillis());
-        values.put(countColumnName, MusicUtils.getSongCountForPlaylist(mContext, playlistId));
+        try {
+            ContentValues values = getExistingContentValues(database, playlistId);
+            boolean existingEntry = values.size() > 0;
+            values.put(PlaylistArtworkStoreColumns.ID, playlistId);
+            values.put(columnName, System.currentTimeMillis());
+            values.put(countColumnName, MusicUtils.getSongCountForPlaylist(mContext, playlistId));
 
-        // if it is an existing entry, update, otherwise insert
-        if (existingEntry) {
-            database.update(PlaylistArtworkStoreColumns.NAME, values,
-                    PlaylistArtworkStoreColumns.ID + "=" + playlistId, null);
-        } else {
-            database.insert(PlaylistArtworkStoreColumns.NAME, null, values);
+            if (existingEntry) {
+                database.update(PlaylistArtworkStoreColumns.NAME, values,
+                        PlaylistArtworkStoreColumns.ID + " = ?",
+                        new String[]{String.valueOf(playlistId)});
+            } else {
+                database.insert(PlaylistArtworkStoreColumns.NAME, null, values);
+            }
+
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
         }
-
-        database.setTransactionSuccessful();
-        database.endTransaction();
     }
 
     /**
@@ -229,7 +230,8 @@ public class PlaylistArtworkStore {
      */
     private Cursor getEntry(final SQLiteDatabase database, final long playlistId) {
         return database.query(PlaylistArtworkStoreColumns.NAME, null,
-                PlaylistArtworkStoreColumns.ID + "=" + playlistId, null, null, null, null);
+                PlaylistArtworkStoreColumns.ID + " = ?",
+                new String[]{String.valueOf(playlistId)}, null, null, null);
     }
 
     public interface PlaylistArtworkStoreColumns {

@@ -16,6 +16,9 @@
  */
 package org.lineageos.eleven.ui.activities;
 
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
+import static org.lineageos.eleven.utils.PreferenceUtils.PERMISSION_REQUEST_NOTIFICATIONS;
 import static org.lineageos.eleven.utils.PreferenceUtils.PERMISSION_REQUEST_RECORD_AUDIO;
 import static org.lineageos.eleven.utils.PreferenceUtils.PERMISSION_REQUEST_STORAGE;
 
@@ -23,12 +26,10 @@ import android.Manifest;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.app.ActionBar;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -45,8 +46,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
@@ -87,6 +89,7 @@ public class HomeActivity extends SlidingPanelActivity implements
     public static final String EXTRA_BROWSE_PAGE_IDX = "BrowsePageIndex";
 
     private static final String STATE_KEY_BASE_FRAGMENT = "BaseFragment";
+    private static final String STATE_KEY_REQUEST_STEP = "RequestStep";
 
     private static final int NEW_PHOTO = 1;
     public static final int EQUALIZER = 2;
@@ -129,14 +132,38 @@ public class HomeActivity extends SlidingPanelActivity implements
      */
     protected boolean mTopLevelActivity = false;
 
+    /**
+     * Tracks which permission step we are on during the sequential request flow.
+     * 0 = storage/media read, 1 = record audio, 2 = notifications, 3 = all files access, 4 = done
+     */
+    private int mRequestStep = 0;
+
+    /**
+     * Whether we are waiting for the user to return from the "All files access" system settings.
+     */
+    private boolean mAllFilesAccessPending = false;
+
+    private ActivityResultLauncher<Intent> mAllFilesAccessLauncher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAllFilesAccessLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), result -> {
+                    mAllFilesAccessPending = false;
+                    setRequestingPermissions(false);
+                    init(mSavedInstanceState);
+                });
+
         super.onCreate(savedInstanceState);
 
         mSavedInstanceState = savedInstanceState;
         mRootView = getWindow().getDecorView();
 
-        if (!needRequestStoragePermission()) {
+        if (savedInstanceState != null) {
+            mRequestStep = savedInstanceState.getInt(STATE_KEY_REQUEST_STEP, 0);
+        }
+
+        if (!requestNextPermission()) {
             init(savedInstanceState);
         }
     }
@@ -195,6 +222,7 @@ public class HomeActivity extends SlidingPanelActivity implements
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(STATE_KEY_BASE_FRAGMENT, mTopLevelActivity);
+        outState.putInt(STATE_KEY_REQUEST_STEP, mRequestStep);
     }
 
     public Fragment getTopFragment() {
@@ -255,9 +283,10 @@ public class HomeActivity extends SlidingPanelActivity implements
     protected void onResume() {
         super.onResume();
 
-        // Listen for audio effect package changes so the equalizer menu
-        // entry appears or disappears automatically when the user
-        // installs, removes or updates an FX app.
+        if (mAllFilesAccessPending) {
+            return;
+        }
+
         final IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_PACKAGE_ADDED);
         filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
@@ -532,69 +561,84 @@ public class HomeActivity extends SlidingPanelActivity implements
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode == PERMISSION_REQUEST_STORAGE) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
-                            PERMISSION_REQUEST_RECORD_AUDIO);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        mHandler.post(() -> {
+            if (isFinishing() || isDestroyed()) {
+                return;
+            }
+            if (!requestNextPermission()) {
+                setRequestingPermissions(false);
+                init(mSavedInstanceState);
+            }
+        });
+    }
+
+    private boolean requestNextPermission() {
+        while (mRequestStep < 4) {
+            if (mRequestStep == 0) {
+                mRequestStep = 1;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.READ_MEDIA_AUDIO) != PERMISSION_GRANTED) {
+                        setRequestingPermissions(true);
+                        requestPermissions(
+                                new String[]{Manifest.permission.READ_MEDIA_AUDIO},
+                                PERMISSION_REQUEST_STORAGE);
+                        return true;
+                    }
                 } else {
-                    proceedToApp();
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PERMISSION_GRANTED) {
+                        setRequestingPermissions(true);
+                        requestPermissions(
+                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                PERMISSION_REQUEST_STORAGE);
+                        return true;
+                    }
                 }
-            } else {
-                finish();
-            }
-        } else if (requestCode == PERMISSION_REQUEST_RECORD_AUDIO) {
-            proceedToApp();
-        }
-    }
-
-    private void proceedToApp() {
-        init(mSavedInstanceState);
-        setRequestingPermissions(false);
-        handleAllFilesAccessPermission();
-    }
-
-    private void handleAllFilesAccessPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-                && !MusicUtils.hasManageStoragePermission(this)) {
-            mHandler.post(() -> {
-                if (!isFinishing()) {
-                    MusicUtils.requestManageStoragePermission(HomeActivity.this);
+            } else if (mRequestStep == 1) {
+                mRequestStep = 2;
+                if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.RECORD_AUDIO) != PERMISSION_GRANTED) {
+                    setRequestingPermissions(true);
+                    requestPermissions(
+                            new String[]{Manifest.permission.RECORD_AUDIO},
+                            PERMISSION_REQUEST_RECORD_AUDIO);
+                    return true;
                 }
-            });
-        }
-    }
-
-    private boolean needRequestStoragePermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (checkSelfPermission(Manifest.permission.READ_MEDIA_AUDIO)
-                    != PackageManager.PERMISSION_GRANTED) {
-                setRequestingPermissions(true);
-                requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO},
-                        PERMISSION_REQUEST_STORAGE);
-                return true;
+            } else if (mRequestStep == 2) {
+                mRequestStep = 3;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.POST_NOTIFICATIONS) != PERMISSION_GRANTED) {
+                        setRequestingPermissions(true);
+                        requestPermissions(
+                                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                                PERMISSION_REQUEST_NOTIFICATIONS);
+                        return true;
+                    }
+                }
+            } else if (mRequestStep == 3) {
+                mRequestStep = 4;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                        && !MusicUtils.hasManageStoragePermission(this)) {
+                    mAllFilesAccessPending = true;
+                    setRequestingPermissions(true);
+                    final Intent intent = new Intent(
+                            Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                    try {
+                        mAllFilesAccessLauncher.launch(intent);
+                    } catch (final Exception ignored) {
+                        mAllFilesAccessPending = false;
+                        setRequestingPermissions(false);
+                        init(mSavedInstanceState);
+                    }
+                    return true;
+                }
             }
-        } else {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                setRequestingPermissions(true);
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        PERMISSION_REQUEST_STORAGE);
-                return true;
-            }
         }
-
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            setRequestingPermissions(true);
-            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
-                    PERMISSION_REQUEST_RECORD_AUDIO);
-            return true;
-        }
-
-        handleAllFilesAccessPermission();
         return false;
     }
 }

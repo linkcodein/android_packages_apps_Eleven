@@ -64,8 +64,10 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY"
         tools:ignore="ProtectedPermissions" />
     <!-- Lower or raise the music based on the phone state (incoming call, etc).
-         Requested at runtime on stock ROMs; on LineageOS the privileged signature grants it. -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+         Requested at runtime on stock ROMs; on LineageOS the privileged signature grants it.
+         Only needed up to API 32; on API 33+ use AudioManager instead. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="32" />
     <!-- Used to set the device's ringtone. The user grants this via the system "Modify
          system settings" screen at runtime; we never assume it is granted on stock ROMs. -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
@@ -76,6 +78,10 @@
     <!-- Audio Visualizer Permissions -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Notification permission (runtime on API 33+). Required for media
+         playback notification and other foreground notifications. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <!-- Allows Eleven to start services in foreground -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />

@@ -71,6 +71,7 @@ public final class PreferenceUtils {
 
     public static final int PERMISSION_REQUEST_STORAGE = 1;
     public static final int PERMISSION_REQUEST_RECORD_AUDIO = 2;
+    public static final int PERMISSION_REQUEST_NOTIFICATIONS = 3;
 
     private static PreferenceUtils sInstance;
 

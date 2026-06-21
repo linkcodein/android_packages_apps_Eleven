@@ -2,17 +2,6 @@
 <issues format="6" by="lint 8.1.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.1.2)" variant="all" version="8.1.2">
 
     <issue
-        id="MissingSuperCall"
-        message="Overriding method should call `super.onRequestPermissionsResult`"
-        errorLine1="    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/org/lineageos/eleven/ui/activities/HomeActivity.java"
-            line="530"
-            column="17"/>
-    </issue>
-
-    <issue
         id="ScopedStorage"
         message="The Google Play store has a policy that limits usage of MANAGE_EXTERNAL_STORAGE"
         errorLine1="    &lt;uses-permission android:name=&quot;android.permission.MANAGE_EXTERNAL_STORAGE&quot; />"

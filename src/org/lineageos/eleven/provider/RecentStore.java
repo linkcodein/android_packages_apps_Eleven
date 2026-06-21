@@ -101,8 +101,9 @@ public class RecentStore {
                             new String[]{String.valueOf(timeOfRecordToKeep)});
                 }
             }
-        } finally {
+
             database.setTransactionSuccessful();
+        } finally {
             database.endTransaction();
         }
     }

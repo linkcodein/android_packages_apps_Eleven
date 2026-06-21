@@ -56,7 +56,6 @@ public class LocalizedStore {
 
     private final MusicDB mMusicDatabase;
     private final Context mContext;
-    private final ContentValues mContentValues = new ContentValues(10);
     private final LocaleSetManager mLocaleSetManager;
 
     private final HandlerThread mHandlerThread;
@@ -275,57 +274,57 @@ public class LocalizedStore {
     }
 
     private void updateArtistData(SQLiteDatabase db, long id, String name) {
-        mContentValues.clear();
+        final ContentValues contentValues = new ContentValues(4);
         name = MusicUtils.getTrimmedName(name);
 
         final LocaleUtils localeUtils = LocaleUtils.getInstance();
         final int bucketIndex = localeUtils.getBucketIndex(name);
 
-        mContentValues.put(ArtistSortColumns.ID, id);
-        mContentValues.put(ArtistSortColumns.NAME, name);
-        mContentValues.put(ArtistSortColumns.NAME_BUCKET, bucketIndex);
-        mContentValues.put(ArtistSortColumns.NAME_LABEL,
+        contentValues.put(ArtistSortColumns.ID, id);
+        contentValues.put(ArtistSortColumns.NAME, name);
+        contentValues.put(ArtistSortColumns.NAME_BUCKET, bucketIndex);
+        contentValues.put(ArtistSortColumns.NAME_LABEL,
                 localeUtils.getBucketLabel(bucketIndex));
 
-        db.insertWithOnConflict(ArtistSortColumns.TABLE_NAME, null, mContentValues,
+        db.insertWithOnConflict(ArtistSortColumns.TABLE_NAME, null, contentValues,
                 SQLiteDatabase.CONFLICT_IGNORE);
     }
 
     private void updateAlbumData(SQLiteDatabase db, long id, String name, long artistId) {
-        mContentValues.clear();
+        final ContentValues contentValues = new ContentValues(5);
         name = MusicUtils.getTrimmedName(name);
 
         final LocaleUtils localeUtils = LocaleUtils.getInstance();
         final int bucketIndex = localeUtils.getBucketIndex(name);
 
-        mContentValues.put(AlbumSortColumns.ID, id);
-        mContentValues.put(AlbumSortColumns.NAME, name);
-        mContentValues.put(AlbumSortColumns.NAME_BUCKET, bucketIndex);
-        mContentValues.put(AlbumSortColumns.NAME_LABEL,
+        contentValues.put(AlbumSortColumns.ID, id);
+        contentValues.put(AlbumSortColumns.NAME, name);
+        contentValues.put(AlbumSortColumns.NAME_BUCKET, bucketIndex);
+        contentValues.put(AlbumSortColumns.NAME_LABEL,
                 localeUtils.getBucketLabel(bucketIndex));
-        mContentValues.put(AlbumSortColumns.ARTIST_ID, artistId);
+        contentValues.put(AlbumSortColumns.ARTIST_ID, artistId);
 
-        db.insertWithOnConflict(AlbumSortColumns.TABLE_NAME, null, mContentValues,
+        db.insertWithOnConflict(AlbumSortColumns.TABLE_NAME, null, contentValues,
                 SQLiteDatabase.CONFLICT_IGNORE);
     }
 
     private void updateSongData(SQLiteDatabase db, long id, String name, long artistId,
                                 long albumId) {
-        mContentValues.clear();
+        final ContentValues contentValues = new ContentValues(6);
         name = MusicUtils.getTrimmedName(name);
 
         final LocaleUtils localeUtils = LocaleUtils.getInstance();
         final int bucketIndex = localeUtils.getBucketIndex(name);
 
-        mContentValues.put(SongSortColumns.ID, id);
-        mContentValues.put(SongSortColumns.NAME, name);
-        mContentValues.put(SongSortColumns.NAME_BUCKET, bucketIndex);
-        mContentValues.put(SongSortColumns.NAME_LABEL,
+        contentValues.put(SongSortColumns.ID, id);
+        contentValues.put(SongSortColumns.NAME, name);
+        contentValues.put(SongSortColumns.NAME_BUCKET, bucketIndex);
+        contentValues.put(SongSortColumns.NAME_LABEL,
                 localeUtils.getBucketLabel(bucketIndex));
-        mContentValues.put(SongSortColumns.ARTIST_ID, artistId);
-        mContentValues.put(SongSortColumns.ALBUM_ID, albumId);
+        contentValues.put(SongSortColumns.ARTIST_ID, artistId);
+        contentValues.put(SongSortColumns.ALBUM_ID, albumId);
 
-        db.insertWithOnConflict(SongSortColumns.TABLE_NAME, null, mContentValues,
+        db.insertWithOnConflict(SongSortColumns.TABLE_NAME, null, contentValues,
                 SQLiteDatabase.CONFLICT_IGNORE);
     }
 

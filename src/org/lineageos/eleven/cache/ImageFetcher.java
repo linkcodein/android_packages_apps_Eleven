@@ -62,7 +62,7 @@ public class ImageFetcher extends ImageWorker {
      * @param context The {@link Context} to use
      * @return A new instance of this class.
      */
-    public static ImageFetcher getInstance(final Context context) {
+    public static synchronized ImageFetcher getInstance(final Context context) {
         if (sInstance == null) {
             sInstance = new ImageFetcher(context.getApplicationContext());
         }
@@ -219,12 +219,14 @@ public class ImageFetcher extends ImageWorker {
      * requested width and height
      */
     public static Bitmap decodeSampledBitmapFromUri(ContentResolver cr, final Uri selectedImage) {
-        // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
 
         try {
             InputStream input = cr.openInputStream(selectedImage);
+            if (input == null) {
+                return null;
+            }
             BitmapFactory.decodeStream(input, null, options);
             input.close();
 
@@ -232,14 +234,19 @@ public class ImageFetcher extends ImageWorker {
                 return null;
             }
 
-            // Calculate inSampleSize
             options.inSampleSize = calculateInSampleSize(options, DEFAULT_MAX_IMAGE_WIDTH,
                     DEFAULT_MAX_IMAGE_HEIGHT);
 
-            // Decode bitmap with inSampleSize set
             options.inJustDecodeBounds = false;
             input = cr.openInputStream(selectedImage);
-            return BitmapFactory.decodeStream(input, null, options);
+            if (input == null) {
+                return null;
+            }
+            try {
+                return BitmapFactory.decodeStream(input, null, options);
+            } finally {
+                input.close();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;

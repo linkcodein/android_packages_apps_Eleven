@@ -161,8 +161,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
 
         // if we are requesting permissions on app launch, we skip binding
         // at onStart() and need to bind after we got permissions and call init()
-        // to ensure the UI is properly set up.
-        if (mRequestingPermissions) {
+        // to ensure the UI is properly set up.  Guard with mToken == null to
+        // avoid double-binding if onStart() already bound the service.
+        if (mToken == null) {
             mToken = MusicUtils.bindToService(this, this);
         }
     }
@@ -223,8 +224,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
     protected void onStart() {
         super.onStart();
 
-        // Bind Eleven's service, if all permissions are granted
-        if (!mRequestingPermissions) {
+        // Bind Eleven's service, if all permissions are granted and
+        // not already bound (e.g. from init() during permission flow).
+        if (!mRequestingPermissions && mToken == null) {
             mToken = MusicUtils.bindToService(this, this);
         }
 

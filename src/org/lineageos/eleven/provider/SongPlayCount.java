@@ -156,100 +156,83 @@ public class SongPlayCount {
                                    final long id, boolean bumpCount) {
         String stringId = String.valueOf(id);
 
-        // begin the transaction
         database.beginTransaction();
 
-        // get the cursor of this content inside the transaction
-        final Cursor cursor = database.query(SongPlayCountColumns.NAME, null, WHERE_ID_EQUALS,
-                new String[]{stringId}, null, null, null);
+        try {
+            final Cursor cursor = database.query(SongPlayCountColumns.NAME, null, WHERE_ID_EQUALS,
+                    new String[]{stringId}, null, null, null);
 
-        // if we have a result
-        if (cursor != null && cursor.moveToFirst()) {
-            // figure how many weeks since we last updated
-            int lastUpdatedIndex = cursor.getColumnIndex(
-                    SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX);
-            int lastUpdatedWeek = cursor.getInt(lastUpdatedIndex);
-            int weekDiff = mNumberOfWeeksSinceEpoch - lastUpdatedWeek;
+            try {
+                if (cursor != null && cursor.moveToFirst()) {
+                    int lastUpdatedIndex = cursor.getColumnIndex(
+                            SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX);
+                    int lastUpdatedWeek = cursor.getInt(lastUpdatedIndex);
+                    int weekDiff = mNumberOfWeeksSinceEpoch - lastUpdatedWeek;
 
-            // if it's more than the number of weeks we track, delete it and create a new entry
-            if (Math.abs(weekDiff) >= NUM_WEEKS) {
-                // this entry needs to be dropped since it is too outdated
-                deleteEntry(database, stringId);
-                if (bumpCount) {
+                    if (Math.abs(weekDiff) >= NUM_WEEKS) {
+                        deleteEntry(database, stringId);
+                        if (bumpCount) {
+                            createNewPlayedEntry(database, id);
+                        }
+                    } else if (weekDiff != 0) {
+                        int[] playCounts = new int[NUM_WEEKS];
+
+                        if (weekDiff > 0) {
+                            for (int i = 0; i < NUM_WEEKS - weekDiff; i++) {
+                                playCounts[i + weekDiff] = cursor.getInt(getColumnIndexForWeek(i));
+                            }
+                        } else {
+                            for (int i = 0; i < NUM_WEEKS + weekDiff; i++) {
+                                playCounts[i] = cursor.getInt(getColumnIndexForWeek(i - weekDiff));
+                            }
+                        }
+
+                        if (bumpCount) {
+                            playCounts[0]++;
+                        }
+
+                        float score = calculateScore(playCounts);
+
+                        if (score < .01f) {
+                            deleteEntry(database, stringId);
+                        } else {
+                            ContentValues values = new ContentValues(NUM_WEEKS + 2);
+                            values.put(SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX,
+                                    mNumberOfWeeksSinceEpoch);
+                            values.put(SongPlayCountColumns.PLAY_COUNT_SCORE, score);
+
+                            for (int i = 0; i < NUM_WEEKS; i++) {
+                                values.put(getColumnNameForWeek(i), playCounts[i]);
+                            }
+
+                            database.update(SongPlayCountColumns.NAME, values, WHERE_ID_EQUALS,
+                                    new String[]{stringId});
+                        }
+                    } else if (bumpCount) {
+                        ContentValues values = new ContentValues(2);
+
+                        int scoreIndex = cursor.getColumnIndex(SongPlayCountColumns.PLAY_COUNT_SCORE);
+                        float score = cursor.getFloat(scoreIndex) + getScoreMultiplierForWeek(0);
+                        values.put(SongPlayCountColumns.PLAY_COUNT_SCORE, score);
+
+                        values.put(getColumnNameForWeek(0), cursor.getInt(getColumnIndexForWeek(0)) + 1);
+
+                        database.update(SongPlayCountColumns.NAME, values, WHERE_ID_EQUALS,
+                                new String[]{stringId});
+                    }
+                } else if (bumpCount) {
                     createNewPlayedEntry(database, id);
                 }
-            } else if (weekDiff != 0) {
-                // else, shift the weeks
-                int[] playCounts = new int[NUM_WEEKS];
-
-                if (weekDiff > 0) {
-                    // time is shifted forwards
-                    for (int i = 0; i < NUM_WEEKS - weekDiff; i++) {
-                        playCounts[i + weekDiff] = cursor.getInt(getColumnIndexForWeek(i));
-                    }
-                } else {
-                    // time is shifted backwards (by user) - nor typical behavior but we
-                    // will still handle it
-
-                    // since weekDiff is -ve, NUM_WEEKS + weekDiff is the real # of weeks we have to
-                    // transfer.  Then we transfer the old week i - weekDiff to week i
-                    // for example if the user shifted back 2 weeks, ie -2, then for 0 to
-                    // NUM_WEEKS + (-2) we set the new week i = old week i - (-2) or i+2
-                    for (int i = 0; i < NUM_WEEKS + weekDiff; i++) {
-                        playCounts[i] = cursor.getInt(getColumnIndexForWeek(i - weekDiff));
-                    }
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
                 }
-
-                // bump the count
-                if (bumpCount) {
-                    playCounts[0]++;
-                }
-
-                float score = calculateScore(playCounts);
-
-                // if the score is non-existant, then delete it
-                if (score < .01f) {
-                    deleteEntry(database, stringId);
-                } else {
-                    // create the content values
-                    ContentValues values = new ContentValues(NUM_WEEKS + 2);
-                    values.put(SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX,
-                            mNumberOfWeeksSinceEpoch);
-                    values.put(SongPlayCountColumns.PLAY_COUNT_SCORE, score);
-
-                    for (int i = 0; i < NUM_WEEKS; i++) {
-                        values.put(getColumnNameForWeek(i), playCounts[i]);
-                    }
-
-                    // update the entry
-                    database.update(SongPlayCountColumns.NAME, values, WHERE_ID_EQUALS,
-                            new String[]{stringId});
-                }
-            } else if (bumpCount) {
-                // else no shifting, just update the scores
-                ContentValues values = new ContentValues(2);
-
-                // increase the score by a single score amount
-                int scoreIndex = cursor.getColumnIndex(SongPlayCountColumns.PLAY_COUNT_SCORE);
-                float score = cursor.getFloat(scoreIndex) + getScoreMultiplierForWeek(0);
-                values.put(SongPlayCountColumns.PLAY_COUNT_SCORE, score);
-
-                // increase the play count by 1
-                values.put(getColumnNameForWeek(0), cursor.getInt(getColumnIndexForWeek(0)) + 1);
-
-                // update the entry
-                database.update(SongPlayCountColumns.NAME, values, WHERE_ID_EQUALS,
-                        new String[]{stringId});
             }
 
-            cursor.close();
-        } else if (bumpCount) {
-            // if we have no existing results, create a new one
-            createNewPlayedEntry(database, id);
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
         }
-
-        database.setTransactionSuccessful();
-        database.endTransaction();
     }
 
     public void deleteAll() {
@@ -365,28 +348,32 @@ public class SongPlayCount {
 
         database.beginTransaction();
 
-        int oldestWeekWeCareAbout = mNumberOfWeeksSinceEpoch - NUM_WEEKS + 1;
-        // delete rows we don't care about anymore
-        database.delete(SongPlayCountColumns.NAME, SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX
-                + " < " + oldestWeekWeCareAbout, null);
+        try {
+            int oldestWeekWeCareAbout = mNumberOfWeeksSinceEpoch - NUM_WEEKS + 1;
+            database.delete(SongPlayCountColumns.NAME, SongPlayCountColumns.LAST_UPDATED_WEEK_INDEX
+                    + " < ?", new String[]{String.valueOf(oldestWeekWeCareAbout)});
 
-        // get the remaining rows
-        Cursor cursor = database.query(SongPlayCountColumns.NAME,
-                new String[]{SongPlayCountColumns.ID},
-                null, null, null, null, null);
+            Cursor cursor = database.query(SongPlayCountColumns.NAME,
+                    new String[]{SongPlayCountColumns.ID},
+                    null, null, null, null, null);
 
-        if (cursor != null && cursor.moveToFirst()) {
-            // for each row, update it
-            do {
-                updateExistingRow(database, cursor.getLong(0), false);
-            } while (cursor.moveToNext());
+            if (cursor != null) {
+                try {
+                    if (cursor.moveToFirst()) {
+                        do {
+                            updateExistingRow(database, cursor.getLong(0), false);
+                        } while (cursor.moveToNext());
+                    }
+                } finally {
+                    cursor.close();
+                }
+            }
 
-            cursor.close();
+            mDatabaseUpdated = true;
+            database.setTransactionSuccessful();
+        } finally {
+            database.endTransaction();
         }
-
-        mDatabaseUpdated = true;
-        database.setTransactionSuccessful();
-        database.endTransaction();
     }
 
     /**
