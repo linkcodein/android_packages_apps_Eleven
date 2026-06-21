@@ -46,6 +46,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -337,7 +338,8 @@ public class AudioPlayerFragment extends Fragment implements ServiceConnection {
         // Register the intent filters
         final FragmentActivity activity = getActivity();
         if (activity != null) {
-            activity.registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
+            ContextCompat.registerReceiver(activity, mPlaybackStatus, filter,
+                    Context.RECEIVER_EXPORTED);
         }
         // Refresh the current time
         final long next = refreshCurrentTime();

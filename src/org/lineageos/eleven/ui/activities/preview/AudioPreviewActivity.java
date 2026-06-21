@@ -52,6 +52,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import org.lineageos.eleven.R;
 import org.lineageos.eleven.ui.activities.preview.util.Logger;
@@ -470,7 +471,7 @@ public class AudioPreviewActivity extends AppCompatActivity implements
     private void registerNoisyAudioReceiver() {
         IntentFilter localIntentFilter = new IntentFilter();
         localIntentFilter.addAction(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
-        registerReceiver(this.mAudioNoisyReceiver, localIntentFilter,
+        ContextCompat.registerReceiver(this, this.mAudioNoisyReceiver, localIntentFilter,
                 Context.RECEIVER_EXPORTED);
         mIsReceiverRegistered = true;
     }

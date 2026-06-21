@@ -251,7 +251,8 @@ public class QueueFragment extends Fragment implements LoaderManager.LoaderCallb
 
         final FragmentActivity activity = getActivity();
         if (activity != null) {
-            activity.registerReceiver(mQueueUpdateListener, filter, Context.RECEIVER_EXPORTED);
+            ContextCompat.registerReceiver(activity, mQueueUpdateListener, filter,
+                    Context.RECEIVER_EXPORTED);
         }
     }
 

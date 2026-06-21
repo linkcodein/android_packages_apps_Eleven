@@ -157,7 +157,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
         filter.addAction(MusicPlaybackService.PLAYLIST_CHANGED);
         // If there is an error playing a track
         filter.addAction(MusicPlaybackService.TRACK_ERROR);
-        registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
+        ContextCompat.registerReceiver(this, mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
 
         // if we are requesting permissions on app launch, we skip binding
         // at onStart() and need to bind after we got permissions and call init()
@@ -246,7 +246,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ServiceC
             filter.addAction(MusicPlaybackService.REFRESH);
             filter.addAction(MusicPlaybackService.PLAYLIST_CHANGED);
             filter.addAction(MusicPlaybackService.TRACK_ERROR);
-            registerReceiver(mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
+            ContextCompat.registerReceiver(this, mPlaybackStatus, filter, Context.RECEIVER_EXPORTED);
         }
     }
 

@@ -72,6 +72,7 @@ import android.view.KeyEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import org.lineageos.eleven.Config.IdType;
 import org.lineageos.eleven.appwidgets.AppWidgetLarge;
@@ -747,8 +748,7 @@ public class MusicPlaybackService extends MediaBrowserService
         filter.addAction(SHUFFLE_ACTION);
         filter.addAction(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
         // Attach the broadcast listener
-        registerReceiver(mIntentReceiver, filter, Context.RECEIVER_EXPORTED);
-
+        ContextCompat.registerReceiver(this, mIntentReceiver, filter, Context.RECEIVER_EXPORTED);
         // Get events when MediaStore content changes
         mMediaStoreObserver = new MediaStoreObserver(mPlayerHandler);
         getContentResolver().registerContentObserver(
@@ -1025,8 +1025,13 @@ public class MusicPlaybackService extends MediaBrowserService
         }
 
         if (newNotifyMode == NOTIFY_MODE_FOREGROUND) {
-            startForeground(NOTIFICATION_ID, buildNotification(),
-                    ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
+            if (android.os.Build.VERSION.SDK_INT
+                    >= android.os.Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(NOTIFICATION_ID, buildNotification(),
+                        ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
+            } else {
+                startForeground(NOTIFICATION_ID, buildNotification());
+            }
         } else if (newNotifyMode == NOTIFY_MODE_BACKGROUND) {
             mNotificationManager.notify(NOTIFICATION_ID, buildNotification());
         }
@@ -1100,7 +1105,7 @@ public class MusicPlaybackService extends MediaBrowserService
             filter.addAction(Intent.ACTION_MEDIA_EJECT);
             filter.addAction(Intent.ACTION_MEDIA_MOUNTED);
             filter.addDataScheme("file");
-            registerReceiver(mUnmountReceiver, filter, Context.RECEIVER_EXPORTED);
+            ContextCompat.registerReceiver(this, mUnmountReceiver, filter, Context.RECEIVER_EXPORTED);
         }
     }
 

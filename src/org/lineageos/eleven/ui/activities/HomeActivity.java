@@ -264,7 +264,7 @@ public class HomeActivity extends SlidingPanelActivity implements
         filter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
         filter.addDataScheme("package");
-        registerReceiver(mEffectsPackageReceiver, filter, Context.RECEIVER_EXPORTED);
+        ContextCompat.registerReceiver(this, mEffectsPackageReceiver, filter, Context.RECEIVER_EXPORTED);
     }
 
     @Override
