@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Pour les titres ayant un fichier srt</string>
     <string name="settings_shake_to_play">Secouer pour lire</string>
     <string name="settings_shake_to_play_summary">Secouer votre appareil pour écouter le titre suivant</string>
+    <string name="settings_display_category">Affichage</string>
+    <string name="settings_show_artist_title">Afficher les artistes</string>
+    <string name="settings_show_album_title">Afficher les albums</string>
+    <string name="settings_show_playlist_title">Afficher les listes de lecture</string>
+    <string name="settings_equalizer_title">Égaliseur</string>
     <string name="app_widget_small">Musique : Carré</string>
     <string name="app_widget_large">Musique : 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musique : 4 \u00d7 2 (alterné)</string>

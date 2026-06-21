@@ -56,4 +56,10 @@ En la sekva ekrano, ŝaltu la ŝaltilon por \"Permesi modifi sistemajn agordojn\
     <string name="search_hint">Serĉi kantojn, artistojn aŭ albumojn</string>
     <string name="search_no_results">Neniuj rezultoj trovitaj</string>
 
+    <string name="settings_display_category">Ekrano</string>
+    <string name="settings_show_artist_title">Montri artistojn</string>
+    <string name="settings_show_album_title">Montri albumojn</string>
+    <string name="settings_show_playlist_title">Montri ludlistojn</string>
+    <string name="settings_equalizer_title">Ekvalizilo</string>
+    <string name="menu_equalizer">Ekvalizilo</string>
 </resources>

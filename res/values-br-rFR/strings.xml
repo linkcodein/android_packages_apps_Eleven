@@ -33,4 +33,10 @@ War ar skramm war-lerc\'h, gweredekit an afell evit \"Aotren kemmañ arventenno�
     <string name="search_hint">Klask kanaouennoù, arzourien, pe albomoù</string>
     <string name="search_no_results">Disoc\'h ebet kavet</string>
 
+    <string name="settings_display_category">Skramm</string>
+    <string name="settings_show_artist_title">Diskouez arzourien</string>
+    <string name="settings_show_album_title">Diskouez albomoù</string>
+    <string name="settings_show_playlist_title">Diskouez rollioù seniñ</string>
+    <string name="settings_equalizer_title">Kevataler</string>
+    <string name="menu_equalizer">Kevataler</string>
 </resources>

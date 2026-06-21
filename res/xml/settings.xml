@@ -18,6 +18,28 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    <PreferenceCategory android:title="@string/settings_display_category" >
+
+        <!-- Show artists tab -->
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="show_artist_tab"
+            android:title="@string/settings_show_artist_title" />
+
+        <!-- Show albums tab -->
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="show_album_tab"
+            android:title="@string/settings_show_album_title" />
+
+        <!-- Show playlists tab -->
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="show_playlist_tab"
+            android:title="@string/settings_show_playlist_title" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_general_category" >
 
         <!-- Music visualizer -->

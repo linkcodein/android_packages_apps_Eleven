@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">للأغاني التي تحتوي على ملف srt</string>
     <string name="settings_shake_to_play">هز للتشغيل</string>
     <string name="settings_shake_to_play_summary">هز جهازك لتشغيل الأغنية التالية</string>
+    <string name="settings_display_category">العرض</string>
+    <string name="settings_show_artist_title">إظهار الفنانين</string>
+    <string name="settings_show_album_title">إظهار الألبومات</string>
+    <string name="settings_show_playlist_title">إظهار قوائم التشغيل</string>
+    <string name="settings_equalizer_title">المعادل</string>
     <string name="app_widget_large">موسيقى: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">موسيقى: 4 \u00d7 2 (بالتبادل)</string>
     <string name="no_effects_for_you">تعذر فتح المعادل.</string>

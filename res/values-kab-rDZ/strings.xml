@@ -89,6 +89,11 @@
     <string name="settings_delete_cache_title">Kkes tuffirt</string>
     <string name="settings_delete_cache_summary">Kkes akk tuffirt n tugniwin</string>
     <string name="settings_general_category">Amatu</string>
+    <string name="settings_display_category">Sken</string>
+    <string name="settings_show_artist_title">Sken inaẓuren</string>
+    <string name="settings_show_album_title">Sken ibenkan</string>
+    <string name="settings_show_playlist_title">Sken tibdarin n tɣuri</string>
+    <string name="settings_equalizer_title">Amgared</string>
     <string name="settings_show_lyrics_title">Sken imeslayen n tezlatin</string>
     <string name="settings_show_lyrics_summary">I tezlatin isɛan afaylu srt</string>
     <string name="app_widget_large">Aẓawan: 4 \u00d7 2</string>

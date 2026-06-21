@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">For sange, der har en srt-fil</string>
     <string name="settings_shake_to_play">Ryst for at Afspille</string>
     <string name="settings_shake_to_play_summary">Ryst din enhed, for at afspille næste sang</string>
+    <string name="settings_display_category">Skærm</string>
+    <string name="settings_show_artist_title">Vis kunstnere</string>
+    <string name="settings_show_album_title">Vis albummer</string>
+    <string name="settings_show_playlist_title">Vis afspilningslister</string>
+    <string name="settings_equalizer_title">Equalizer</string>
     <string name="app_widget_small">Musik: Firkant</string>
     <string name="app_widget_large">Musik: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musik: 4 \u00d7 2 (afvekslende)</string>

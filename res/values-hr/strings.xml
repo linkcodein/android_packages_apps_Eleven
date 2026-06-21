@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Za pjesme koje imaju srt datoteku</string>
     <string name="settings_shake_to_play">Protresi za reproduciranje</string>
     <string name="settings_shake_to_play_summary">Protresi uređaj na sljedeću pjesmu</string>
+    <string name="settings_display_category">Prikaz</string>
+    <string name="settings_show_artist_title">Prikaži izvođače</string>
+    <string name="settings_show_album_title">Prikaži albume</string>
+    <string name="settings_show_playlist_title">Prikaži popise za reprodukciju</string>
+    <string name="settings_equalizer_title">Ekvalizator</string>
     <string name="app_widget_large">Glazba: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Glazba: 4 \u00d7 2 (rezervna)</string>
     <string name="no_effects_for_you">Ekvalizer se ne može otvoriti.</string>

@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Fir Lidder déi en \"srt\"-Fichier hunn</string>
     <string name="settings_shake_to_play">Rësele fir opzespillen</string>
     <string name="settings_shake_to_play_summary">Apparat rësele fir dat nächst Lidd ofzespillen</string>
+    <string name="settings_display_category">Affichage</string>
+    <string name="settings_show_artist_title">Kënschtler weisen</string>
+    <string name="settings_show_album_title">Albumen weisen</string>
+    <string name="settings_show_playlist_title">Playliste weisen</string>
+    <string name="settings_equalizer_title">Egalisator</string>
     <string name="app_widget_large">Musek: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musek: 4 \u00d7 2 (alternativ)</string>
     <string name="no_effects_for_you">Den Equalizer konnt net opgemaach ginn.</string>

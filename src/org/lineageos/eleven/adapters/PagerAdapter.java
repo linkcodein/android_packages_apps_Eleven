@@ -38,7 +38,6 @@ import org.lineageos.eleven.utils.Lists;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Locale;
-
 /**
  * A {@link FragmentPagerAdapter} class for swiping between playlists, recent,
  * artists, albums, songs, and genre {@link Fragment}s on phones.<br/>
@@ -76,6 +75,15 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         final int mPosition = mHolderList.size();
         mHolderList.add(mPosition, mHolder);
+        notifyDataSetChanged();
+    }
+
+    /**
+     * Removes all fragment entries from the adapter.
+     */
+    public void clear() {
+        mHolderList.clear();
+        mFragmentArray.clear();
         notifyDataSetChanged();
     }
 
@@ -138,8 +146,29 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(final int position) {
-        return mContext.getResources().getStringArray(R.array.page_titles)[position]
-                .toUpperCase(Locale.getDefault());
+        if (position >= 0 && position < mHolderList.size()) {
+            final String className = mHolderList.get(position).mClassName;
+            final int titleResId;
+            if (ArtistFragment.class.getName().equals(className)) {
+                titleResId = R.string.page_artists;
+            } else if (AlbumFragment.class.getName().equals(className)) {
+                titleResId = R.string.page_albums;
+            } else if (SongFragment.class.getName().equals(className)) {
+                titleResId = R.string.page_songs;
+            } else if (PlaylistFragment.class.getName().equals(className)) {
+                titleResId = R.string.page_playlists;
+            } else {
+                titleResId = R.string.page_songs;
+            }
+            return mContext.getResources().getString(titleResId)
+                    .toUpperCase(Locale.getDefault());
+        }
+        return "";
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
     }
 
     /**

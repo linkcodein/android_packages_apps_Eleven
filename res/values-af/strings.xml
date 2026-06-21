@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Vir liedjies wat \'n srt lêer het</string>
     <string name="settings_shake_to_play">Skud</string>
     <string name="settings_shake_to_play_summary">Skud jou toestel om volgende liedjie te speel</string>
+    <string name="settings_display_category">Vertoon</string>
+    <string name="settings_show_artist_title">Wys kunstenaars</string>
+    <string name="settings_show_album_title">Wys albums</string>
+    <string name="settings_show_playlist_title">Wys speellyste</string>
+    <string name="settings_equalizer_title">Effenaar</string>
     <string name="app_widget_large">Musiek: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musiek: 4 \u00d7 2 (alternatief)</string>
     <string name="no_effects_for_you">Die equalizer kon nie oopgemaak word nie.</string>

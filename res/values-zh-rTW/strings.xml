@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">有 srt 檔的樂曲</string>
     <string name="settings_shake_to_play">搖動播放</string>
     <string name="settings_shake_to_play_summary">搖動您的裝置即可播放下一首樂曲</string>
+    <string name="settings_display_category">顯示</string>
+    <string name="settings_show_artist_title">顯示演出者</string>
+    <string name="settings_show_album_title">顯示專輯</string>
+    <string name="settings_show_playlist_title">顯示播放清單</string>
+    <string name="settings_equalizer_title">等化器</string>
     <string name="app_widget_small">音樂：正方形</string>
     <string name="app_widget_large">音樂：4 \u00d7 2</string>
     <string name="app_widget_large_alt">音樂：4 \u00d7 2 (備用)</string>

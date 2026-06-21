@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Pre skladby, ktoré majú súbor srt</string>
     <string name="settings_shake_to_play">Prehrať zatrasením</string>
     <string name="settings_shake_to_play_summary">Prehrať ďalšiu skladbu zatrasením vášho zariadenia</string>
+    <string name="settings_display_category">Zobrazenie</string>
+    <string name="settings_show_artist_title">Zobraziť umelcov</string>
+    <string name="settings_show_album_title">Zobraziť albumy</string>
+    <string name="settings_show_playlist_title">Zobraziť zoznamy skladieb</string>
+    <string name="settings_equalizer_title">Ekvalizér</string>
     <string name="app_widget_large">Hudba: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Hudba: 4 \u00d7 2 (alternatívna)</string>
     <string name="no_effects_for_you">Nedá sa otvoriť ekvalizér.</string>

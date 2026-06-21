@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Для песен, к которым имеется файл srt</string>
     <string name="settings_shake_to_play">Перекл. треков встряхиванием</string>
     <string name="settings_shake_to_play_summary">Встряхните устройство для перехода к следующему треку</string>
+    <string name="settings_display_category">Экран</string>
+    <string name="settings_show_artist_title">Показать исполнителей</string>
+    <string name="settings_show_album_title">Показать альбомы</string>
+    <string name="settings_show_playlist_title">Показать списки воспроизведения</string>
+    <string name="settings_equalizer_title">Эквалайзер</string>
     <string name="app_widget_small">Музыка: Квадрат</string>
     <string name="app_widget_large">Музыка: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Музыка: 4 \u00d7 2 (альтернативный)</string>

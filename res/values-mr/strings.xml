@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">srt फाइल असलेल्या गाण्यांसाठी</string>
     <string name="settings_shake_to_play">प्ले करण्यासाठी हलवा</string>
     <string name="settings_shake_to_play_summary">पुढील गाणे प्ले करण्यासाठी तुमचे डिव्हाइस हलवा</string>
+    <string name="settings_display_category">प्रदर्शन</string>
+    <string name="settings_show_artist_title">कलाकार दाखवा</string>
+    <string name="settings_show_album_title">अल्बम दाखवा</string>
+    <string name="settings_show_playlist_title">प्लेलिस्ट दाखवा</string>
+    <string name="settings_equalizer_title">इक्वलायझर</string>
     <string name="app_widget_large">संगीत: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">संगीत: 4 \u00d7 2 (पर्यायी)</string>
     <string name="no_effects_for_you">इक्वेलायझर उघडता आला नाही.</string>

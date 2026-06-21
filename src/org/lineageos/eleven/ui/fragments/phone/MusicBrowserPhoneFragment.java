@@ -43,45 +43,24 @@ import org.lineageos.eleven.utils.NavUtils;
 import org.lineageos.eleven.utils.PreferenceUtils;
 import org.lineageos.eleven.utils.SortOrder;
 
-/**
- * This class is used to hold the {@link ViewPager} used for swiping between the
- * playlists, recent, artists, albums, songs, and genre {@link Fragment}
- * s for phones.
- * <p>
- * NOTE: The reason the sort orders are taken care of in this fragment rather
- * than the individual fragments is to keep from showing all of the menu
- * items on tablet interfaces.
- *
- * @author Andrew Neal (andrewdneal@gmail.com)
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicBrowserPhoneFragment extends BaseFragment {
     public static final int INVALID_PAGE_INDEX = -1;
 
-    /**
-     * Pager
-     */
     private ViewPager mViewPager;
 
-    /**
-     * Navigation bar
-     */
     private BottomNavigationView mBottomNavigation;
 
-    /**
-     * VP's adapter
-     */
     private PagerAdapter mPagerAdapter;
 
     private PreferenceUtils mPreferences;
 
-    /**
-     * A pre-defined page index to navigate to
-     */
     private int mDefaultPageIdx = INVALID_PAGE_INDEX;
 
-    /**
-     * Empty constructor as per the {@link Fragment} documentation
-     */
+    private final List<MusicFragments> mVisibleFragments = new ArrayList<>();
+
     public MusicBrowserPhoneFragment() {
     }
 
@@ -98,7 +77,6 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Get the preferences
         mPreferences = PreferenceUtils.getInstance(getActivity());
     }
 
@@ -106,49 +84,79 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
     protected void onViewCreated() {
         super.onViewCreated();
 
-        // create the adapter - on rotation the view gets created again and we need to recreate
-        // the child fragments (fragments of fragments cannot be retained)
-        mPagerAdapter = new PagerAdapter(getActivity(), getChildFragmentManager());
-        final MusicFragments[] mFragments = MusicFragments.values();
-        for (final MusicFragments mFragment : mFragments) {
-            mPagerAdapter.add(mFragment.getFragmentClass(), null);
+        mViewPager = mRootView.findViewById(R.id.fragment_home_phone_pager);
+        mBottomNavigation = getContainingActivity().findViewById(R.id.fragment_home_phone_pager_titles);
+
+        buildVisibleFragments();
+        setupPagerAdapter();
+        setupNavigationListener();
+        setupPageChangeListener();
+
+        if (mDefaultPageIdx != INVALID_PAGE_INDEX) {
+            navigateToPage(mDefaultPageIdx);
+        } else {
+            navigateToPage(mPreferences.getStartPage());
         }
 
-        // Initialize the ViewPager
-        mViewPager = mRootView.findViewById(R.id.fragment_home_phone_pager);
-        // Attach the adapter
-        mViewPager.setAdapter(mPagerAdapter);
-        // Offscreen pager loading limit
-        mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount() - 1);
+        setHasOptionsMenu(true);
+    }
 
-        // Initialize the navigation bar
-        mBottomNavigation = getContainingActivity().findViewById(R.id.fragment_home_phone_pager_titles);
+    private void buildVisibleFragments() {
+        mVisibleFragments.clear();
+        if (mPreferences.getShowArtistTab()) {
+            mVisibleFragments.add(MusicFragments.ARTIST);
+        }
+        if (mPreferences.getShowAlbumTab()) {
+            mVisibleFragments.add(MusicFragments.ALBUM);
+        }
+        mVisibleFragments.add(MusicFragments.SONG);
+        if (mPreferences.getShowPlaylistTab()) {
+            mVisibleFragments.add(MusicFragments.PLAYLIST);
+        }
+    }
+
+    private void setupPagerAdapter() {
+        mPagerAdapter = new PagerAdapter(getActivity(), getChildFragmentManager());
+        for (final MusicFragments fragment : mVisibleFragments) {
+            mPagerAdapter.add(fragment.getFragmentClass(), null);
+        }
+        mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setOffscreenPageLimit(Math.max(0, mPagerAdapter.getCount() - 1));
+
+        Menu navMenu = mBottomNavigation.getMenu();
+        navMenu.findItem(R.id.nav_artist).setVisible(mPreferences.getShowArtistTab());
+        navMenu.findItem(R.id.nav_album).setVisible(mPreferences.getShowAlbumTab());
+        navMenu.findItem(R.id.nav_playist).setVisible(mPreferences.getShowPlaylistTab());
+    }
+
+    private void setupNavigationListener() {
         mBottomNavigation.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
 
-            // Pop all stacks if we navigate elsewhere and reset the panel
             for (int i = 0; i < getParentFragmentManager().getBackStackEntryCount(); i++) {
                 getParentFragmentManager().popBackStack();
             }
             ((SlidingPanelActivity) getContainingActivity())
                     .showPanel(SlidingPanelActivity.Panel.Browse);
 
-
             if (id == R.id.nav_artist) {
-                mViewPager.setCurrentItem(0);
-            }
-            else if (id == R.id.nav_album) {
-                mViewPager.setCurrentItem(1);
-            }
-            else if (id == R.id.nav_songs) {
-                mViewPager.setCurrentItem(2);
-            }
-            else if (id == R.id.nav_playist) {
-                mViewPager.setCurrentItem(3);
+                int pos = mVisibleFragments.indexOf(MusicFragments.ARTIST);
+                if (pos >= 0) mViewPager.setCurrentItem(pos);
+            } else if (id == R.id.nav_album) {
+                int pos = mVisibleFragments.indexOf(MusicFragments.ALBUM);
+                if (pos >= 0) mViewPager.setCurrentItem(pos);
+            } else if (id == R.id.nav_songs) {
+                int pos = mVisibleFragments.indexOf(MusicFragments.SONG);
+                if (pos >= 0) mViewPager.setCurrentItem(pos);
+            } else if (id == R.id.nav_playist) {
+                int pos = mVisibleFragments.indexOf(MusicFragments.PLAYLIST);
+                if (pos >= 0) mViewPager.setCurrentItem(pos);
             }
             return true;
         });
+    }
 
+    private void setupPageChangeListener() {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -156,37 +164,69 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        mBottomNavigation.getMenu().findItem(R.id.nav_artist).setChecked(true);
-                        break;
-                    case 1:
-                        mBottomNavigation.getMenu().findItem(R.id.nav_album).setChecked(true);
-                        break;
-                    case 2:
-                        mBottomNavigation.getMenu().findItem(R.id.nav_songs).setChecked(true);
-                        break;
-                    case 3:
-                        mBottomNavigation.getMenu().findItem(R.id.nav_playist).setChecked(true);
-                        break;
+                if (position >= 0 && position < mVisibleFragments.size()) {
+                    MusicFragments selected = mVisibleFragments.get(position);
+                    int navId;
+                    switch (selected) {
+                        case ARTIST:
+                            navId = R.id.nav_artist;
+                            break;
+                        case ALBUM:
+                            navId = R.id.nav_album;
+                            break;
+                        case SONG:
+                            navId = R.id.nav_songs;
+                            break;
+                        case PLAYLIST:
+                            navId = R.id.nav_playist;
+                            break;
+                        default:
+                            navId = R.id.nav_songs;
+                            break;
+                    }
+                    mBottomNavigation.getMenu().findItem(navId).setChecked(true);
                 }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
+    }
 
-        if (mDefaultPageIdx != INVALID_PAGE_INDEX) {
-            navigateToPage(mDefaultPageIdx);
-        } else {
-            // Start on the last page the user was on
-            navigateToPage(mPreferences.getStartPage());
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        List<MusicFragments> previous = new ArrayList<>(mVisibleFragments);
+        buildVisibleFragments();
+        if (!previous.equals(mVisibleFragments)) {
+            MusicFragments currentFragment = null;
+            int currentItem = mViewPager.getCurrentItem();
+            if (currentItem >= 0 && currentItem < previous.size()) {
+                currentFragment = previous.get(currentItem);
+            }
+
+            mPagerAdapter.clear();
+            for (final MusicFragments fragment : mVisibleFragments) {
+                mPagerAdapter.add(fragment.getFragmentClass(), null);
+            }
+            mViewPager.setOffscreenPageLimit(Math.max(0, mPagerAdapter.getCount() - 1));
+
+            Menu navMenu = mBottomNavigation.getMenu();
+            navMenu.findItem(R.id.nav_artist).setVisible(mPreferences.getShowArtistTab());
+            navMenu.findItem(R.id.nav_album).setVisible(mPreferences.getShowAlbumTab());
+            navMenu.findItem(R.id.nav_playist).setVisible(mPreferences.getShowPlaylistTab());
+
+            if (currentFragment != null && mVisibleFragments.contains(currentFragment)) {
+                mViewPager.setCurrentItem(mVisibleFragments.indexOf(currentFragment), false);
+            } else {
+                int songPos = mVisibleFragments.indexOf(MusicFragments.SONG);
+                if (songPos >= 0) {
+                    mViewPager.setCurrentItem(songPos, false);
+                }
+            }
         }
-
-        // Enable the options menu
-        setHasOptionsMenu(true);
     }
 
     public void setDefaultPageIdx(final int pageIdx) {
@@ -195,17 +235,24 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
     }
 
     private void navigateToPage(final int idx) {
-        // this may be called before the view is created, so do a check for mViewPager
-        if (idx != INVALID_PAGE_INDEX && mViewPager != null) {
-            mViewPager.setCurrentItem(idx);
+        if (idx != INVALID_PAGE_INDEX && mViewPager != null && !mVisibleFragments.isEmpty()) {
+            if (idx >= 0 && idx < MusicFragments.values().length) {
+                MusicFragments target = MusicFragments.values()[idx];
+                int pos = mVisibleFragments.indexOf(target);
+                if (pos >= 0) {
+                    mViewPager.setCurrentItem(pos);
+                }
+            }
         }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        // Save the last page the use was on
-        mPreferences.setStartPage(mViewPager.getCurrentItem());
+        int currentItem = mViewPager.getCurrentItem();
+        if (currentItem >= 0 && currentItem < mVisibleFragments.size()) {
+            mPreferences.setStartPage(mVisibleFragments.get(currentItem).ordinal());
+        }
     }
 
     @Override
@@ -325,35 +372,54 @@ public class MusicBrowserPhoneFragment extends BaseFragment {
     }
 
     private boolean isArtistPage() {
-        return mViewPager.getCurrentItem() == MusicFragments.ARTIST.ordinal();
+        int pos = mViewPager.getCurrentItem();
+        return pos >= 0 && pos < mVisibleFragments.size()
+                && mVisibleFragments.get(pos) == MusicFragments.ARTIST;
     }
 
     public ArtistFragment getArtistFragment() {
-        return (ArtistFragment) mPagerAdapter.getFragment(MusicFragments.ARTIST.ordinal());
+        int pos = mVisibleFragments.indexOf(MusicFragments.ARTIST);
+        if (pos >= 0) {
+            return (ArtistFragment) mPagerAdapter.getFragment(pos);
+        }
+        return null;
     }
 
     private boolean isAlbumPage() {
-        return mViewPager.getCurrentItem() == MusicFragments.ALBUM.ordinal();
+        int pos = mViewPager.getCurrentItem();
+        return pos >= 0 && pos < mVisibleFragments.size()
+                && mVisibleFragments.get(pos) == MusicFragments.ALBUM;
     }
 
     public AlbumFragment getAlbumFragment() {
-        return (AlbumFragment) mPagerAdapter.getFragment(MusicFragments.ALBUM.ordinal());
+        int pos = mVisibleFragments.indexOf(MusicFragments.ALBUM);
+        if (pos >= 0) {
+            return (AlbumFragment) mPagerAdapter.getFragment(pos);
+        }
+        return null;
     }
 
     private boolean isSongPage() {
-        return mViewPager.getCurrentItem() == MusicFragments.SONG.ordinal();
+        int pos = mViewPager.getCurrentItem();
+        return pos >= 0 && pos < mVisibleFragments.size()
+                && mVisibleFragments.get(pos) == MusicFragments.SONG;
     }
 
     public SongFragment getSongFragment() {
-        return (SongFragment) mPagerAdapter.getFragment(MusicFragments.SONG.ordinal());
+        int pos = mVisibleFragments.indexOf(MusicFragments.SONG);
+        if (pos >= 0) {
+            return (SongFragment) mPagerAdapter.getFragment(pos);
+        }
+        return null;
     }
 
     @Override
     public void restartLoader() {
-        // do nothing
     }
 
     private boolean isPlaylistPage() {
-        return mViewPager.getCurrentItem() == MusicFragments.PLAYLIST.ordinal();
+        int pos = mViewPager.getCurrentItem();
+        return pos >= 0 && pos < mVisibleFragments.size()
+                && mVisibleFragments.get(pos) == MusicFragments.PLAYLIST;
     }
 }

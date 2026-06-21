@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">სიმღერებისთვის, რომელთაც გააჩნია srt-ფაილი</string>
     <string name="settings_shake_to_play">შერხევით გაშვება</string>
     <string name="settings_shake_to_play_summary">შეარხიეთ თქვენი მოწყობილობა შემდეგ ჩანაწერზე გადასასვლელად</string>
+    <string name="settings_display_category">ჩვენება</string>
+    <string name="settings_show_artist_title">შემსრულებლების ჩვენება</string>
+    <string name="settings_show_album_title">ალბომების ჩვენება</string>
+    <string name="settings_show_playlist_title">დასაკრავი სიების ჩვენება</string>
+    <string name="settings_equalizer_title">ეკვალაიზერი</string>
     <string name="app_widget_small">მუსიკა: კვადრატი</string>
     <string name="app_widget_large">მუსიკა: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">მუსიკა: 4 \u00d7 2 (alternativ)</string>

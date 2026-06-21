@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Untuk lagu-lagu yang memiliki berkas srt</string>
     <string name="settings_shake_to_play">Goyang untuk memutar</string>
     <string name="settings_shake_to_play_summary">Goyang perangkat Anda untuk memutar lagu berikutnya</string>
+    <string name="settings_display_category">Tampilan</string>
+    <string name="settings_show_artist_title">Tampilkan artis</string>
+    <string name="settings_show_album_title">Tampilkan album</string>
+    <string name="settings_show_playlist_title">Tampilkan daftar putar</string>
+    <string name="settings_equalizer_title">Equalizer</string>
     <string name="app_widget_small">Musik: Kotak</string>
     <string name="app_widget_large">Musik: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musik: 4 \u00d7 2 (alternatif)</string>

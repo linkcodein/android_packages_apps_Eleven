@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Airson òrain aig a bheil faidhle srt</string>
     <string name="settings_shake_to_play">Crath airson cluich</string>
     <string name="settings_shake_to_play_summary">Crath an t-uidheam agad airson an ath-òran a chluich</string>
+    <string name="settings_display_category">Taisbeanadh</string>
+    <string name="settings_show_artist_title">Seall lucha-ealain</string>
+    <string name="settings_show_album_title">Seall albaman</string>
+    <string name="settings_show_playlist_title">Seall liostaichean-cluich</string>
+    <string name="settings_equalizer_title">Cothromachair</string>
     <string name="app_widget_large">Ceòl: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Ceòl: 4 \u00d7 2 (roghainn eile)</string>
     <string name="no_effects_for_you">Cha b’ urrainn dhuinn an cothromaiche fhosgladh.</string>

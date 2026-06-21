@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Për këngët që kanë një skedar srt</string>
     <string name="settings_shake_to_play">Shkunde për të luajtur</string>
     <string name="settings_shake_to_play_summary">Shkundni pajisjen tuaj për të luajtur këngën tjetër</string>
+    <string name="settings_display_category">Shfaqja</string>
+    <string name="settings_show_artist_title">Shfaq artistë</string>
+    <string name="settings_show_album_title">Shfaq albume</string>
+    <string name="settings_show_playlist_title">Shfaq lista luajtëse</string>
+    <string name="settings_equalizer_title">Nivelues</string>
     <string name="app_widget_small">Muzika: Sheshi</string>
     <string name="app_widget_large">Muzika: 4\u00d7 2</string>
     <string name="app_widget_large_alt">Muzika: 4 \u00d7 2 (alternative)</string>

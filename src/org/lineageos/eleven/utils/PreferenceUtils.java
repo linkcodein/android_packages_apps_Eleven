@@ -69,6 +69,11 @@ public final class PreferenceUtils {
     // shake to play flag
     public static final String SHAKE_TO_PLAY = "shake_to_play";
 
+    // show/hide tab flags
+    public static final String SHOW_ARTIST_TAB = "show_artist_tab";
+    public static final String SHOW_ALBUM_TAB = "show_album_tab";
+    public static final String SHOW_PLAYLIST_TAB = "show_playlist_tab";
+
     public static final int PERMISSION_REQUEST_STORAGE = 1;
     public static final int PERMISSION_REQUEST_RECORD_AUDIO = 2;
     public static final int PERMISSION_REQUEST_NOTIFICATIONS = 3;
@@ -236,5 +241,17 @@ public final class PreferenceUtils {
 
     public boolean getShakeToPlay() {
         return mPreferences.getBoolean(SHAKE_TO_PLAY, false);
+    }
+
+    public boolean getShowArtistTab() {
+        return mPreferences.getBoolean(SHOW_ARTIST_TAB, true);
+    }
+
+    public boolean getShowAlbumTab() {
+        return mPreferences.getBoolean(SHOW_ALBUM_TAB, true);
+    }
+
+    public boolean getShowPlaylistTab() {
+        return mPreferences.getBoolean(SHOW_PLAYLIST_TAB, true);
     }
 }

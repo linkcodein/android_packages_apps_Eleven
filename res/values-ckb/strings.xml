@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">بۆ ئەو گۆرانییانەی کە پەڕگەی srt یان هەیە</string>
     <string name="settings_shake_to_play">ڕاوەشاندن بۆ لێدان</string>
     <string name="settings_shake_to_play_summary">ئامێرەکەت ڕاوەشێنە بۆ گۆرانیی داهاتوو</string>
+    <string name="settings_display_category">پیشاندان</string>
+    <string name="settings_show_artist_title">هونەرمەندان پیشان بدە</string>
+    <string name="settings_show_album_title">ئەلبۆمەکان پیشان بدە</string>
+    <string name="settings_show_playlist_title">لیستی لێدانەکان پیشان بدە</string>
+    <string name="settings_equalizer_title">ئیکوەلایزەر</string>
     <string name="app_widget_small">مۆسیقا: چوارگۆشە</string>
     <string name="app_widget_large">مۆسیقا: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">مۆسیقا: 4 \u00d7 2 (بەنۆرە)</string>

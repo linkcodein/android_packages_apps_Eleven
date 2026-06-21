@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">SRT 파일이 있는 곡만</string>
     <string name="settings_shake_to_play">흔들어 재생</string>
     <string name="settings_shake_to_play_summary">기기를 흔들어 다음 곡을 재생</string>
+    <string name="settings_display_category">표시</string>
+    <string name="settings_show_artist_title">아티스트 표시</string>
+    <string name="settings_show_album_title">앨범 표시</string>
+    <string name="settings_show_playlist_title">재생목록 표시</string>
+    <string name="settings_equalizer_title">이퀄라이저</string>
     <string name="app_widget_small">음악: 사각형</string>
     <string name="app_widget_large">음악: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">음악: 4 \u00d7 2 (다른 배치)</string>

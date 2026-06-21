@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">For sanger som har en srt fil</string>
     <string name="settings_shake_to_play">Rist for å spille</string>
     <string name="settings_shake_to_play_summary">Rist enheten for å spille neste sang</string>
+    <string name="settings_display_category">Skjerm</string>
+    <string name="settings_show_artist_title">Vis artister</string>
+    <string name="settings_show_album_title">Vis album</string>
+    <string name="settings_show_playlist_title">Vis spillelister</string>
+    <string name="settings_equalizer_title">Equalizer</string>
     <string name="app_widget_large">Musikk: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musikk: 4 \u00d7 2 (alternativ)</string>
     <string name="no_effects_for_you">Equalizeren kan ikke åpnes.</string>

@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">עבור שירים עם קובץ srt</string>
     <string name="settings_shake_to_play">ניעור כדי לנגן</string>
     <string name="settings_shake_to_play_summary">יש לנער את ההתקן כדי לנגן את השיר הבא</string>
+    <string name="settings_display_category">תצוגה</string>
+    <string name="settings_show_artist_title">הצגת אמנים</string>
+    <string name="settings_show_album_title">הצגת אלבומים</string>
+    <string name="settings_show_playlist_title">הצגת רשימות השמעה</string>
+    <string name="settings_equalizer_title">אקוולייזר</string>
     <string name="app_widget_small">מוזיקה: ריבוע</string>
     <string name="app_widget_large">מוזיקה: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">מוזיקה: 4 \u00d7 2 (חלופי)</string>

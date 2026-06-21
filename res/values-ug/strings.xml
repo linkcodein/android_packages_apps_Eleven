@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">بىر srt ھۆججەت ناخشىغا ماس كىلىدۇ</string>
     <string name="settings_shake_to_play">سىلكىپ قويۇش</string>
     <string name="settings_shake_to_play_summary">تېلېفوننى سىلكىپ كىيىنكى ناخشىنى قويۇڭ</string>
+    <string name="settings_display_category">كۆرسىتىش</string>
+    <string name="settings_show_artist_title">سەنئەتكارلارنى كۆرسىتىش</string>
+    <string name="settings_show_album_title">ئالبوملارنى كۆرسىتىش</string>
+    <string name="settings_show_playlist_title">قويۇش تىزىملىكلىرىنى كۆرسىتىش</string>
+    <string name="settings_equalizer_title">تەڭشىگۈچ</string>
     <string name="app_widget_small">نەغمە: كىۋادرات</string>
     <string name="app_widget_large">مۇزىكا: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">مۇزىكا: 4 \u00d7 2 (نۆۋەتلىشىدۇ)</string>

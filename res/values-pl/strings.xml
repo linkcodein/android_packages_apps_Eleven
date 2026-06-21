@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Utwory, które mają plik srt</string>
     <string name="settings_shake_to_play">Potrząśnij, aby rozpocząć odtwarzanie</string>
     <string name="settings_shake_to_play_summary">Potrząśnij urządzeniem, aby odtworzyć następny utwór</string>
+    <string name="settings_display_category">Wyświetlanie</string>
+    <string name="settings_show_artist_title">Pokaż artystów</string>
+    <string name="settings_show_album_title">Pokaż albumy</string>
+    <string name="settings_show_playlist_title">Pokaż playlisty</string>
+    <string name="settings_equalizer_title">Korektor</string>
     <string name="app_widget_small">Muzyka: Kwadrat</string>
     <string name="app_widget_large">Muzyka: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Muzyka: 4×2 (alternatywny)</string>

@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Für Titel mit einer SRT-Datei</string>
     <string name="settings_shake_to_play">Zum Abspielen schütteln</string>
     <string name="settings_shake_to_play_summary">Schüttel dein Gerät, um den nächsten Titel abzuspielen.</string>
+    <string name="settings_display_category">Anzeige</string>
+    <string name="settings_show_artist_title">Künstler anzeigen</string>
+    <string name="settings_show_album_title">Alben anzeigen</string>
+    <string name="settings_show_playlist_title">Wiedergabelisten anzeigen</string>
+    <string name="settings_equalizer_title">Equalizer</string>
     <string name="app_widget_small">Musik: Quadrat</string>
     <string name="app_widget_large">Musik: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musik: 4 \u00d7 2 (alternativ)</string>

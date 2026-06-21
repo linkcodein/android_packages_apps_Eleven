@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">За песме које имају srt фајл</string>
     <string name="settings_shake_to_play">Протреси да пустиш</string>
     <string name="settings_shake_to_play_summary">Протреси уређај да пустиш следећу песму</string>
+    <string name="settings_display_category">Приказ</string>
+    <string name="settings_show_artist_title">Прикажи извођаче</string>
+    <string name="settings_show_album_title">Прикажи албуме</string>
+    <string name="settings_show_playlist_title">Прикажи листе нумера</string>
+    <string name="settings_equalizer_title">Еквилајзер</string>
     <string name="app_widget_large">Музика: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Музика: 4 \u00d7 2 (алтернативно)</string>
     <string name="no_effects_for_you">Еквилајзер не може бити отворен.</string>

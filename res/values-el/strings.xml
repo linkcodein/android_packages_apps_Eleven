@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Για τραγούδια που έχουν αρχείο srt</string>
     <string name="settings_shake_to_play">Ανακίνηση για αναπαραγωγή</string>
     <string name="settings_shake_to_play_summary">Κουνήστε τη συσκευή σας για αναπαραγωγή του επόμενου τραγουδιού</string>
+    <string name="settings_display_category">Εμφάνιση</string>
+    <string name="settings_show_artist_title">Εμφάνιση καλλιτεχνών</string>
+    <string name="settings_show_album_title">Εμφάνιση άλμπουμ</string>
+    <string name="settings_show_playlist_title">Εμφάνιση λιστών αναπαραγωγής</string>
+    <string name="settings_equalizer_title">Ισοσταθμιστής</string>
     <string name="app_widget_small">Μουσική: Τετράγωνο</string>
     <string name="app_widget_large">Μουσική: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Μουσική: 4 \u00d7 2 (εναλλακτικό)</string>

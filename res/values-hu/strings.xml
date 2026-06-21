@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Dalok, melyek rendelkeznek srt fájllal</string>
     <string name="settings_shake_to_play">Lejátszás indítása rázásra</string>
     <string name="settings_shake_to_play_summary">Rázza meg a készülékét a következő szám lejátszásához</string>
+    <string name="settings_display_category">Kijelző</string>
+    <string name="settings_show_artist_title">Előadók megjelenítése</string>
+    <string name="settings_show_album_title">Albumok megjelenítése</string>
+    <string name="settings_show_playlist_title">Lejátszási listák megjelenítése</string>
+    <string name="settings_equalizer_title">Hangszínszabályzó</string>
     <string name="app_widget_small">Zene: Négyzet</string>
     <string name="app_widget_large">Zene: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Zene: 4 \u00d7 2 (alternatív)</string>

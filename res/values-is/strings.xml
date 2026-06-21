@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Fyrir lög sem eiga sér srt-skrá</string>
     <string name="settings_shake_to_play">Hrista til að spila</string>
     <string name="settings_shake_to_play_summary">Hristu tækið þitt til að spila næsta lag</string>
+    <string name="settings_display_category">Birting</string>
+    <string name="settings_show_artist_title">Sýna listamenn</string>
+    <string name="settings_show_album_title">Sýna hljómplötur</string>
+    <string name="settings_show_playlist_title">Sýna spilunarlista</string>
+    <string name="settings_equalizer_title">Hljóðblandari</string>
     <string name="app_widget_large">Tónlist: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Tónlist: 4 \u00d7 2 (til skiptis)</string>
     <string name="no_effects_for_you">Ekki var hægt að opna tónjafnarann.</string>

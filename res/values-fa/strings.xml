@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">برای آهنگ‌های دارای فایل srt</string>
     <string name="settings_shake_to_play">برای پخش بلرزانید</string>
     <string name="settings_shake_to_play_summary">برای پخش آهنگ بعدی، دستگاه خود را بلرزانید</string>
+    <string name="settings_display_category">نمایش</string>
+    <string name="settings_show_artist_title">نمایش هنرمندان</string>
+    <string name="settings_show_album_title">نمایش آلبوم‌ها</string>
+    <string name="settings_show_playlist_title">نمایش فهرست‌های پخش</string>
+    <string name="settings_equalizer_title">اکولایزر</string>
     <string name="app_widget_small">موسیقی: مربع</string>
     <string name="app_widget_large">موسیقی: ۴ \u00d7 ۲</string>
     <string name="app_widget_large_alt">موسیقی: ۴ \u00d7 ۲ (جایگزین)</string>

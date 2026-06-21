@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">За песни, които имат srt файл</string>
     <string name="settings_shake_to_play">Разтърсете, за да изпълни</string>
     <string name="settings_shake_to_play_summary">Разтърсете устройството, за да изпълни следващата песен</string>
+    <string name="settings_display_category">Дисплей</string>
+    <string name="settings_show_artist_title">Показване на изпълнители</string>
+    <string name="settings_show_album_title">Показване на албуми</string>
+    <string name="settings_show_playlist_title">Показване на плейлисти</string>
+    <string name="settings_equalizer_title">Еквалайзер</string>
     <string name="app_widget_small">Музика: Квадрат</string>
     <string name="app_widget_large">Музика: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Музика: 4 \u00d7 2 (алтернативен)</string>

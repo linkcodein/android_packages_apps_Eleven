@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">srt faylı olan mahnılar üçün</string>
     <string name="settings_shake_to_play">Oxutmaq üçün silkələyin</string>
     <string name="settings_shake_to_play_summary">Növbəti mahnını səsləndirmək üçün cihazınızı silkələyin</string>
+    <string name="settings_display_category">Ekran</string>
+    <string name="settings_show_artist_title">İfaçıları göstər</string>
+    <string name="settings_show_album_title">Albomları göstər</string>
+    <string name="settings_show_playlist_title">Pleylistləri göstər</string>
+    <string name="settings_equalizer_title">Ekvalayzer</string>
     <string name="app_widget_small">Musiqi: Kvadrat</string>
     <string name="app_widget_large">Musiqi: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musiqi: 4 \u00d7 2 (alternativ)</string>

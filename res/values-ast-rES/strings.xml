@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Pa canciones que tengan un ficheru .srt</string>
     <string name="settings_shake_to_play">Ximelgar pa reproducir</string>
     <string name="settings_shake_to_play_summary">Ximielga\'l preséu pa reproducir la canción siguiente</string>
+    <string name="settings_display_category">Amuesa</string>
+    <string name="settings_show_artist_title">Amosar artistes</string>
+    <string name="settings_show_album_title">Amosar álbumes</string>
+    <string name="settings_show_playlist_title">Amosar llistes de reproducción</string>
+    <string name="settings_equalizer_title">Ecualizador</string>
     <string name="app_widget_small">Música: Cuadráu</string>
     <string name="app_widget_large">Música: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Música: 4 \u00d7 2 (alternativa)</string>

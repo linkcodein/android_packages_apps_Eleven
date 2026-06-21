@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">str fitxategia duten abestientzat</string>
     <string name="settings_shake_to_play">Astindu erreproduzitzeko</string>
     <string name="settings_shake_to_play_summary">Astindu zure gailua hurrengo abestia erreproduzitzeko</string>
+    <string name="settings_display_category">Bistaratzea</string>
+    <string name="settings_show_artist_title">Erakutsi artistak</string>
+    <string name="settings_show_album_title">Erakutsi albumak</string>
+    <string name="settings_show_playlist_title">Erakutsi erreprodukzio-zerrendak</string>
+    <string name="settings_equalizer_title">Ekualizadorea</string>
     <string name="app_widget_large">Musika: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musika: 4 \u00d7 2 (txandakatu)</string>
     <string name="no_effects_for_you">Ezin izan da ekualizadorea ireki.</string>

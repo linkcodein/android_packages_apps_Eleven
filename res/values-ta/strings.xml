@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">srt கோப்பு உடைய பாடல்களுக்கு</string>
     <string name="settings_shake_to_play">இசைக்கக் குலுக்குக</string>
     <string name="settings_shake_to_play_summary">அடுத்த பாடலை இசைக்க உங்கள் கருவியைக் குலுக்குக</string>
+    <string name="settings_display_category">காட்சி</string>
+    <string name="settings_show_artist_title">கலைஞர்களைக் காட்டு</string>
+    <string name="settings_show_album_title">ஆல்பங்களைக் காட்டு</string>
+    <string name="settings_show_playlist_title">பிளேலிஸ்ட்களைக் காட்டு</string>
+    <string name="settings_equalizer_title">ஈக்வலைசர்</string>
     <string name="app_widget_small">இசை: சதுரம்</string>
     <string name="app_widget_large">இசை: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">இசை: 4 \u00d7 2 (மாற்று)</string>

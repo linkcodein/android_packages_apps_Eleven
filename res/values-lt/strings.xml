@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Dėl dainų, kurios turi srt failą</string>
     <string name="settings_shake_to_play">Purtyti, kad paleisti</string>
     <string name="settings_shake_to_play_summary">Purtyti įrenginį, kad paleisti kitą takelį</string>
+    <string name="settings_display_category">Ekranas</string>
+    <string name="settings_show_artist_title">Rodyti atlikėjus</string>
+    <string name="settings_show_album_title">Rodyti albumus</string>
+    <string name="settings_show_playlist_title">Rodyti grojaraščius</string>
+    <string name="settings_equalizer_title">Ekvalaizeris</string>
     <string name="app_widget_large">Muzika: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Muzika: 4 \u00d7 2 (pakaitinis)</string>
     <string name="no_effects_for_you">Nepavyko atidaryti vienodintuvo.</string>

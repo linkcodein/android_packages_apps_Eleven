@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Par cjanzons che a àn un file srt</string>
     <string name="settings_shake_to_play">Scjasse par riprodusi</string>
     <string name="settings_shake_to_play_summary">Scjasse il dispositîf par riprodusi la cjançon sucessive</string>
+    <string name="settings_display_category">Visualizazion</string>
+    <string name="settings_show_artist_title">Mostre artiscj</string>
+    <string name="settings_show_album_title">Mostre albums</string>
+    <string name="settings_show_playlist_title">Mostre listis di riproduzion</string>
+    <string name="settings_equalizer_title">Ecualizadôr</string>
     <string name="app_widget_small">Musiche: cuadrât</string>
     <string name="app_widget_large">Musiche: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Musiche: 4 \u00d7 2 (alternatîf)</string>

@@ -93,6 +93,11 @@
     <string name="settings_delete_cache_title">Dzēst kešatmiņu</string>
     <string name="settings_delete_cache_summary">Dzēst visas kešotās bildes</string>
     <string name="settings_general_category">Vispārīgi</string>
+    <string name="settings_display_category">Displejs</string>
+    <string name="settings_show_artist_title">Rādīt izpildītājus</string>
+    <string name="settings_show_album_title">Rādīt albumus</string>
+    <string name="settings_show_playlist_title">Rādīt atskaņošanas sarakstus</string>
+    <string name="settings_equalizer_title">Ekvalaizers</string>
     <string name="settings_show_music_visualization_title">Rādīt mūzikas vizualizāciju</string>
     <string name="settings_show_lyrics_title">Rādīt dziesmu vārdus</string>
     <string name="settings_show_lyrics_summary">Dziesmām kam ir srt fails</string>

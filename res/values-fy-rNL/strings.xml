@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">Foar nûmers mei in srt-bestân</string>
     <string name="settings_shake_to_play">Skodzje foar ôfspyljen</string>
     <string name="settings_shake_to_play_summary">Skodzje jo apparaat om it folgjende nûmer ôf te spyljen</string>
+    <string name="settings_display_category">Werjefte</string>
+    <string name="settings_show_artist_title">Artysten sjen litte</string>
+    <string name="settings_show_album_title">Albums sjen litte</string>
+    <string name="settings_show_playlist_title">Ofspyllisten sjen litte</string>
+    <string name="settings_equalizer_title">Equalizer</string>
     <string name="app_widget_large">Muzyk: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Muzyk: 4 \u00d7 2 (alternatyf)</string>
     <string name="no_effects_for_you">Kin equalizer net iepenje.</string>

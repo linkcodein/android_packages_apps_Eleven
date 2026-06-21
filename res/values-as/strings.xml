@@ -100,6 +100,11 @@
     <string name="settings_show_lyrics_summary">srt ফাইল থকা গীতৰ বাবে</string>
     <string name="settings_shake_to_play">প্লে কৰিবলৈ জোকাৰক</string>
     <string name="settings_shake_to_play_summary">পৰৱৰ্তী গীতটো বজাবলৈ আপোনাৰ ডিভাইচটো জোকাৰক</string>
+    <string name="settings_display_category">প্ৰদৰ্শন</string>
+    <string name="settings_show_artist_title">শিল্পীসকল দেখুৱাওক</string>
+    <string name="settings_show_album_title">এলবামসমূহ দেখুৱাওক</string>
+    <string name="settings_show_playlist_title">প্লেলিষ্টসমূহ দেখুৱাওক</string>
+    <string name="settings_equalizer_title">ইকুলাইজাৰ</string>
     <string name="app_widget_large">সংগীত: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">সংগীত: 4 \u00d7 2 (বিকল্প)</string>
     <string name="no_effects_for_you">ইকুইলাইজাৰ খুলিব পৰা নগ\'ল</string>

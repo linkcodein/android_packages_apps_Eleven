@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">有一个 srt 文件与歌曲匹配</string>
     <string name="settings_shake_to_play">摇动播放</string>
     <string name="settings_shake_to_play_summary">摇动您的设备以播放下一首歌</string>
+    <string name="settings_display_category">显示</string>
+    <string name="settings_show_artist_title">显示艺术家</string>
+    <string name="settings_show_album_title">显示专辑</string>
+    <string name="settings_show_playlist_title">显示播放列表</string>
+    <string name="settings_equalizer_title">均衡器</string>
     <string name="app_widget_small">音乐：正方形</string>
     <string name="app_widget_large">音乐：4 \u00d7 1</string>
     <string name="app_widget_large_alt">音乐：4 \u00d7 2 (交替)</string>

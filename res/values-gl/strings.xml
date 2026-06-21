@@ -101,6 +101,11 @@
     <string name="settings_show_lyrics_summary">Para cancións que teñen un ficheiro srt</string>
     <string name="settings_shake_to_play">Abanear para reproducir</string>
     <string name="settings_shake_to_play_summary">Abanea o teu dispositivo para reproducir a seguinte canción</string>
+    <string name="settings_display_category">Pantalla</string>
+    <string name="settings_show_artist_title">Amosar artistas</string>
+    <string name="settings_show_album_title">Amosar álbums</string>
+    <string name="settings_show_playlist_title">Amosar listas de reprodución</string>
+    <string name="settings_equalizer_title">Ecualizador</string>
     <string name="app_widget_large">Música: 4 \u00d7 2</string>
     <string name="app_widget_large_alt">Música: 4 \u00d7 2 (alternativo)</string>
     <string name="no_effects_for_you">Non foi posíbel abrir o ecualizador.</string>
