@@ -71,7 +71,6 @@ import org.lineageos.eleven.utils.ElevenUtils;
 import org.lineageos.eleven.utils.MusicUtils;
 import org.lineageos.eleven.utils.colors.BitmapWithColors;
 
-import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -534,89 +533,68 @@ public class HomeActivity extends SlidingPanelActivity implements
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         if (requestCode == PERMISSION_REQUEST_STORAGE) {
-            boolean storageGranted = true;
-            for (int i = 0; i < permissions.length; i++) {
-                if (!Manifest.permission.RECORD_AUDIO.equals(permissions[i])
-                        && grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                    storageGranted = false;
-                }
-            }
-            if (storageGranted) {
-                init(mSavedInstanceState);
-                setRequestingPermissions(false);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
-                        && !MusicUtils.hasManageStoragePermission(this)) {
-                    mHandler.post(() -> {
-                        if (!isFinishing()) {
-                            MusicUtils.requestManageStoragePermission(HomeActivity.this);
-                        }
-                    });
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
+                            PERMISSION_REQUEST_RECORD_AUDIO);
+                } else {
+                    proceedToApp();
                 }
             } else {
                 finish();
             }
         } else if (requestCode == PERMISSION_REQUEST_RECORD_AUDIO) {
-            // RECORD_AUDIO is optional; the app works without it.
-            // The user can enable visualizer later from Settings.
+            proceedToApp();
+        }
+    }
+
+    private void proceedToApp() {
+        init(mSavedInstanceState);
+        setRequestingPermissions(false);
+        handleAllFilesAccessPermission();
+    }
+
+    private void handleAllFilesAccessPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                && !MusicUtils.hasManageStoragePermission(this)) {
+            mHandler.post(() -> {
+                if (!isFinishing()) {
+                    MusicUtils.requestManageStoragePermission(HomeActivity.this);
+                }
+            });
         }
     }
 
     private boolean needRequestStoragePermission() {
-        ArrayList<String> permissionList = new ArrayList<>();
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            String audioPermission = Manifest.permission.READ_MEDIA_AUDIO;
-            if (checkSelfPermission(audioPermission) != PackageManager.PERMISSION_GRANTED) {
-                permissionList.add(audioPermission);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(Manifest.permission.READ_MEDIA_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                setRequestingPermissions(true);
+                requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO},
+                        PERMISSION_REQUEST_STORAGE);
+                return true;
             }
         } else {
-            String readPermission = Manifest.permission.READ_EXTERNAL_STORAGE;
-            if (checkSelfPermission(readPermission) != PackageManager.PERMISSION_GRANTED) {
-                permissionList.add(readPermission);
-            }
-            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.Q) {
-                String writePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-                if (checkSelfPermission(writePermission) != PackageManager.PERMISSION_GRANTED) {
-                    permissionList.add(writePermission);
-                }
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                setRequestingPermissions(true);
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        PERMISSION_REQUEST_STORAGE);
+                return true;
             }
         }
 
-        // Request RECORD_AUDIO on first launch so the user can use
-        // the music visualizer without having to visit Settings later.
         if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
-            permissionList.add(Manifest.permission.RECORD_AUDIO);
-        }
-
-        boolean needRequest = !permissionList.isEmpty();
-        if (needRequest) {
             setRequestingPermissions(true);
-
-            int count = permissionList.size();
-            String[] permissionArray = new String[count];
-            for (int i = 0; i < count; i++) {
-                permissionArray[i] = permissionList.get(i);
-            }
-
-            requestPermissions(permissionArray, PERMISSION_REQUEST_STORAGE);
-        } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R
-                && !org.lineageos.eleven.utils.MusicUtils.hasManageStoragePermission(this)) {
-            // The basic media permission is granted but we still need
-            // "All files access" for cache folders / file deletion. Open the
-            // system screen so the user can opt in; the app continues to work
-            // without it.
-            org.lineageos.eleven.utils.MusicUtils.requestManageStoragePermission(this);
+            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
+                    PERMISSION_REQUEST_RECORD_AUDIO);
+            return true;
         }
 
-        return needRequest;
-    }
-
-    private boolean checkPermissionGrantResults(int[] grantResults) {
-        for (int result : grantResults) {
-            if (result != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
+        handleAllFilesAccessPermission();
+        return false;
     }
 }

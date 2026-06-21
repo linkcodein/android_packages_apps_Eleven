@@ -23,7 +23,7 @@
     tools:ignore="GradleOverrides">
 
     <uses-sdk
-        android:minSdkVersion="28"
+        android:minSdkVersion="30"
         android:targetSdkVersion="36" />
 
     <queries>
